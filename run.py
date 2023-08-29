@@ -60,3 +60,6 @@ third_choice = input("Which item would be your third choice? 1-12?\n")
 fourth_choice = input("Which item would be your fourth choice? 1-12?\n")
 fifth_choice = input("Which item would be your fifth choice? 1-12?\n")
 
+print(f"\nYou have chosen {first_choice}, {second_choice}, {third_choice}, {fourth_choice} and {fifth_choice}.\n")
+
+choice_confirm = input("Are you happy with your choices? y/n \n")
