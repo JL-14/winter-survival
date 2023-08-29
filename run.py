@@ -1,5 +1,6 @@
 """Import gspread and Google Sheets link"""
 import sys
+import keyboard
 import gspread
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
@@ -18,12 +19,10 @@ SHEET = GSPREAD_CLIENT.open('winter-survival-game-content')
 intro = SHEET.worksheet("data").acell('A2').value
 print(intro)
 
-def exit_game():
-    """
-    Exit game command
-    """
-    print("\nThank you for visiting the Winter Survival Exercise!\n")
-    exit()
+# Exit game command with 'esc' key
+if keyboard.is_pressed('Esc'):
+    print("You pressed Esc so exiting game")
+    sys.exit(0)
 
 name = input("Enter your name:\n")
 
