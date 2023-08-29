@@ -1,6 +1,8 @@
 """Import gspread and Google Sheets link"""
 import gspread
 from google.oauth2.service_account import Credentials
+from tabulate import tabulate
+import sys
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -16,11 +18,12 @@ SHEET = GSPREAD_CLIENT.open('winter-survival-game-content')
 intro = SHEET.worksheet("data").acell('A2').value
 print(intro)
 
-def exit():
+def exit_game():
     """
     Exit game command
     """
     print("\nThank you for visiting the Winter Survival Exercise!\n")
+    exit()
 
 name = input("Enter your name:\n")
 
@@ -36,7 +39,7 @@ def validate_begin(begin):
     if begin.lower() == 'y':
         print(scenario)
     elif begin.lower() == 'n':
-        exit()
+        print(intro)
     else:
         print("Error! \nPlease enter y for 'yes', or n for 'no'.")
         begin
