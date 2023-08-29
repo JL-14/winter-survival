@@ -1,8 +1,8 @@
 """Import gspread and Google Sheets link"""
+import sys
 import gspread
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
-import sys
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -27,26 +27,13 @@ def exit_game():
 
 name = input("Enter your name:\n")
 
-begin = input("Are you ready to start? y/n \n")
-
 scenario = SHEET.worksheet("data").acell('B2').value
 
-def validate_begin(begin):
-    """
-    Validate the entry of y or n to begin game
-    Check for blank entries, incorrect letters, non-string entries
-    """
-    if begin.lower() == 'y':
-        print(scenario)
-    elif begin.lower() == 'n':
-        print(intro)
-    else:
-        print("Error! \nPlease enter y for 'yes', or n for 'no'.")
-        begin
-
-validate_begin(begin)
+print(scenario)
 
 items = input("Are you ready to select your items? y/n \n")
+
+data = SHEET.worksheet("data").get('B5:C16')
 
 def validate_items(items):
     """
@@ -54,11 +41,22 @@ def validate_items(items):
     Check for blank entries, incorrect letters, non-string entries
     """
     if items.lower() == 'y':
-        # selection()
+        print(data)
     elif items.lower() == 'n':
         print(scenario)
     else:
         print("Error! \nPlease enter y for 'yes', or n for 'no'.")
         print(items)
 
+# Naming columns for the items table
+col_names = ["Item no.", "Item"]
+
+# Displaying the table
+print(tabulate(data, headers=col_names, tablefmt="grid"))
+
+first_choice = input("\nWhich item would be your first choice? 1-12?\n")
+second_choice = input("Which item would be your second choice? 1-12?\n")
+third_choice = input("Which item would be your third choice? 1-12?\n")
+fourth_choice = input("Which item would be your fourth choice? 1-12?\n")
+fifth_choice = input("Which item would be your fifth choice? 1-12?\n")
 
