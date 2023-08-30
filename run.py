@@ -34,6 +34,15 @@ items = input("Are you ready to select your items? y/n \n")
 
 data = SHEET.worksheet("data").get('B5:C16')
 
+# Create dictionary from imported list of items
+items_dict = dict()
+for sub in data:
+    items_dict[tuple(sub[:1])] = tuple(sub[1:])
+
+print(items_dict)
+
+
+
 def validate_items(items):
     """
     Validate the entry of y or n to begin to select items
