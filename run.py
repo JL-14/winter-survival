@@ -135,6 +135,7 @@ for key, value in expert_view.items():
 score1 = 0
 if matching_expertkey is not None:
     score1 = matching_expertkey - 1
+    score1 = abs(score1)
     print(score1)
 else: 
     print("No match found")
@@ -150,6 +151,7 @@ for key, value in expert_view.items():
 score2 = 0
 if matching_expertkey2 is not None:
     score2 = matching_expertkey2 - 2
+    score2 = abs(score2)
     print(score2)
 else: 
     print("No match found")
@@ -165,6 +167,7 @@ for key, value in expert_view.items():
 score3 = 0
 if matching_expertkey3 is not None:
     score3 = matching_expertkey3 - 3
+    score3 = abs(score3)
     print(score3)
 else: 
     print("No match found")
@@ -180,6 +183,7 @@ for key, value in expert_view.items():
 score4 = 0
 if matching_expertkey4 is not None:
     score4 = matching_expertkey4 - 4
+    score4 = abs(score4)
     print(score4)
 else: 
     print("No match found")
@@ -195,6 +199,7 @@ for key, value in expert_view.items():
 score5 = 0
 if matching_expertkey5 is not None:
     score5 = matching_expertkey5 - 5
+    score5 = abs(score5)
     print(score5)
 else: 
     print("No match found")
