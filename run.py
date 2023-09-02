@@ -108,12 +108,12 @@ third_item = get_item_description(third_choice)
 fourth_item = get_item_description(fourth_choice)
 fifth_item = get_item_description(fifth_choice)
 
-print(f"\nYou have chosen: \n\n1. {first_item}\n2. {second_item}\n3. {third_item}\n4. {fourth_item}\n5. {fifth_item}.\n")
+print(f"\nYou have chosen: \n\n1. {first_item}\n2. {second_item}\n3. {third_item}\n4. {fourth_item}\n5. {fifth_item}\n")
 
 choice_confirm = input("Are you happy with your choices? y/n \n")
 
 
-#Convert first_choice to integer for calculating score
+# Convert first_choice to integer for calculating score
 first_choice = int(first_choice)
 second_choice = int(second_choice)
 third_choice = int(third_choice)
@@ -124,7 +124,7 @@ fifth_choice = int(fifth_choice)
 """
 Calculate score
 """
-#First item score
+# First item score
 matching_expertkey = None
 
 for key, value in expert_view.items():
@@ -139,7 +139,7 @@ if matching_expertkey is not None:
 else: 
     print("No match found")
 
-#second item score
+# Second item score
 matching_expertkey2 = None
 
 for key, value in expert_view.items():
@@ -154,7 +154,7 @@ if matching_expertkey2 is not None:
 else: 
     print("No match found")
 
-#Third item score
+# Third item score
 matching_expertkey3 = None
 
 for key, value in expert_view.items():
@@ -169,7 +169,7 @@ if matching_expertkey3 is not None:
 else: 
     print("No match found")
 
-#Fourth item score
+# Fourth item score
 matching_expertkey4 = None
 
 for key, value in expert_view.items():
@@ -184,7 +184,7 @@ if matching_expertkey4 is not None:
 else: 
     print("No match found")
 
-#Fifth item score
+# Fifth item score
 matching_expertkey5 = None
 
 for key, value in expert_view.items():
@@ -235,9 +235,15 @@ print(f"5. {fifth_item}:\n")
 feedback5 = SHEET.worksheet("feedback").cell(fifth_choice, 2).value
 print(f"{feedback5}\n")
 
-print("Do you want to try again, see the expert's ranking of items, or quit?")
+print("\nDo you want to try again, see the expert's ranking of items, or quit?")
 print(input("Type 'try again'/'see expert rankings'/'quit'\n"))
 
+#Expert ranking table
+expert_ranking_table = SHEET.worksheet("expert_rankings").get('A1:B12')
 
+# Naming columns for the items table
+col_names_expert = ["Expert rank", "Item"]
 
+# Displaying the table
+print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
 
