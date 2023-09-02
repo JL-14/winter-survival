@@ -22,7 +22,7 @@ print(intro)
 # Exit game command with 'esc' key
 if keyboard.is_pressed('Esc'):
     print("You pressed Esc so exiting game")
-    sys.exit(0)
+    exit()
 
 name = input("Enter your name:\n")
 
@@ -136,7 +136,6 @@ score1 = 0
 if matching_expertkey is not None:
     score1 = matching_expertkey - 1
     score1 = abs(score1)
-    print(score1)
 else: 
     print("No match found")
 
@@ -152,7 +151,6 @@ score2 = 0
 if matching_expertkey2 is not None:
     score2 = matching_expertkey2 - 2
     score2 = abs(score2)
-    print(score2)
 else: 
     print("No match found")
 
@@ -168,7 +166,6 @@ score3 = 0
 if matching_expertkey3 is not None:
     score3 = matching_expertkey3 - 3
     score3 = abs(score3)
-    print(score3)
 else: 
     print("No match found")
 
@@ -184,7 +181,6 @@ score4 = 0
 if matching_expertkey4 is not None:
     score4 = matching_expertkey4 - 4
     score4 = abs(score4)
-    print(score4)
 else: 
     print("No match found")
 
@@ -200,10 +196,19 @@ score5 = 0
 if matching_expertkey5 is not None:
     score5 = matching_expertkey5 - 5
     score5 = abs(score5)
-    print(score5)
 else: 
     print("No match found")
 
 #Total score
 total_score = score1 + score2 + score3 + score4 + score5
-print(total_score)
+
+if total_score <= 5:
+    print(f"\nYour final score is {total_score}, which is Excellent! You have an excellent chance of survival!\n")
+elif total_score >= 6 and total_score <= 15:
+    print(f"\nYour final score is {total_score}, which is Very Good! You have a very good chance of survival!\n")
+elif total_score >= 16 and total_score <= 35:
+    print(f"\nYour final score is {total_score}, which is Good! You have a good chance of survival!\n")
+else:
+    print(f"\nYour final score is {total_score}, which is Not Very Good! You have a pretty low chance of survival!\n")
+
+print("Would you like to see the survival expert's view on the items you chose? y/n")
