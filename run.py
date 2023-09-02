@@ -32,9 +32,6 @@ print(scenario)
 
 items = input("Are you ready to select your items? y/n \n")
 
-data = SHEET.worksheet("data").get('B5:C16')
-data_list = data
-
 def validate_items():
     """
     Validate the entry of y or n to begin to select items
@@ -47,6 +44,9 @@ def validate_items():
     else:
         print("Error! \nPlease enter y for 'yes', or n for 'no'.")
         print(items)
+
+data = SHEET.worksheet("data").get('B5:C16')
+data_list = data
 
 # Naming columns for the items table
 col_names = ["Item no.", "Item"]
@@ -108,7 +108,7 @@ third_item = get_item_description(third_choice)
 fourth_item = get_item_description(fourth_choice)
 fifth_item = get_item_description(fifth_choice)
 
-print(f"\nYou have chosen: {first_item}, {second_item}, {third_item}, {fourth_item}, and {fifth_item}.\n")
+print(f"\nYou have chosen: \n\n1. {first_item}\n2. {second_item}\n3. {third_item}\n4. {fourth_item}\n5. {fifth_item}.\n")
 
 choice_confirm = input("Are you happy with your choices? y/n \n")
 
@@ -203,12 +203,41 @@ else:
 total_score = score1 + score2 + score3 + score4 + score5
 
 if total_score <= 5:
-    print(f"\nYour final score is {total_score}, which is Excellent! You have an excellent chance of survival!\n")
-elif total_score >= 6 and total_score <= 15:
-    print(f"\nYour final score is {total_score}, which is Very Good! You have a very good chance of survival!\n")
-elif total_score >= 16 and total_score <= 35:
-    print(f"\nYour final score is {total_score}, which is Good! You have a good chance of survival!\n")
+    print(f"\nYour final score is:\n\n{total_score}\n\nwhich is Excellent! You have a very good chance of survival!\n")
+elif total_score >= 6 and total_score <= 12:
+    print(f"\nYour final score is:\n\n{total_score}\n\nwhich is Very Good! You have a pretty good chance of survival!\n")
+elif total_score >= 13 and total_score <= 20:
+    print(f"\nYour final score is:\n\n{total_score}\n\nwhich is Good. You have a reasonable chance of survival.\n")
 else:
-    print(f"\nYour final score is {total_score}, which is Not Very Good! You have a pretty low chance of survival!\n")
+    print(f"\nYour final score is:\n\n{total_score}\n\nwhich is Not So Good... You have a pretty low chance of survival based on the items chosen.\n")
 
-print("Would you like to see the survival expert's view on the items you chose? y/n")
+print(input("Would you like to see the survival expert's view on the items you chose? y/n \n"))
+
+"""
+Importing item feedback from worksheet
+"""
+
+print("\nThe expert's view on your choices were:\n")
+
+print(f"1. {first_item}:\n")
+feedback1 = SHEET.worksheet("feedback").cell(first_choice, 2).value
+print(f"{feedback1}\n")
+print(f"2. {second_item}:\n")
+feedback2 = SHEET.worksheet("feedback").cell(second_choice, 2).value
+print(f"{feedback2}\n")
+print(f"3. {third_item}:\n")
+feedback3 = SHEET.worksheet("feedback").cell(third_choice, 2).value
+print(f"{feedback3}\n")
+print(f"4. {fourth_item}:\n")
+feedback4 = SHEET.worksheet("feedback").cell(fourth_choice, 2).value
+print(f"{feedback4}\n")
+print(f"5. {fifth_item}:\n")
+feedback5 = SHEET.worksheet("feedback").cell(fifth_choice, 2).value
+print(f"{feedback5}\n")
+
+print("Do you want to try again, see the expert's ranking of items, or quit?")
+print(input("Type 'try again'/'see expert rankings'/'quit'\n"))
+
+
+
+
