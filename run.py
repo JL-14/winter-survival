@@ -16,6 +16,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('winter-survival-game-content')
 
+#Intro to game
 intro = SHEET.worksheet("data").acell('A2').value
 print(intro)
 
@@ -36,6 +37,7 @@ def activate_exit():
 
 name = input("Enter your name:\n")
 
+#Scenario section
 scenario = SHEET.worksheet("data").acell('B2').value
 
 print(scenario)
@@ -55,6 +57,7 @@ def validate_items():
         print("Error! \nPlease enter y for 'yes', or n for 'no'.")
         print(items)
 
+#Importing items list
 data = SHEET.worksheet("data").get('B5:C16')
 data_list = data
 
@@ -106,6 +109,7 @@ expert_view = {
     7: "A family-size chocolate bar"
 }
 
+#Matching item description to item choice
 def get_item_description(choice):
     """
     Function to get item description based on choice
@@ -123,6 +127,9 @@ print(f"\nYou have chosen: \n\n1. {first_item}\n2. {second_item}\n3. {third_item
 choice_confirm = input("Are you happy with your choices? y/n \n")
 
 
+"""
+Calculate score
+"""
 # Convert first_choice to integer for calculating score
 first_choice = int(first_choice)
 second_choice = int(second_choice)
@@ -130,10 +137,6 @@ third_choice = int(third_choice)
 fourth_choice = int(fourth_choice)
 fifth_choice = int(fifth_choice)
 
-
-"""
-Calculate score
-"""
 # First item score
 matching_expertkey = None
 
@@ -226,7 +229,6 @@ print(input("Would you like to see the survival expert's view on the items you c
 """
 Importing item feedback from worksheet
 """
-
 print("\nThe expert's view on your choices were:\n")
 
 print(f"1. {first_item}:\n")
