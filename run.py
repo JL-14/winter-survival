@@ -16,11 +16,11 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('winter-survival-game-content')
 
-#Intro to game
+# Intro to game
 intro = SHEET.worksheet("data").acell('A2').value
 print(intro)
 
-#Exit game command with 'esc' key
+# Exit game command with 'esc' key
 def exit_program():
     """
     Exiting programme when Esc is pressed.
@@ -37,7 +37,7 @@ def activate_exit():
 
 name = input("Enter your name:\n")
 
-#Scenario section
+# Scenario section
 scenario = SHEET.worksheet("data").acell('B2').value
 
 print(scenario)
@@ -57,7 +57,7 @@ def validate_items():
         print("Error! \nPlease enter y for 'yes', or n for 'no'.")
         print(items)
 
-#Importing items list
+# Importing items list
 data = SHEET.worksheet("data").get('B5:C16')
 data_list = data
 
@@ -109,7 +109,7 @@ expert_view = {
     7: "A family-size chocolate bar"
 }
 
-#Matching item description to item choice
+# Matching item description to item choice
 def get_item_description(choice):
     """
     Function to get item description based on choice
@@ -145,75 +145,75 @@ for key, value in expert_view.items():
         matching_expertkey = key
         break
 
-score1 = 0
+score_one = 0
 if matching_expertkey is not None:
-    score1 = matching_expertkey - 1
-    score1 = abs(score1)
+    score_one = matching_expertkey - 1
+    score_one = abs(score_one)
 else: 
     print("No match found")
 
 # Second item score
-matching_expertkey2 = None
+matching_expertkey_two = None
 
 for key, value in expert_view.items():
     if value == second_item:
-        matching_expertkey2 = key
+        matching_expertkey_two = key
         break
 
-score2 = 0
-if matching_expertkey2 is not None:
-    score2 = matching_expertkey2 - 2
-    score2 = abs(score2)
+score_two = 0
+if matching_expertkey_two is not None:
+    score_two = matching_expertkey_two - 2
+    score_two = abs(score_two)
 else: 
     print("No match found")
 
 # Third item score
-matching_expertkey3 = None
+matching_expertkey_three = None
 
 for key, value in expert_view.items():
     if value == third_item:
-        matching_expertkey3 = key
+        matching_expertkey_three = key
         break
 
-score3 = 0
-if matching_expertkey3 is not None:
-    score3 = matching_expertkey3 - 3
-    score3 = abs(score3)
+score_three = 0
+if matching_expertkey_three is not None:
+    score_three = matching_expertkey_three - 3
+    score_three = abs(score_three)
 else: 
     print("No match found")
 
 # Fourth item score
-matching_expertkey4 = None
+matching_expertkey_four = None
 
 for key, value in expert_view.items():
     if value == fourth_item:
-        matching_expertkey4 = key
+        matching_expertkey_four = key
         break
 
-score4 = 0
-if matching_expertkey4 is not None:
-    score4 = matching_expertkey4 - 4
-    score4 = abs(score4)
+score_four = 0
+if matching_expertkey_four is not None:
+    score_four = matching_expertkey_four - 4
+    score_four = abs(score_four)
 else: 
     print("No match found")
 
 # Fifth item score
-matching_expertkey5 = None
+matching_expertkey_five = None
 
 for key, value in expert_view.items():
     if value == fifth_item:
-        matching_expertkey5 = key
+        matching_expertkey_five = key
         break
 
-score5 = 0
-if matching_expertkey5 is not None:
-    score5 = matching_expertkey5 - 5
-    score5 = abs(score5)
+score_five = 0
+if matching_expertkey_five is not None:
+    score_five = matching_expertkey_five - 5
+    score_five = abs(score_five)
 else: 
     print("No match found")
 
-#Total score
-total_score = score1 + score2 + score3 + score4 + score5
+# Total score
+total_score = score_one + score_two + score_three + score_four + score_five
 
 if total_score <= 5:
     print(f"\nYour final score is:\n\n{total_score}\n\nwhich is Excellent! You have a very good chance of survival!\n")
@@ -250,7 +250,7 @@ print(f"{feedback5}\n")
 print("Do you want to try again, see the expert's item rankings, or quit?")
 print(input("Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n"))
 
-#Expert ranking table
+# Expert ranking table
 expert_ranking_table = SHEET.worksheet("expert_rankings").get('A1:B12')
 
 # Naming columns for the items table
@@ -260,4 +260,6 @@ col_names_expert = ["Expert rank", "Item"]
 print("\nThese are the expert's rankings of the items:\n")
 print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
 
+# Final thank you
+print("\nThank you for visiting the Winter Survival Exercise!\n")
 
