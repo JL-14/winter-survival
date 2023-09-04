@@ -35,8 +35,6 @@ def activate_exit():
 
 # exit_program()
 
-name = input("Enter your name (optional):\n")
-
 # Scenario section
 scenario = SHEET.worksheet("data").acell('B2').value
 
