@@ -16,6 +16,11 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('winter-survival-game-content')
 
+"""
+Variables for the exercise
+"""
+
+
 # Intro to game
 intro = SHEET.worksheet("data").acell('A2').value
 print(intro)
@@ -35,7 +40,7 @@ def activate_exit():
 
 # exit_program()
 
-name = input("Enter your name:\n")
+name = input("Enter your name (optional):\n")
 
 # Scenario section
 scenario = SHEET.worksheet("data").acell('B2').value
@@ -59,7 +64,6 @@ def validate_items():
 
 # Importing items list
 data = SHEET.worksheet("data").get('B5:C16')
-data_list = data
 
 # Naming columns for the items table
 col_names = ["Item no.", "Item"]
