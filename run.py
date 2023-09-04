@@ -57,13 +57,10 @@ while True:
         elif items == 'n':
             print(scenario)
             print(items)
-            break
         else:
             print("Please enter 'y' or 'n'")
-            break
     except ValueError:
         print("Please enter 'y' or 'n'")
-        break
     else:
         break
 
