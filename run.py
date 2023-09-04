@@ -19,10 +19,20 @@ SHEET = GSPREAD_CLIENT.open('winter-survival-game-content')
 intro = SHEET.worksheet("data").acell('A2').value
 print(intro)
 
-# Exit game command with 'esc' key
-if keyboard.is_pressed('Esc'):
-    print("You pressed Esc so exiting game")
-    exit()
+#Exit game command with 'esc' key
+def exit_program():
+    """
+    Exiting programme when Esc is pressed.
+    """
+    keyboard.add_hotkey('esc', activate_exit)
+    keyboard.wait('esc')
+
+def activate_exit():
+    print("Exiting the programme, thanks for playing!")
+    keyboard.unhook_all()
+    sys.exit()
+
+# exit_program()
 
 name = input("Enter your name:\n")
 
@@ -235,8 +245,8 @@ print(f"5. {fifth_item}:\n")
 feedback5 = SHEET.worksheet("feedback").cell(fifth_choice, 2).value
 print(f"{feedback5}\n")
 
-print("\nDo you want to try again, see the expert's ranking of items, or quit?")
-print(input("Type 'try again'/'see expert rankings'/'quit'\n"))
+print("Do you want to try again, see the expert's item rankings, or quit?")
+print(input("Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n"))
 
 #Expert ranking table
 expert_ranking_table = SHEET.worksheet("expert_rankings").get('A1:B12')
@@ -245,5 +255,7 @@ expert_ranking_table = SHEET.worksheet("expert_rankings").get('A1:B12')
 col_names_expert = ["Expert rank", "Item"]
 
 # Displaying the table
+print("\nThese are the expert's rankings of the items:\n")
 print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
+
 
