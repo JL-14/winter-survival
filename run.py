@@ -16,11 +16,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('winter-survival-game-content')
 
-"""
-Variables for the exercise
-"""
-
-
 # Intro to game
 intro = SHEET.worksheet("data").acell('A2').value
 print(intro)
@@ -47,26 +42,30 @@ scenario = SHEET.worksheet("data").acell('B2').value
 
 print(scenario)
 
-items = input("Are you ready to select your items? y/n \n")
-
-def validate_items():
-    """
-    Validate the entry of y or n to begin to select items
-    Check for blank entries, incorrect letters, non-string entries
-    """
-    if items.lower() == 'y':
-        print(data)
-    elif items.lower() == 'n':
-        print(scenario)
-    else:
-        print("Error! \nPlease enter y for 'yes', or n for 'no'.")
-        print(items)
-
 # Importing items list
 data = SHEET.worksheet("data").get('B5:C16')
 
 # Naming columns for the items table
 col_names = ["Item no.", "Item"]
+
+# Continue input question with validation
+while True:
+    try:
+        items = str(input("Are you ready to select your items? y/n \n"))
+        if items == 'y':
+            print(data)
+        elif items == 'n':
+            print(scenario)
+            print(items)
+            break
+        else:
+            print("Please enter 'y' or 'n'")
+            break
+    except ValueError:
+        print("Please enter 'y' or 'n'")
+        break
+    else:
+        break
 
 # Displaying the table
 print(tabulate(data, headers=col_names, tablefmt="grid"))
@@ -228,11 +227,9 @@ elif total_score >= 13 and total_score <= 20:
 else:
     print(f"\nYour final score is:\n\n{total_score}\n\nwhich is Not So Good... You have a pretty low chance of survival based on the items chosen.\n")
 
-print(input("Would you like to see the survival expert's view on the items you chose? y/n \n"))
+print(input("Would you like to see the survival expert's feedback on the items you chose? y/n \n"))
 
-"""
-Importing item feedback from worksheet
-"""
+# Importing item feedback from worksheet
 print("\nThe expert's view on your choices were:\n")
 
 print(f"1. {first_item}:\n")
