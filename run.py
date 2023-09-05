@@ -16,6 +16,17 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('winter-survival-game-content')
 
+first_choice = None
+second_choice = None
+third_choice = None
+fourth_choice = None
+fifth_choice = None
+first_item = None
+second_item = None
+third_item = None
+fourth_item = None
+fifth_item = None
+
 # Intro to game
 def print_intro():
     """ Printing intro and starting game """
@@ -101,6 +112,11 @@ expert_view = {
 
 def item_choices():
     """ Ask user to choose top 5 items """
+    global first_choice
+    global second_choice
+    global third_choice
+    global fourth_choice
+    global fifth_choice
     first_choice = int(input("\nWhich item would be your first choice? 1-12?\n"))
     second_choice = int(input("Which item would be your second choice? 1-12?\n"))
     third_choice = int(input("Which item would be your third choice? 1-12?\n"))
@@ -115,9 +131,14 @@ def get_item_description(choice):
 
 def match_description_to_choice(first_choice, second_choice, third_choice, fourth_choice, fifth_choice):
     """ Match items chosen to the description of item """
+    global first_item
+    global second_item
+    global third_item
+    global fourth_item
+    global fifth_item
     first_item = get_item_description(first_choice)
     second_item = get_item_description(second_choice)
-    third_item = get_item_description(third_choice)
+    third_item = get_item_description(third_choice) 
     fourth_item = get_item_description(fourth_choice)
     fifth_item = get_item_description(fifth_choice)
     return first_item, second_item, third_item, fourth_item, fifth_item
@@ -146,8 +167,6 @@ score_one = 0
 if matching_expert_key is not None:
     score_one = matching_expert_key - 1
     score_one = abs(score_one)
-else: 
-    print("No match found")
 
 # Second item score
 matching_expert_key_two = None
@@ -161,8 +180,6 @@ score_two = 0
 if matching_expert_key_two is not None:
     score_two = matching_expert_key_two - 2
     score_two = abs(score_two)
-else: 
-    print("No match found")
 
 # Third item score
 matching_expert_key_three = None
@@ -176,8 +193,6 @@ score_three = 0
 if matching_expert_key_three is not None:
     score_three = matching_expert_key_three - 3
     score_three = abs(score_three)
-else: 
-    print("No match found")
 
 # Fourth item score
 matching_expert_key_four = None
@@ -191,8 +206,6 @@ score_four = 0
 if matching_expert_key_four is not None:
     score_four = matching_expert_key_four - 4
     score_four = abs(score_four)
-else: 
-    print("No match found")
 
 # Fifth item score
 matching_expert_key_five = None
@@ -206,8 +219,6 @@ score_five = 0
 if matching_expert_key_five is not None:
     score_five = matching_expert_key_five - 5
     score_five = abs(score_five)
-else: 
-    print("No match found")
 
 # Total score
 total_score = score_one + score_two + score_three + score_four + score_five
