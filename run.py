@@ -17,14 +17,14 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('winter-survival-game-content')
 
 # Intro to game
-intro = SHEET.worksheet("data").acell('A2').value
+intro = SHEET.worksheet('data').acell('A2').value
 print(intro)
+print(input("Are you ready to begin? y/n \n"))
 
 # Exit game command with 'esc' key
+# !!! Does not yet work !!!
 def exit_program():
-    """
-    Exiting programme when Esc is pressed.
-    """
+    """ Exiting programme when Esc is pressed """
     keyboard.add_hotkey('esc', activate_exit)
     keyboard.wait('esc')
 
@@ -36,31 +36,34 @@ def activate_exit():
 # exit_program()
 
 # Scenario section
-scenario = SHEET.worksheet("data").acell('B2').value
+scenario = SHEET.worksheet('data').acell('B2').value
 
 print(scenario)
 
 # Importing items list
-data = SHEET.worksheet("data").get('B5:C16')
+data = SHEET.worksheet('data').get('B5:C16')
 
 # Naming columns for the items table
 col_names = ["Item no.", "Item"]
 
+print(input("Are you ready to select your items? y/n \n"))
+
 # Continue input question with validation
-while True:
-    try:
-        items = str(input("Are you ready to select your items? y/n \n"))
-        if items == 'y':
-            print(data)
-        elif items == 'n':
-            print(scenario)
-            print(items)
-        else:
-            print("Please enter 'y' or 'n'")
-    except ValueError:
-        print("Please enter 'y' or 'n'")
-    else:
-        break
+# !!! Does not yet work !!!
+# while True:
+#     try:
+#         items = str(input("Are you ready to select your items? y/n \n"))
+#         if items == 'y':
+#             print(data)
+#         elif items == 'n':
+#             print(scenario)
+#             print(items)
+#         else:
+#             print("Please enter 'y' or 'n'")
+#     except ValueError:
+#         print("Please enter 'y' or 'n'")
+#     else:
+#         break
 
 # Displaying the table
 print(tabulate(data, headers=col_names, tablefmt="grid"))
@@ -71,10 +74,6 @@ third_choice = input("Which item would be your third choice? 1-12?\n")
 fourth_choice = input("Which item would be your fourth choice? 1-12?\n")
 fifth_choice = input("Which item would be your fifth choice? 1-12?\n")
 
-"""
-Create dictionary for item numbers and item descriptions
-Match description to key chosen by user
-"""
 # Create dictionary of items
 item_descriptions = {
     '1': "A ball of steel wool",
@@ -93,18 +92,18 @@ item_descriptions = {
 
 # Create dictionary of expert views
 expert_view = {
-    2: "A ball of steel wool",
-    6: "A small axe",
-    9: "A loaded .45-caliber pistol",
-    4: "Tin of coconut oil",
-    8: "A newspaper",
     1: "Cigarette lighter (without fluid)",
+    2: "A ball of steel wool",
     3: "Extra shirt and trousers",
+    4: "Tin of coconut oil",
     5: "A 20 x 20 ft. piece of heavy-duty canvas",
-    12: "A sectional air map made of plastic",
+    6: "A small axe",
+    7: "A family-size chocolate bar",
+    8: "A newspaper",
+    9: "A loaded .45-caliber pistol",
     10: "Half a bottle of 85-proof whisky",
     11: "A compass",
-    7: "A family-size chocolate bar"
+    12: "A sectional air map made of plastic" 
 }
 
 # Matching item description to item choice
@@ -120,14 +119,16 @@ third_item = get_item_description(third_choice)
 fourth_item = get_item_description(fourth_choice)
 fifth_item = get_item_description(fifth_choice)
 
-print(f"\nYou have chosen: \n\n1. {first_item}\n2. {second_item}\n3. {third_item}\n4. {fourth_item}\n5. {fifth_item}\n")
+print(f"""\nYou have chosen: 
+      1. {first_item}
+      2. {second_item}
+      3. {third_item}
+      4. {fourth_item}
+      5. {fifth_item}
+    """)
 
 choice_confirm = input("Are you happy with your choices? y/n \n")
 
-
-"""
-Calculate score
-"""
 # Convert first_choice to integer for calculating score
 first_choice = int(first_choice)
 second_choice = int(second_choice)
@@ -136,76 +137,76 @@ fourth_choice = int(fourth_choice)
 fifth_choice = int(fifth_choice)
 
 # First item score
-matching_expertkey = None
+matching_expert_key = None
 
 for key, value in expert_view.items():
     if value == first_item:
-        matching_expertkey = key
+        matching_expert_key = key
         break
 
 score_one = 0
-if matching_expertkey is not None:
-    score_one = matching_expertkey - 1
+if matching_expert_key is not None:
+    score_one = matching_expert_key - 1
     score_one = abs(score_one)
 else: 
     print("No match found")
 
 # Second item score
-matching_expertkey_two = None
+matching_expert_key_two = None
 
 for key, value in expert_view.items():
     if value == second_item:
-        matching_expertkey_two = key
+        matching_expert_key_two = key
         break
 
 score_two = 0
-if matching_expertkey_two is not None:
-    score_two = matching_expertkey_two - 2
+if matching_expert_key_two is not None:
+    score_two = matching_expert_key_two - 2
     score_two = abs(score_two)
 else: 
     print("No match found")
 
 # Third item score
-matching_expertkey_three = None
+matching_expert_key_three = None
 
 for key, value in expert_view.items():
     if value == third_item:
-        matching_expertkey_three = key
+        matching_expert_key_three = key
         break
 
 score_three = 0
-if matching_expertkey_three is not None:
-    score_three = matching_expertkey_three - 3
+if matching_expert_key_three is not None:
+    score_three = matching_expert_key_three - 3
     score_three = abs(score_three)
 else: 
     print("No match found")
 
 # Fourth item score
-matching_expertkey_four = None
+matching_expert_key_four = None
 
 for key, value in expert_view.items():
     if value == fourth_item:
-        matching_expertkey_four = key
+        matching_expert_key_four = key
         break
 
 score_four = 0
-if matching_expertkey_four is not None:
-    score_four = matching_expertkey_four - 4
+if matching_expert_key_four is not None:
+    score_four = matching_expert_key_four - 4
     score_four = abs(score_four)
 else: 
     print("No match found")
 
 # Fifth item score
-matching_expertkey_five = None
+matching_expert_key_five = None
 
 for key, value in expert_view.items():
     if value == fifth_item:
-        matching_expertkey_five = key
+        matching_expert_key_five = key
         break
 
 score_five = 0
-if matching_expertkey_five is not None:
-    score_five = matching_expertkey_five - 5
+if matching_expert_key_five is not None:
+    score_five = matching_expert_key_five - 5
     score_five = abs(score_five)
 else: 
     print("No match found")
