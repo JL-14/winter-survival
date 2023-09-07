@@ -44,19 +44,19 @@ def get_user_choices():
     fourth_choice = input("Which item would be your fourth choice? 1-12?\n")
     fifth_choice = input("Which item would be your fifth choice? 1-12?\n")
     return first_choice, second_choice, third_choice, fourth_choice, fifth_choice
-
+    
 def get_item_description(choice, item_descriptions):
     """ Get description of items chosen """
     return item_descriptions.get(choice, "")
 
-# !!! Not currently working !!!
+# !!! Not currently working -gives value of 15 !!!
 def calculate_score(choices, expert_view):
     """ Calculate scores based on user choice and expert ranking """
     score = 0
     for i, choice in enumerate(choices, 1):
-        matching_expert_key = None
+        matching_expert_key = 0
         for key, value in expert_view.items():
-            if value == choice:
+            if key == choice:
                 matching_expert_key = key
                 break
         if matching_expert_key is not None:
@@ -92,18 +92,18 @@ def main():
     first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
 
     item_descriptions = {
-        '1': "A ball of steel wool",
-        '2': "A small axe",
-        '3': "A loaded .45-caliber pistol",
-        '4': "Tin of coconut oil",
-        '5': "A newspaper",
-        '6': "Cigarette lighter (without fluid)",
-        '7': "Extra shirt and trousers",
-        '8': "A 20 x 20 ft. piece of heavy-duty canvas",
-        '9': "A sectional air map made of plastic",
-        '10': "Half a bottle of 85-proof whisky",
-        '11': "A compass",
-        '12': "A family-size chocolate bar"
+        1: "A ball of steel wool",
+        2: "A small axe",
+        3: "A loaded .45-caliber pistol",
+        4: "Tin of coconut oil",
+        5: "A newspaper",
+        6: "Cigarette lighter (without fluid)",
+        7: "Extra shirt and trousers",
+        8: "A 20 x 20 ft. piece of heavy-duty canvas",
+        9: "A sectional air map made of plastic",
+        10: "Half a bottle of 85-proof whisky",
+        11: "A compass",
+        12: "A family-size chocolate bar"
     }
 
     expert_view = {
@@ -121,7 +121,12 @@ def main():
         12: "A sectional air map made of plastic"
     }
 
-    choices = [first_choice, second_choice, third_choice, fourth_choice, fifth_choice]
+    choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
+    first_choice = int(first_choice)
+    second_choice = int(second_choice)
+    third_choice = int(third_choice)
+    fourth_choice = int(fourth_choice)
+    fifth_choice = int(fifth_choice)
 
     print(f"\nYou have chosen:\n")
     for i, choice in enumerate(choices, 1):
