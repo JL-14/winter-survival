@@ -49,17 +49,18 @@ def get_item_description(choice, item_descriptions):
     """ Get description of items chosen """
     return item_descriptions.get(choice, "")
 
-# !!! Not currently working -gives value of 15 !!!
-def calculate_score(choices, expert_view):
+# !!! Not currently working -gives value of item number - choice priority !!!
+def calculate_score(choices, expert_view, item_descriptions):
     """ Calculate scores based on user choice and expert ranking """
     score = 0
     for i, choice in enumerate(choices, 1):
         matching_expert_key = 0
+        item_description = item_descriptions.get(int(choice), "")
         for key, value in expert_view.items():
-            if key == choice:
+            if value == item_description:
                 matching_expert_key = key
                 break
-        if matching_expert_key is not None:
+        if matching_expert_key != 0:
             score += abs(matching_expert_key - i)
     return score
 
@@ -135,7 +136,7 @@ def main():
 
     choice_confirm = input("\nAre you happy with your choices? y/n \n")
 
-    total_score = calculate_score(choices, expert_view)
+    total_score = calculate_score(choices, expert_view, item_descriptions)
 
     print(f"\nYour final score is:\n\n{total_score}\n\nwhich is {display_score(total_score)}\n")
 
