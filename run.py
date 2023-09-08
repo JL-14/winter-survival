@@ -49,7 +49,6 @@ def get_item_description(choice, item_descriptions):
     """ Get description of items chosen """
     return item_descriptions.get(choice, "")
 
-# !!! Not currently working -gives value of item number - choice priority !!!
 def calculate_score(choices, expert_view, item_descriptions):
     """ Calculate scores based on user choice and expert ranking """
     score = 0
