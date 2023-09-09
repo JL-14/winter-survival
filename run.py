@@ -38,11 +38,62 @@ def select_items():
 
 def get_user_choices():
     """ Get user item choices """
-    first_choice = input("\nWhich item would be your first choice? 1-12?\n")
-    second_choice = input("Which item would be your second choice? 1-12?\n")
-    third_choice = input("Which item would be your third choice? 1-12?\n")
-    fourth_choice = input("Which item would be your fourth choice? 1-12?\n")
-    fifth_choice = input("Which item would be your fifth choice? 1-12?\n")
+    while True:
+        try:
+            first_choice = int(input("\nWhich item would be your first choice? 1-12?\n"))
+            if first_choice < 1 or first_choice > 12:
+                print(f"""You entered {first_choice}, which is not valid.
+                      Please enter a new number between 1 and 12!
+                      """)
+                continue
+            break
+        except ValueError:
+            print("Please enter a number between 1 and 12!\n")
+    while True:
+        try:
+            second_choice = int(input("Which item would be your second choice? 1-12?\n"))
+            if second_choice < 1 or second_choice > 12 or second_choice == first_choice:
+                print(f"""You entered {second_choice}, which is not valid.
+                      Please enter a new number between 1 and 12!
+                      """)
+                continue
+            break
+        except ValueError:
+            print("Please enter a number between 1 and 12!\n")
+    while True:
+        try:
+            third_choice = int(input("Which item would be your third choice? 1-12?\n"))
+            if third_choice < 1 or third_choice > 12 or third_choice == second_choice or third_choice == first_choice:
+                print(f"""You entered {third_choice}, which is not valid.
+Please enter a new number between 1 and 12!
+                      """)
+                continue
+            break     
+        except ValueError:
+            print("Please enter a number between 1 and 12!\n")
+    while True:
+        try:    
+            fourth_choice = int(input("Which item would be your fourth choice? 1-12?\n"))
+            if fourth_choice < 1 or fourth_choice > 12 or fourth_choice == third_choice or fourth_choice == second_choice or fourth_choice == first_choice:
+                print(f"""You entered {fourth_choice}, which is not valid.
+Please enter a new number between 1 and 12!
+                      """)
+                continue
+            break
+        except ValueError:
+            print("Please enter a number between 1 and 12!\n")
+    while True:
+        try:
+            fifth_choice = int(input("Which item would be your fifth choice? 1-12?\n"))
+            if fifth_choice < 1 or fifth_choice > 12 or fifth_choice == fourth_choice or fifth_choice == third_choice or fifth_choice == second_choice or fifth_choice == first_choice:
+                print(f""" You entered {fifth_choice}, which is not valid.
+Please enter a new number between 1 and 12!
+                      """)
+                continue           
+            break
+        except ValueError:
+            print("Please enter a number between 1 and 12!\n")
+
     return first_choice, second_choice, third_choice, fourth_choice, fifth_choice
     
 def get_item_description(choice, item_descriptions):
