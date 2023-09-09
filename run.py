@@ -3,6 +3,8 @@ import sys
 import gspread
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
+import intro_module
+import scenario_module
 
 def authenticate_gspread():
     """ Set authentication parameters """
@@ -19,13 +21,13 @@ def authenticate_gspread():
 
 def print_intro():
     """ Print intro """
-    intro = authenticate_gspread().worksheet('data').acell('A2').value
+    intro = intro_module.intro_text
     print(intro)
     input("Press Enter to proceed\n")
 
 def print_scenario():
     """ Print_scenario """
-    scenario = authenticate_gspread().worksheet('data').acell('B2').value
+    scenario = scenario_module.scenario_text
     print(scenario)
     input("Are you ready to select your items? y/n \n")
 
