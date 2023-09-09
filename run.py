@@ -5,6 +5,7 @@ from google.oauth2.service_account import Credentials
 from tabulate import tabulate
 import intro_module
 import scenario_module
+import constants
 
 def authenticate_gspread():
     """ Set authentication parameters """
@@ -21,20 +22,17 @@ def authenticate_gspread():
 
 def print_intro():
     """ Print intro """
-    intro = intro_module.intro_text
-    print(intro)
+    print(intro_module.intro_text)
     input("Press Enter to proceed\n")
 
 def print_scenario():
     """ Print_scenario """
-    scenario = scenario_module.scenario_text
-    print(scenario)
-    input("Are you ready to select your items? y/n \n")
+    print(scenario_module.scenario_text)
+    input("Press Enter to select your items\n")
 
 def select_items():
     """ Import items from spreadsheet """
-    SHEET = authenticate_gspread()
-    data = SHEET.worksheet('data').get('B5:C16')
+    data = constants.item_list
     col_names = ["Item no.", "Item"]
     print(tabulate(data, headers=col_names, tablefmt="grid"))
 
@@ -136,6 +134,45 @@ def main():
         print(f"{i}. {item_description}")
 
     choice_confirm = input("\nAre you happy with your choices? y/n \n")
+
+    if choice_confirm.lower() == 'y':
+        calculate_score(choices, expert_view, item_descriptions)
+    elif choice_confirm.lower() == 'n':
+        print(f"""
+              ---------------------------------
+              Please make your final selection:
+              ---------------------------------
+              """)
+        select_items()
+        first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
+        item_descriptions = {
+            1: "A ball of steel wool",
+            2: "A small axe",
+            3: "A loaded .45-caliber pistol",
+            4: "Tin of coconut oil",
+            5: "A newspaper",
+            6: "Cigarette lighter (without fluid)",
+            7: "Extra shirt and trousers",
+            8: "A 20 x 20 ft. piece of heavy-duty canvas",
+            9: "A sectional air map made of plastic",
+            10: "Half a bottle of 85-proof whisky",
+            11: "A compass",
+            12: "A family-size chocolate bar"
+        }
+        choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
+        first_choice = int(first_choice)
+        second_choice = int(second_choice)
+        third_choice = int(third_choice)
+        fourth_choice = int(fourth_choice)
+        fifth_choice = int(fifth_choice)
+        print(f"\nYou have chosen:\n")
+        for i, choice in enumerate(choices, 1):
+            item_description = get_item_description(choice, item_descriptions)
+            print(f"{i}. {item_description}")
+
+        choice_confirm = input("\nPress Enter to see your score! \n")
+    else:
+        print("Please enter 'y' for yes or 'n' to see the items again")
 
     total_score = calculate_score(choices, expert_view, item_descriptions)
 
