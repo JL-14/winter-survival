@@ -190,12 +190,16 @@ def main():
     print("Do you want to try again, see the expert's item rankings, or quit?")
     choice = input("Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
 
-    if choice == 'e':
+    if choice.lower() == 'e':
         expert_ranking_table = authenticate_gspread().worksheet("expert_rankings").get('A1:B12')
         col_names_expert = ["Expert rank", "Item"]
         print("\nThese are the expert's rankings of the items:\n")
         print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
-
+    elif choice.lower() == 't':
+        main()
+    elif choice.lower() == 'q':
+        print("\nThank you for visiting the Winter Survival Exercise!\n")
+        sys.exit()
     print("\nThank you for visiting the Winter Survival Exercise!\n")
 
 if __name__ == "__main__":
