@@ -3,6 +3,7 @@ import sys
 import gspread
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
+import keyboard
 import intro_module
 import scenario_module
 import constants
@@ -40,7 +41,7 @@ def get_user_choices():
     """ Get user item choices """
     while True:
         try:
-            first_choice = int(input("\nWhich item would be your first choice? 1-12?\n"))
+            first_choice = int(input("Which item would be your first choice? 1-12?\n"))
             if first_choice < 1 or first_choice > 12:
                 print(f"""ERROR! You entered {first_choice}, which is not between 1 and 12.
 Please enter a number between 1 and 12!""")
@@ -143,8 +144,17 @@ def get_feedback(SHEET, choices):
         feedback.append(SHEET.worksheet("feedback").cell(int(choice), 2).value)
     return feedback
 
+# def exit_programme():
+#     print("Thank you for visiting the Winter Survival exercise, now exiting...")
+#     sys.exit()
+
+#------------------------------------------------------
+
 def main():
     """ Run programme """
+    # keyboard.add_hotkey('esc', exit_programme)
+    # keyboard.wait()
+
     print_intro()
 
     print_scenario()
