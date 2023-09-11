@@ -8,6 +8,7 @@ import threading
 import intro_module
 import scenario_module
 import constants
+import feedback
 
 
 def authenticate_gspread():
@@ -46,7 +47,7 @@ def print_scenario():
     input("Press Enter to select your items\n")
 
 def select_items():
-    """ Import items from spreadsheet """
+    """ Import items from constants module """
     data = constants.item_list
     col_names = ["Item no.", "Item"]
     print(tabulate(data, headers=col_names, tablefmt="grid"))
@@ -126,6 +127,11 @@ def get_item_description(choice, item_descriptions):
     """ Get description of items chosen """
     return item_descriptions.get(choice, "")
 
+feedback = feedback.feedback_dict
+def get_item_feedback(choice, feedback):
+    """ Get feedback for items chosen """
+    return feedback.get(choice, "")
+
 def calculate_score(choices, expert_view, item_descriptions):
     """ Calculate scores based on user choice and expert ranking """
     score = 0
@@ -151,12 +157,18 @@ def display_score(score):
     else:
         return "Not So Good... You have a pretty low chance of survival based on the items chosen."
 
-def get_feedback(SHEET, choices):
-    " Import expert feedback for items chosen "
-    feedback = []
-    for choice in choices:
-        feedback.append(SHEET.worksheet("feedback").cell(int(choice), 2).value)
-    return feedback
+# feedback = feedback.feedback_list
+
+# def get_item_feedback(choice, feedback):
+#     """ Get feedback for items chosen """
+#     return feedback.get(choice, "")
+
+# def get_feedback(SHEET, choices):
+#     " Import expert feedback for items chosen "
+#     feedback = []
+#     for choice in choices:
+#         feedback.append(SHEET.worksheet("feedback").cell(int(choice), 2).value)
+#     return feedback
 
 def finish():
     """ End of exercise """
@@ -267,17 +279,23 @@ def main():
     feedback_choice = input("Would you like to see the survival expert's feedback on the items you chose? y/n \n")
 
     if feedback_choice.lower() == 'y':
-        feedback = get_feedback(authenticate_gspread(), choices)
-        print("\nThe expert's view on your choices were:\n")
-        for i, (choice, item_feedback) in enumerate(zip(choices, feedback), 1):
-            item_description = get_item_description(choice, item_descriptions)
-            print(f"{i}. {item_description}:\n{item_feedback}\n")
+        # feedback = get_item_feedback(feedback, choices)
+        # print("\nThe expert's view on your choices were:\n")
+        # for i, (choice, item_feedback) in enumerate(zip(choices, feedback), 1):
+        #     item_description = get_item_description(choice, item_descriptions)
+        #     print(f"{i}. {item_description}:\n{item_feedback}\n")
+
+        print("\nThe expert's feedback for your choices were:\n")
+        for i, choice in enumerate(choices, 1):
+            item_feedback = get_item_feedback(choice, feedback)
+            print(f"{i}. {item_feedback}")
+
     elif feedback_choice.lower() == 'n':
         print("")
     else:
         print("\nERROR! Please enter 'y' for yes or 'n' for no.\n")
 
-    print("Do you want to try again, see the expert's item rankings, or quit?")
+    print("Do you want to try again, see the expert's item rankings, or quit?\n")
     choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
 
     if choice.lower() == 'e':
