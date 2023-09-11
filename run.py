@@ -1,7 +1,5 @@
 # Import packages for the programme
 import sys
-import gspread
-from google.oauth2.service_account import Credentials
 from tabulate import tabulate
 import keyboard
 import threading
@@ -9,20 +7,6 @@ import intro_module
 import scenario_module
 import constants
 import feedback
-
-
-def authenticate_gspread():
-    """ Set authentication parameters """
-    SCOPE = [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive.file",
-        "https://www.googleapis.com/auth/drive"
-    ]
-
-    CREDS = Credentials.from_service_account_file('creds.json')
-    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-    return GSPREAD_CLIENT.open('winter-survival-game-content')
 
 def check_for_esc():
     while True:
