@@ -34,8 +34,6 @@ def check_for_esc():
 exit_thread = threading.Thread(target = check_for_esc)
 exit_thread.start()
 
-
-
 def print_intro():
     """ Print intro """
     print(intro_module.intro_text)
@@ -174,36 +172,6 @@ def main():
 
     first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
 
-    item_descriptions = {
-        1: "A ball of steel wool",
-        2: "A small axe",
-        3: "A loaded .45-caliber pistol",
-        4: "Tin of coconut oil",
-        5: "A newspaper",
-        6: "Cigarette lighter (without fluid)",
-        7: "Extra shirt and trousers",
-        8: "A 20 x 20 ft. piece of heavy-duty canvas",
-        9: "A sectional air map made of plastic",
-        10: "Half a bottle of 85-proof whisky",
-        11: "A compass",
-        12: "A family-size chocolate bar"
-    }
-
-    expert_view = {
-        1: "Cigarette lighter (without fluid)",
-        2: "A ball of steel wool",
-        3: "Extra shirt and trousers",
-        4: "Tin of coconut oil",
-        5: "A 20 x 20 ft. piece of heavy-duty canvas",
-        6: "A small axe",
-        7: "A family-size chocolate bar",
-        8: "A newspaper",
-        9: "A loaded .45-caliber pistol",
-        10: "Half a bottle of 85-proof whisky",
-        11: "A compass",
-        12: "A sectional air map made of plastic"
-    }
-
     choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
     first_choice = int(first_choice)
     second_choice = int(second_choice)
@@ -213,13 +181,13 @@ def main():
 
     print(f"\nYou have chosen:\n")
     for i, choice in enumerate(choices, 1):
-        item_description = get_item_description(choice, item_descriptions)
+        item_description = get_item_description(choice, constants.item_descriptions)
         print(f"{i}. {item_description}")
 
     choice_confirm = input("\nAre you happy with your choices? y/n \n")
 
     if choice_confirm.lower() == 'y':
-        calculate_score(choices, expert_view, item_descriptions)
+        calculate_score(choices, constants.expert_view, constants.item_descriptions)
     elif choice_confirm.lower() == 'n':
         print(f"""
               ---------------------------------
@@ -228,20 +196,8 @@ def main():
               """)
         select_items()
         first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
-        item_descriptions = {
-            1: "A ball of steel wool",
-            2: "A small axe",
-            3: "A loaded .45-caliber pistol",
-            4: "Tin of coconut oil",
-            5: "A newspaper",
-            6: "Cigarette lighter (without fluid)",
-            7: "Extra shirt and trousers",
-            8: "A 20 x 20 ft. piece of heavy-duty canvas",
-            9: "A sectional air map made of plastic",
-            10: "Half a bottle of 85-proof whisky",
-            11: "A compass",
-            12: "A family-size chocolate bar"
-        }
+        print(constants.item_descriptions) 
+
         choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
         first_choice = int(first_choice)
         second_choice = int(second_choice)
@@ -250,14 +206,14 @@ def main():
         fifth_choice = int(fifth_choice)
         print(f"\nYou have chosen:\n")
         for i, choice in enumerate(choices, 1):
-            item_description = get_item_description(choice, item_descriptions)
+            item_description = get_item_description(choice, constants.item_descriptions)
             print(f"{i}. {item_description}")
 
         choice_confirm = input("\nPress Enter to see your score! \n")
     else:
         print("Please enter 'y' for yes or 'n' to see the items again")
 
-    total_score = calculate_score(choices, expert_view, item_descriptions)
+    total_score = calculate_score(choices, constants.expert_view, constants.item_descriptions)
 
     print(f"\nYour final score is:\n\n{total_score}\n\nwhich is {display_score(total_score)}\n")
 
