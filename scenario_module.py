@@ -21,4 +21,3 @@ This exercise was created by a US Army survival expert who also ranked the items
 
 Finally, there are no absolutely right answers, and in real life your ability to use the items chosen will affect their usefulness. You may therefore not agree with the exact rankings the expert has given, but the expert's rankings would unquestionably give you a chance of survival in this environment.
 """
-print(scenario_text)

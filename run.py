@@ -157,19 +157,6 @@ def display_score(score):
     else:
         return "Not So Good... You have a pretty low chance of survival based on the items chosen."
 
-# feedback = feedback.feedback_list
-
-# def get_item_feedback(choice, feedback):
-#     """ Get feedback for items chosen """
-#     return feedback.get(choice, "")
-
-# def get_feedback(SHEET, choices):
-#     " Import expert feedback for items chosen "
-#     feedback = []
-#     for choice in choices:
-#         feedback.append(SHEET.worksheet("feedback").cell(int(choice), 2).value)
-#     return feedback
-
 def finish():
     """ End of exercise """
     print("\nThank you for visiting the Winter Survival Exercise!\n")
@@ -178,8 +165,6 @@ def finish():
 
 def main():
     """ Run programme """
-
-
 
     print_intro()
 
@@ -279,12 +264,6 @@ def main():
     feedback_choice = input("Would you like to see the survival expert's feedback on the items you chose? y/n \n")
 
     if feedback_choice.lower() == 'y':
-        # feedback = get_item_feedback(feedback, choices)
-        # print("\nThe expert's view on your choices were:\n")
-        # for i, (choice, item_feedback) in enumerate(zip(choices, feedback), 1):
-        #     item_description = get_item_description(choice, item_descriptions)
-        #     print(f"{i}. {item_description}:\n{item_feedback}\n")
-
         print("\nThe expert's feedback for your choices were:\n")
         for i, choice in enumerate(choices, 1):
             item_feedback = get_item_feedback(choice, feedback)

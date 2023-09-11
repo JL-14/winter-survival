@@ -8,4 +8,3 @@ In this exercise you will test your knowledge of survival techniques and science
 Press 'esc' at any point to quit.
 """
 
-print(intro_text)
