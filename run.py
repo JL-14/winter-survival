@@ -8,6 +8,7 @@ import scenario_module
 import constants
 import feedback
 
+#!!! Currently does not work as intended !!!
 def check_for_esc():
     while True:
         if keyboard.is_pressed('esc'):
@@ -227,8 +228,10 @@ def main():
     elif choice.lower() == 'q':
         print("\nThank you for visiting the Winter Survival Exercise!\n")
         sys.exit()
-    else: print("\nERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.")
-    
+    else: 
+        print("\nERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.\n")
+        choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
+
     finish()
 
 if __name__ == "__main__":
