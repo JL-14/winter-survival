@@ -9,7 +9,7 @@ You are in a snowy wilderness area made up of thick woods broken by many lakes a
 
 You are dressed in business clothes as you were on your way to a meeting —suit, street shoes, and overcoat.
 
-While escaping from the plane you saw twelve items, but you can only manage to take five out of the plane wreck. Your task is to select five of the items and rank these five items according to their importance for your survival (1 being the most important, 2 the second most important, and so on).
+While escaping from the plane you saw twelve items, but you can only manage to take five out of the plane wreck. Your task is to select five of the items and rank these five items according to their importance for your survival (1 being the most important, 2 the second most important, and so on). You can change your mind about which items to take only once.
 
 Mid-January is the coldest time of the year where you are. The first problem you face, therefore, is to preserve body heat and to protect your body against heat loss. Your body will be using energy to stay warm, so that is another consideration.
 You also need to consider how you can attract the attention of search parties.

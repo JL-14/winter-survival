@@ -4,9 +4,11 @@ import gspread
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
 import keyboard
+import threading
 import intro_module
 import scenario_module
 import constants
+
 
 def authenticate_gspread():
     """ Set authentication parameters """
@@ -20,6 +22,18 @@ def authenticate_gspread():
     SCOPED_CREDS = CREDS.with_scopes(SCOPE)
     GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
     return GSPREAD_CLIENT.open('winter-survival-game-content')
+
+def check_for_esc():
+    while True:
+        if keyboard.is_pressed('esc'):
+            print("Thank you for visiting the Winter Survival experience, now exiting...")
+            finish()
+            sys.exit()
+
+exit_thread = threading.Thread(target = check_for_esc)
+exit_thread.start()
+
+
 
 def print_intro():
     """ Print intro """
@@ -144,16 +158,16 @@ def get_feedback(SHEET, choices):
         feedback.append(SHEET.worksheet("feedback").cell(int(choice), 2).value)
     return feedback
 
-# def exit_programme():
-#     print("Thank you for visiting the Winter Survival exercise, now exiting...")
-#     sys.exit()
+def finish():
+    """ End of exercise """
+    print("\nThank you for visiting the Winter Survival Exercise!\n")
 
 #------------------------------------------------------
 
 def main():
     """ Run programme """
-    # keyboard.add_hotkey('esc', exit_programme)
-    # keyboard.wait()
+
+
 
     print_intro()
 
@@ -258,12 +272,16 @@ def main():
         for i, (choice, item_feedback) in enumerate(zip(choices, feedback), 1):
             item_description = get_item_description(choice, item_descriptions)
             print(f"{i}. {item_description}:\n{item_feedback}\n")
+    elif feedback_choice.lower() == 'n':
+        print("")
+    else:
+        print("\nERROR! Please enter 'y' for yes or 'n' for no.\n")
 
     print("Do you want to try again, see the expert's item rankings, or quit?")
-    choice = input("Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
+    choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
 
     if choice.lower() == 'e':
-        expert_ranking_table = authenticate_gspread().worksheet("expert_rankings").get('A1:B12')
+        expert_ranking_table = constants.expert_list
         col_names_expert = ["Expert rank", "Item"]
         print("\nThese are the expert's rankings of the items:\n")
         print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
@@ -272,7 +290,10 @@ def main():
     elif choice.lower() == 'q':
         print("\nThank you for visiting the Winter Survival Exercise!\n")
         sys.exit()
-    print("\nThank you for visiting the Winter Survival Exercise!\n")
+    else: print("\nERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.")
+    
+    finish()
 
 if __name__ == "__main__":
     main()
+
