@@ -9,16 +9,14 @@ import scenario_module
 import constants
 import feedback
 
-#!!! Currently does not work as intended !!!
-# def check_for_esc():
-#     while True:
-#         if keyboard.is_pressed('esc'):
-#             print("Thank you for visiting the Winter Survival experience, now exiting...")
-#             finish()
-#             sys.exit()
 
-# exit_thread = threading.Thread(target = check_for_esc)
-# exit_thread.start()
+def check_for_esc():
+    while True:
+        if keyboard.is_pressed('esc'):
+            print("Thank you for visiting the Winter Survival experience, now exiting...")
+            os._exit(1)
+exit_thread = threading.Thread(target = check_for_esc)
+exit_thread.start()
 
 def print_intro():
     """ Print intro """
@@ -231,7 +229,7 @@ def main():
             break
         elif choice.lower() == 'q':
             while True:
-                clean_terminal = input("Do you want to clean the terminal window on exit? y/n\n")
+                clean_terminal = input("Thank you for visiting, do you want to clean the terminal window on exit? y/n\n")
                 if clean_terminal.lower() == 'y':
                     os.system('cls' if os.name == 'nt' else 'clear')
                     sys.exit()
@@ -254,6 +252,9 @@ def main():
             break
         else:
             print("Please enter 'y' for yes or 'n' for no.\n")
+
+def programme_exit():
+    sys.exit()
 
 if __name__ == "__main__":
     main()
