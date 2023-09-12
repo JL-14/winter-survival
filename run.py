@@ -9,7 +9,6 @@ import scenario_module
 import constants
 import feedback
 
-
 def check_for_esc():
     while True:
         if keyboard.is_pressed('esc'):
@@ -128,14 +127,8 @@ def main():
               """)
         select_items()
         first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
-
-
         choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
-        first_choice = int(first_choice)
-        second_choice = int(second_choice)
-        third_choice = int(third_choice)
-        fourth_choice = int(fourth_choice)
-        fifth_choice = int(fifth_choice)
+
         print(f"\nYou have chosen:\n")
         for i, choice in enumerate(choices, 1):
             item_description = get_item_description(choice, constants.item_descriptions)
@@ -170,20 +163,19 @@ def main():
             col_names_expert = ["Expert rank", "Item"]
             print("\nThese are the expert's rankings of the items:\n")
             print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
-            finish()
             break
         elif choice.lower() == 't':
             main()
             break
         elif choice.lower() == 'q':
             while True:
-                clean_terminal = input("Thank you for visiting, do you want to clean the terminal window on exit? y/n\n")
+                clean_terminal = input("Do you want to clean the terminal window on exit? y/n\n")
                 if clean_terminal.lower() == 'y':
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    sys.exit()
+                    os._exit(1)
                 elif clean_terminal.lower() == 'n':
                     print("\nThank you for visiting the Winter Survival Exercise!\n")
-                    sys.exit()
+                    os._exit(1)
                 else:
                     print("Please enter 'y' for yes or 'n' for no.\n")
         else: 
@@ -191,16 +183,15 @@ def main():
             choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
 
     while True:
-        clean_terminal = input("Thank you for visiting, do you want to clean the terminal window on exit? y/n\n")
+        clean_terminal = input("Do you want to clean the terminal window on exit? y/n\n")
         if clean_terminal.lower() == 'y':
             os.system('cls' if os.name == 'nt' else 'clear')
-            break
+            os._exit(1)
         elif clean_terminal.lower() == 'n':
             print("\nThank you for visiting the Winter Survival Exercise!\n")
-            break
+            os._exit(1)
         else:
             print("Please enter 'y' for yes or 'n' for no.\n")
 
 if __name__ == "__main__":
     main()
-
