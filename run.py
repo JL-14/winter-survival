@@ -1,5 +1,6 @@
 # Import packages for the programme
 import sys
+import os
 from tabulate import tabulate
 import keyboard
 import threading
@@ -9,15 +10,15 @@ import constants
 import feedback
 
 #!!! Currently does not work as intended !!!
-def check_for_esc():
-    while True:
-        if keyboard.is_pressed('esc'):
-            print("Thank you for visiting the Winter Survival experience, now exiting...")
-            finish()
-            sys.exit()
+# def check_for_esc():
+#     while True:
+#         if keyboard.is_pressed('esc'):
+#             print("Thank you for visiting the Winter Survival experience, now exiting...")
+#             finish()
+#             sys.exit()
 
-exit_thread = threading.Thread(target = check_for_esc)
-exit_thread.start()
+# exit_thread = threading.Thread(target = check_for_esc)
+# exit_thread.start()
 
 def print_intro():
     """ Print intro """
@@ -215,24 +216,44 @@ def main():
     else:
         print("\nERROR! Please enter 'y' for yes or 'n' for no.\n")
 
-    print("Do you want to try again, see the expert's item rankings, or quit?\n")
-    choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
-
-    if choice.lower() == 'e':
-        expert_ranking_table = constants.expert_list
-        col_names_expert = ["Expert rank", "Item"]
-        print("\nThese are the expert's rankings of the items:\n")
-        print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
-    elif choice.lower() == 't':
-        main()
-    elif choice.lower() == 'q':
-        print("\nThank you for visiting the Winter Survival Exercise!\n")
-        sys.exit()
-    else: 
-        print("\nERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.\n")
+    while True:
+        print("Do you want to try again, see the expert's item rankings, or quit?\n")
         choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
+        if choice.lower() == 'e':
+            expert_ranking_table = constants.expert_list
+            col_names_expert = ["Expert rank", "Item"]
+            print("\nThese are the expert's rankings of the items:\n")
+            print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
+            finish()
+            break
+        elif choice.lower() == 't':
+            main()
+            break
+        elif choice.lower() == 'q':
+            while True:
+                clean_terminal = input("Do you want to clean the terminal window on exit? y/n\n")
+                if clean_terminal.lower() == 'y':
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    sys.exit()
+                elif clean_terminal.lower() == 'n':
+                    print("\nThank you for visiting the Winter Survival Exercise!\n")
+                    sys.exit()
+                else:
+                    print("Please enter 'y' for yes or 'n' for no.\n")
+        else: 
+            print("\nERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.\n")
+            choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
 
-    finish()
+    while True:
+        clean_terminal = input("Thank you for visiting, do you want to clean the terminal window on exit? y/n\n")
+        if clean_terminal.lower() == 'y':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            break
+        elif clean_terminal.lower() == 'n':
+            print("\nThank you for visiting the Winter Survival Exercise!\n")
+            break
+        else:
+            print("Please enter 'y' for yes or 'n' for no.\n")
 
 if __name__ == "__main__":
     main()
