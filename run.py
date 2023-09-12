@@ -8,7 +8,11 @@ import scenario_module
 import constants
 import feedback
 
+
 def check_for_esc():
+    """ Set programme to exit when esc is pressed
+        Open function in new thread, to run alongside programme code 
+        """
     while True:
         if keyboard.is_pressed('esc'):
             print("Thank you for visiting the Winter Survival experience, now exiting...")
@@ -17,23 +21,35 @@ exit_thread = threading.Thread(target = check_for_esc)
 exit_thread.start()
 
 def print_intro():
-    """ Print intro """
+    """ 
+        Print intro 
+        Require enter-press to proceed 
+        """
     print(intro_module.intro_text)
     input("Press Enter to proceed\n")
 
 def print_scenario():
-    """ Print_scenario """
+    """ 
+        Print_scenario 
+        Require enter-press to proceed 
+        """
     print(scenario_module.scenario_text)
     input("Press Enter to select your items\n")
 
 def select_items():
-    """ Import items from constants module """
+    """ 
+        Import items from constants module 
+        Create table of items
+        """
     data = constants.item_list
     col_names = ["Item no.", "Item"]
     print(tabulate(data, headers=col_names, tablefmt="grid"))
 
 def get_user_choices():
-    """ Get user item choices """
+    """ 
+        Get user item choices 
+        Add validation for incorrect data entries
+        """
     choices = []
     for i in range(1, 6):
         while True:
@@ -57,7 +73,7 @@ def get_item_description(choice, item_descriptions):
 
 feedback = feedback.feedback_dict
 def get_item_feedback(choice, feedback):
-    """ Get feedback for items chosen """
+    """ Get expert feedback for items chosen """
     return feedback.get(choice, "")
 
 def calculate_score(choices, expert_view, item_descriptions):
@@ -93,32 +109,28 @@ def finish():
 
 def main():
     """ Run programme """
-
     print_intro()
-
     print_scenario()
-
     select_items()
 
+    # Assign function get_user_choices to choices made
     first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
 
+    # Create list of integers for choices made 
     choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
-    first_choice = int(first_choice)
-    second_choice = int(second_choice)
-    third_choice = int(third_choice)
-    fourth_choice = int(fourth_choice)
-    fifth_choice = int(fifth_choice)
 
     print(f"\nYou have chosen:\n")
+    # Loop to match item description to choice number
     for i, choice in enumerate(choices, 1):
         item_description = get_item_description(choice, constants.item_descriptions)
         print(f"{i}. {item_description}")
 
     choice_confirm = input("\nAre you happy with your choices? y/n \n")
-
+    # Routing and Validation of choices made, and whether user happy with choices
     if choice_confirm.lower() == 'y':
         calculate_score(choices, constants.expert_view, constants.item_descriptions)
     elif choice_confirm.lower() == 'n':
+        # Re-displaying table if user wants to choose again
         print(f"""
               ---------------------------------
               Please make your final selection:
@@ -142,18 +154,18 @@ def main():
     print(f"\nYour final score is:\n\n{total_score}\n\nwhich is {display_score(total_score)}\n")
 
     feedback_choice = input("Would you like to see the survival expert's feedback on the items you chose? y/n \n")
-
+    # Routing and validation for displaying expert feedback for each item chosen by user
     if feedback_choice.lower() == 'y':
         print("\nThe expert's feedback for your choices were:\n")
         for i, choice in enumerate(choices, 1):
             item_feedback = get_item_feedback(choice, feedback)
             print(f"{i}. {item_feedback}")
-
     elif feedback_choice.lower() == 'n':
         print("")
     else:
         print("\nERROR! Please enter 'y' for yes or 'n' for no.\n")
 
+    # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
         print("Do you want to try again, see the expert's item rankings, or quit?\n")
         choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
@@ -167,6 +179,7 @@ def main():
             main()
             break
         elif choice.lower() == 'q':
+            # Loop for option to clean terminal on quitting, with validation
             while True:
                 clean_terminal = input("Do you want to clean the terminal window on exit? y/n\n")
                 if clean_terminal.lower() == 'y':
@@ -181,6 +194,7 @@ def main():
             print("\nERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.\n")
             choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
 
+    # Loop for option to clean terminal on ending game, with validation
     while True:
         clean_terminal = input("Do you want to clean the terminal window on exit? y/n\n")
         if clean_terminal.lower() == 'y':
