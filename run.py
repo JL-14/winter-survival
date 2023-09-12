@@ -1,8 +1,8 @@
 # Import packages for the programme
 import os
-from tabulate import tabulate
-import keyboard
 import threading
+import keyboard
+from tabulate import tabulate
 import intro_module
 import scenario_module
 import constants
@@ -119,7 +119,7 @@ def main():
     # Create list of integers for choices made 
     choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
 
-    print(f"\nYou have chosen:\n")
+    print("\nYou have chosen:\n")
     # Loop to match item description to choice number
     for i, choice in enumerate(choices, 1):
         item_description = get_item_description(choice, constants.item_descriptions)
@@ -131,7 +131,7 @@ def main():
         calculate_score(choices, constants.expert_view, constants.item_descriptions)
     elif choice_confirm.lower() == 'n':
         # Re-displaying table if user wants to choose again
-        print(f"""
+        print("""
               ---------------------------------
               Please make your final selection:
               ---------------------------------
@@ -140,7 +140,7 @@ def main():
         first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
         choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
 
-        print(f"\nYou have chosen:\n")
+        print("\nYou have chosen:\n")
         for i, choice in enumerate(choices, 1):
             item_description = get_item_description(choice, constants.item_descriptions)
             print(f"{i}. {item_description}")
