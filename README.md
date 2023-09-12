@@ -41,41 +41,24 @@ The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famo
 
 ## Features
 
-### Navbar
+### Introduction to the exercise
 
-- Positioned at the top of the page.
+- The exercise starts with a short introduction welcoming the user, asking the user to press Enter when they are ready to begin.
+- The user is also informed that they can exit the exercise at any time by pressing the Esc button on their keyboard.
 
-- Contains the name of The Viking Kings Quiz in the center of the header bar. There is a Viking shield on the top left to provide balance to the bar.
+![Intro](/documentation/images/viking-quiz-header.png)
 
-- Contains navigation links on the right hand side:
+### Scenario section
 
-    * Home - leads to the Home Page where the user can launch a new game.
+- The user is then taken through the scenario for the exercise, as well as given some details about likely priorities and how the exercise is scored. 
+- The user is then invited to press Enter to see the twelve items and begin to choose their five items in order of priority. 
 
-    * Instructions - leads to a popup with instructions on how to play the game.
+![Scenario](/documentation/images/scenario-section.png)
 
-    * E-mail link - opens the user's chosen e-mail client so the user can contact us (with comments, questions, or suggestions).
+### Items list and user choices
 
-- The links have an animation whereby each link is underlined when hovered over, and the cursor becomes a pointer.
-
-- The navigation bar is simply and clearly set out, giving a good first impression for the user.
-
-![Navbar](/documentation/images/viking-quiz-header.png)
-
-- The navigation bar is responsive:
-
-* On tablets (in portrait mode) and mobile phones: 
-
-- The shield image and subtitle ('-How well do you know your Vikings?') are removed to prevent the narrower navbar from being cluttered.
-
-![Navbar Smaller screens](/documentation/images/viking-quiz-navbar-narrow.png)
-
----
-
-### Home Page
-
-- The Home Page introduces the user to the concept of the game, providing a little bit of background about the Vikings and how their histories and exploits were recorded. There is a start button to begin the game.
-
-#### General background and Cover Text
+- The twelve items from which the user has to choose five is then presented in table format.
+- 
 
 - The general background is a cartoon image of a Viking ship in a bay.
 
