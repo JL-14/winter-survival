@@ -36,75 +36,23 @@ def select_items():
 
 def get_user_choices():
     """ Get user item choices """
-    while True:
-        try:
-            first_choice = int(input("Which item would be your first choice? 1-12?\n"))
-            if first_choice < 1 or first_choice > 12:
-                print(f"""ERROR! You entered {first_choice}, which is not between 1 and 12.
-Please enter a number between 1 and 12!""")
-                continue
-            break
-        except ValueError:
-            print("ERROR! Please enter a number between 1 and 12!\n")
-    while True:
-        try:
-            second_choice = int(input("Which item would be your second choice? 1-12?\n"))
-            if second_choice < 1 or second_choice > 12:
-                print(f"""ERROR! You entered {second_choice}, which is not between 1 and 12.
-Please enter a number between 1 and 12!""")
-                continue
-            elif second_choice == first_choice:
-                print(f"""ERROR! You entered {second_choice}, which has already been used.
-Please enter a new number.""")
-                continue
-            break           
-        except ValueError:
-            print("ERROR! Please enter a number between 1 and 12!\n")
-    while True:
-        try:
-            third_choice = int(input("Which item would be your third choice? 1-12?\n"))
-            if third_choice < 1 or third_choice > 12:
-                print(f"""ERROR! You entered {third_choice}, which is not between 1 and 12.
-Please enter a number between 1 and 12!""")
-                continue
-            elif third_choice == first_choice or third_choice == second_choice:
-                print(f"""ERROR! You entered {third_choice}, which has already been used.
-Please enter a new number.""")
-                continue
-            break     
-        except ValueError:
-            print("ERROR! Please enter a number between 1 and 12!\n")
-    while True:
-        try:    
-            fourth_choice = int(input("Which item would be your fourth choice? 1-12?\n"))
-            if fourth_choice < 1 or fourth_choice > 12:
-                print(f"""ERROR! You entered {fourth_choice}, which is not between 1 and 12.
-Please enter a number between 1 and 12!""")
-                continue
-            elif fourth_choice == third_choice or fourth_choice == second_choice or fourth_choice == first_choice:
-                print(f"""ERROR! You entered {fourth_choice}, which has already been used.
-Please enter a new number.""")
-                continue
-            break
-        except ValueError:
-            print("ERROR! Please enter a number between 1 and 12!\n")
-    while True:
-        try:
-            fifth_choice = int(input("Which item would be your fifth choice? 1-12?\n"))
-            if fifth_choice < 1 or fifth_choice > 12:
-                print(f"""ERROR! You entered {fifth_choice}, which is not between 1 and 12.
-Please enter a number between 1 and 12!""")
-                continue
-            elif fifth_choice == fourth_choice or fifth_choice == third_choice or fifth_choice == second_choice or fifth_choice == first_choice:         
-                print(f"""ERROR! You entered {fifth_choice}, which has already been used.
-Please enter a new number between 1 and 12!""")
-                continue
-            break
-        except ValueError:
-            print("ERROR! Please enter a number between 1 and 12!\n")
+    choices = []
+    for i in range(1, 6):
+        while True:
+            try:
+                choice = int(input(f"Which item would be your choice number {i}? 1-12?\n"))
+                if choice < 1 or choice > 12:
+                    print(f"ERROR! You entered {choice}, which is not between 1 and 12. Please enter a number between 1 and 12!")
+                    continue
+                elif choice in choices:
+                    print(f"ERROR! You entered {choice}, which has already been used. Please enter a new number.")
+                    continue
+                choices.append(choice)
+                break
+            except ValueError:
+                print("ERROR! Please enter a number between 1 and 12!\n")
+    return tuple(choices)
 
-    return first_choice, second_choice, third_choice, fourth_choice, fifth_choice
-    
 def get_item_description(choice, item_descriptions):
     """ Get description of items chosen """
     return item_descriptions.get(choice, "")
@@ -180,7 +128,7 @@ def main():
               """)
         select_items()
         first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
-        print(constants.item_descriptions) 
+
 
         choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
         first_choice = int(first_choice)
@@ -252,9 +200,6 @@ def main():
             break
         else:
             print("Please enter 'y' for yes or 'n' for no.\n")
-
-def programme_exit():
-    sys.exit()
 
 if __name__ == "__main__":
     main()
