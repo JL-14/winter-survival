@@ -1,5 +1,4 @@
 # Import packages for the programme
-import sys
 import os
 from tabulate import tabulate
 import keyboard
@@ -134,7 +133,7 @@ def main():
             item_description = get_item_description(choice, constants.item_descriptions)
             print(f"{i}. {item_description}")
 
-        choice_confirm = input("\nPress Enter to see your score! \n")
+        choice_confirm = input("\nPress Enter to see your score!")
     else:
         print("Please enter 'y' for yes or 'n' to see the items again")
 
