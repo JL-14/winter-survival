@@ -1,22 +1,23 @@
 # Import packages for the programme
 import os
-import threading
-import keyboard
+# import threading
+# import keyboard
 from tabulate import tabulate
-from pynput import keyboard
+# from pynput import keyboard
 import constants
 
-def on_key_release(key):
-    if key == keyboard.Key.esc:
-        print("Thank you for visiting the Winter Survival experience, now exiting...")
-        os._exit(1)
+# !!! Additional thread or pynput not supported by Heroku !!!
+# def on_key_release(key):
+#     if key == keyboard.Key.esc:
+#         print("Thank you for visiting the Winter Survival experience, now exiting...")
+#         os._exit(1)
 
-def check_for_esc():
-    with keyboard.Listener(on_release=on_key_release) as listener:
-        listener.join()
+# def check_for_esc():
+#     with keyboard.Listener(on_release=on_key_release) as listener:
+#         listener.join()
 
-exit_thread = threading.Thread(target=check_for_esc)
-exit_thread.start()
+# exit_thread = threading.Thread(target=check_for_esc)
+# exit_thread.start()
 
 def print_intro():
     """ 
@@ -95,9 +96,9 @@ def display_score(score):
     elif 6 <= score <= 12:
         return "Very Good! You have a pretty good chance of survival!"
     elif 13 <= score <= 20:
-        return "Good. You have a reasonable chance of survival."
+        return "OK. You have a reasonable chance of survival with these items."
     else:
-        return "Not So Good... You have a pretty low chance of survival based on the items chosen."
+        return "a Poor score... You have a pretty low chance of survival based on these items alone."
 
 def finish():
     """ End of exercise """
@@ -130,9 +131,11 @@ def main():
     elif choice_confirm.lower() == 'n':
         # Re-displaying table if user wants to choose again
         print("""
+              
               ---------------------------------
               Please make your final selection:
               ---------------------------------
+              
               """)
         select_items()
         first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
@@ -149,7 +152,15 @@ def main():
 
     total_score = calculate_score(choices, constants.expert_view, constants.item_descriptions)
 
-    print(f"\nYour final score is:\n\n        {total_score}\n\nwhich is {display_score(total_score)}\n")
+    print(f"""
+---------------------------------
+Your final score is:
+          
+        {total_score}
+                  
+Which is {display_score(total_score)}
+---------------------------------
+""")
 
     while True:
         feedback_choice = input("Would you like to see the survival expert's feedback on the items you chose? y/n \n")
