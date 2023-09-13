@@ -5,16 +5,16 @@ import keyboard
 from tabulate import tabulate
 import constants
 
-def check_for_esc():
-    """ Set programme to exit when esc is pressed
-        Open function in new thread, to run alongside programme code 
-        """
-    while True:
-        if keyboard.is_pressed('esc'):
-            print("Thank you for visiting the Winter Survival experience, now exiting...")
-            os._exit(1)
-exit_thread = threading.Thread(target = check_for_esc)
-exit_thread.start()
+# def check_for_esc():
+#     """ Set programme to exit when esc is pressed
+#         Open function in new thread, to run alongside programme code 
+#         """
+#     while True:
+#         if keyboard.is_pressed('esc'):
+#             print("Thank you for visiting the Winter Survival experience, now exiting...")
+#             os._exit(1)
+# exit_thread = threading.Thread(target = check_for_esc)
+# exit_thread.start()
 
 def print_intro():
     """ 
@@ -50,7 +50,7 @@ def get_user_choices():
     for i in range(1, 6):
         while True:
             try:
-                choice = int(input(f"Which item would be your choice number {i}? 1-12?\n"))
+                choice = int(input(f"{i}. Which item would be your choice number {i}? 1-12?\n"))
                 if choice < 1 or choice > 12:
                     print(f"ERROR! You entered {choice}, which is not between 1 and 12. Please enter a number between 1 and 12!")
                     continue
@@ -160,6 +160,7 @@ def main():
             break
         elif feedback_choice.lower() == 'n':
             print("")
+            break
         else:
             print("\nERROR! Please enter 'y' for yes or 'n' for no.\n")
 
