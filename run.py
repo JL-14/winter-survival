@@ -63,7 +63,7 @@ def get_user_choices():
                 choices.append(choice)
                 break
             except ValueError:
-                print("ERROR! Please enter a number between 1 and 12!\n")
+                print(f"ERROR! Your entry is not valid. Please enter a number between 1 and 12!\n")
     return tuple(choices)
 
 def get_item_description(choice, item_descriptions):
