@@ -3,18 +3,20 @@ import os
 import threading
 import keyboard
 from tabulate import tabulate
+from pynput import keyboard
 import constants
 
-# def check_for_esc():
-#     """ Set programme to exit when esc is pressed
-#         Open function in new thread, to run alongside programme code 
-#         """
-#     while True:
-#         if keyboard.is_pressed('esc'):
-#             print("Thank you for visiting the Winter Survival experience, now exiting...")
-#             os._exit(1)
-# exit_thread = threading.Thread(target = check_for_esc)
-# exit_thread.start()
+def on_key_release(key):
+    if key == keyboard.Key.esc:
+        print("Thank you for visiting the Winter Survival experience, now exiting...")
+        os._exit(1)
+
+def check_for_esc():
+    with keyboard.Listener(on_release=on_key_release) as listener:
+        listener.join()
+
+exit_thread = threading.Thread(target=check_for_esc)
+exit_thread.start()
 
 def print_intro():
     """ 
