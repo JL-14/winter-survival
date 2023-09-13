@@ -3,11 +3,7 @@ import os
 import threading
 import keyboard
 from tabulate import tabulate
-# import intro_module
-# import scenario_module
 import constants
-# import feedback
-
 
 def check_for_esc():
     """ Set programme to exit when esc is pressed
