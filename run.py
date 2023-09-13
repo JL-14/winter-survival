@@ -1,23 +1,7 @@
 # Import packages for the programme
 import os
-# import threading
-# import keyboard
 from tabulate import tabulate
-# from pynput import keyboard
 import constants
-
-# !!! Additional thread or pynput not supported by Heroku !!!
-# def on_key_release(key):
-#     if key == keyboard.Key.esc:
-#         print("Thank you for visiting the Winter Survival experience, now exiting...")
-#         os._exit(1)
-
-# def check_for_esc():
-#     with keyboard.Listener(on_release=on_key_release) as listener:
-#         listener.join()
-
-# exit_thread = threading.Thread(target=check_for_esc)
-# exit_thread.start()
 
 def print_intro():
     """ 
@@ -53,7 +37,7 @@ def get_user_choices():
     for i in range(1, 6):
         while True:
             try:
-                choice = int(input(f"{i}. Which item would be your choice number {i}? 1-12?\n"))
+                choice = int(input(f"\n{i}. Which item would be your choice number {i}? 1-12?\n"))
                 if choice < 1 or choice > 12:
                     print(f"ERROR! You entered {choice}, which is not between 1 and 12. Please enter a number between 1 and 12!")
                     continue
@@ -63,7 +47,7 @@ def get_user_choices():
                 choices.append(choice)
                 break
             except ValueError:
-                print(f"ERROR! Your entry is not valid. Please enter a number between 1 and 12!\n")
+                print("ERROR! Your entry is not valid. Please enter a number between 1 and 12!\n")
     return tuple(choices)
 
 def get_item_description(choice, item_descriptions):
