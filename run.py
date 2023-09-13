@@ -3,10 +3,10 @@ import os
 import threading
 import keyboard
 from tabulate import tabulate
-import intro_module
-import scenario_module
+# import intro_module
+# import scenario_module
 import constants
-import feedback
+# import feedback
 
 
 def check_for_esc():
@@ -25,7 +25,7 @@ def print_intro():
         Print intro 
         Require enter-press to proceed 
         """
-    print(intro_module.intro_text)
+    print(constants.intro_text)
     input("Press Enter to proceed\n")
 
 def print_scenario():
@@ -33,7 +33,7 @@ def print_scenario():
         Print_scenario 
         Require enter-press to proceed 
         """
-    print(scenario_module.scenario_text)
+    print(constants.scenario_text)
     input("Press Enter to select your items\n")
 
 def select_items():
@@ -71,7 +71,7 @@ def get_item_description(choice, item_descriptions):
     """ Get description of items chosen """
     return item_descriptions.get(choice, "")
 
-feedback = feedback.feedback_dict
+feedback = constants.feedback_dict
 def get_item_feedback(choice, feedback):
     """ Get expert feedback for items chosen """
     return feedback.get(choice, "")
@@ -151,23 +151,25 @@ def main():
 
     total_score = calculate_score(choices, constants.expert_view, constants.item_descriptions)
 
-    print(f"\nYour final score is:\n\n{total_score}\n\nwhich is {display_score(total_score)}\n")
+    print(f"\nYour final score is:\n\n        {total_score}\n\nwhich is {display_score(total_score)}\n")
 
-    feedback_choice = input("Would you like to see the survival expert's feedback on the items you chose? y/n \n")
-    # Routing and validation for displaying expert feedback for each item chosen by user
-    if feedback_choice.lower() == 'y':
-        print("\nThe expert's feedback for your choices were:\n")
-        for i, choice in enumerate(choices, 1):
-            item_feedback = get_item_feedback(choice, feedback)
-            print(f"{i}. {item_feedback}")
-    elif feedback_choice.lower() == 'n':
-        print("")
-    else:
-        print("\nERROR! Please enter 'y' for yes or 'n' for no.\n")
+    while True:
+        feedback_choice = input("Would you like to see the survival expert's feedback on the items you chose? y/n \n")
+        # Routing and validation for displaying expert feedback for each item chosen by user
+        if feedback_choice.lower() == 'y':
+            print("\nThe expert's feedback for your choices were:\n")
+            for i, choice in enumerate(choices, 1):
+                item_feedback = get_item_feedback(choice, feedback)
+                print(f"{i}. {item_feedback}")
+            break
+        elif feedback_choice.lower() == 'n':
+            print("")
+        else:
+            print("\nERROR! Please enter 'y' for yes or 'n' for no.\n")
 
     # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
-        print("Do you want to try again, see the expert's item rankings, or quit?\n")
+        print("Do you want to try again, see the expert's item rankings, or quit?")
         choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
         if choice.lower() == 'e':
             expert_ranking_table = constants.expert_list
@@ -192,11 +194,11 @@ def main():
                     print("Please enter 'y' for yes or 'n' for no.\n")
         else: 
             print("\nERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.\n")
-            choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
+            print(choice)
 
     # Loop for option to clean terminal on ending game, with validation
     while True:
-        clean_terminal = input("Do you want to clean the terminal window on exit? y/n\n")
+        clean_terminal = input("\nDo you want to clean the terminal window on exit? y/n\n")
         if clean_terminal.lower() == 'y':
             os.system('cls' if os.name == 'nt' else 'clear')
             os._exit(1)
