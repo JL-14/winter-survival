@@ -41,6 +41,14 @@ The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famo
 
 ## Features
 
+### Throughout the programme
+
+- The font colours indicate the nature of the information:
+    * White font is the narrative of the exercise
+    * Yellow font indicates that user input is required
+    * Green font indicates that the text represents input from the expert
+    * Red font indicates that the user input is incorrect 
+
 ### Introduction to the exercise
 
 - The exercise starts with a short introduction welcoming the user, asking the user to press Enter when they are ready to begin.
@@ -58,7 +66,43 @@ The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famo
 ### Items list and user choices
 
 - The twelve items from which the user has to choose five is then presented in table format.
-- 
+- Under the table the user is asked to choose one of the twelve items as their highest priority item for survival in the given environment, repeated for each of the user's five items.
+- When the user has chosen five items, the items are listed back to the user and they are asked to confirm that they are happy with their selection.
+- If they are not happy with what they chose the table of items will be displayed again, and they will be given a second opportunity to select items
+- If they make an incorrect entry (a non-numerical entry, an entry outside the range 1-12, an empty entry, or a duplicate entry of an item already chosen), an error will appear and they can choose again.
+
+### Score and feedback
+
+- Once the user has made their choices the score is calculated in accordance with the scoring information presented at the start of the game, and presented as a number with an accompanying statement (Excellent, Very Good, OK, or Poor) depending on their score.
+
+### Expert feedback on items chosen
+
+- After they have been presented with the score, the user is invited to see the expert's feedback (a paragraph of text) for each of the items they chose, which includes and benefits and potential dangers associated with each item.
+- The user will only be able to see feedback for the items they chose, so that if they wish to play again they can do so without having it spoiled.
+- The feedback is in green font to indicate that it represents the expert's views.
+
+### Final step
+
+- After the expert's feedback on the chosen items, the user can choose to try again, see the full list of expert ratings, or to quit the game.
+    * Try again: Restarts the game from the beginning.
+    * Expert's rankings: Displays a table (in green) showing how the expert ranked the twelve items, from the most important to the least important.
+    * Quit: Takes the user to the option to clean the terminal at the end of the exercise.
+
+### Clean the terminal
+
+- At the end of the exercise the user is asked whether they want to clean the terminal (unless they have chosen to start again, in which case the terminal is automatically cleaned).
+- If they select yes, the terminal is cleaned and left empty, whilst if they choose no, the exercise will finish, leaving the information from the exercise in the terminal (so that the user can revisit the expert's advice, their choices, etc).
+
+## Flowchart
+
+- The following flowchart shows the logic of the application:
+![Flowchart](/documentation/images/flowchart.png)
+
+## Technologies used
+
+
+
+
 
 - The general background is a cartoon image of a Viking ship in a bay.
 
