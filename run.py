@@ -1,14 +1,17 @@
-# Import packages for the programme
+""" Imported modules """
 import os
+from time import sleep
 from tabulate import tabulate
-import constants
+from colorama import Fore, Back, Style
+from constants import *
+
 
 def print_intro():
     """ 
         Print intro 
         Require enter-press to proceed 
         """
-    print(constants.intro_text)
+    print(intro_text)
     input("Press Enter to proceed\n")
 
 def print_scenario():
@@ -16,7 +19,7 @@ def print_scenario():
         Print_scenario 
         Require enter-press to proceed 
         """
-    print(constants.scenario_text)
+    print(scenario_text)
     input("Press Enter to select your items\n")
 
 def select_items():
@@ -24,7 +27,7 @@ def select_items():
         Import items from constants module 
         Create table of items
         """
-    data = constants.item_list
+    data = item_list
     col_names = ["Item no.", "Item"]
     print(tabulate(data, headers=col_names, tablefmt="grid"))
 
@@ -34,12 +37,12 @@ def get_user_choices():
         Add validation for incorrect data entries
         """
     choices = []
-    for i in range(1, 6):
+    for item in range(1, 6):
         while True:
             try:
-                choice = int(input(f"\n{i}. Which item would be your choice number {i}? 1-12?\n"))
+                choice = int(input(f"\n{item}. Which item would be your choice number {item}? 1-12?\n"))
                 if choice < 1 or choice > 12:
-                    print(f"ERROR! You entered {choice}, which is not between 1 and 12. Please enter a number between 1 and 12!")
+                    print(f"{Fore.RED}ERROR! You entered {choice}, which is not between 1 and 12. Please enter a number between 1 and 12!{Style.RESET_ALL}")
                     continue
                 elif choice in choices:
                     print(f"ERROR! You entered {choice}, which has already been used. Please enter a new number.")
@@ -54,10 +57,10 @@ def get_item_description(choice, item_descriptions):
     """ Get description of items chosen """
     return item_descriptions.get(choice, "")
 
-feedback = constants.feedback_dict
-def get_item_feedback(choice, feedback):
+# feedback = constants.feedback_dict
+def get_item_feedback(choice, feedback_dict):
     """ Get expert feedback for items chosen """
-    return feedback.get(choice, "")
+    return feedback_dict.get(choice, "")
 
 def calculate_score(choices, expert_view, item_descriptions):
     """ Calculate scores based on user choice and expert ranking """
@@ -99,19 +102,19 @@ def main():
     # Assign function get_user_choices to choices made
     first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
 
-    # Create list of integers for choices made 
+    # Create list of integers for choices made
     choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
 
     print("\nYou have chosen:\n")
     # Loop to match item description to choice number
     for i, choice in enumerate(choices, 1):
-        item_description = get_item_description(choice, constants.item_descriptions)
+        item_description = get_item_description(choice, item_descriptions)
         print(f"{i}. {item_description}")
 
     choice_confirm = input("\nAre you happy with your choices? y/n \n")
     # Routing and Validation of choices made, and whether user happy with choices
     if choice_confirm.lower() == 'y':
-        calculate_score(choices, constants.expert_view, constants.item_descriptions)
+        calculate_score(choices, expert_view, item_descriptions)
     elif choice_confirm.lower() == 'n':
         # Re-displaying table if user wants to choose again
         print("""
@@ -127,14 +130,14 @@ def main():
 
         print("\nYou have chosen:\n")
         for i, choice in enumerate(choices, 1):
-            item_description = get_item_description(choice, constants.item_descriptions)
+            item_description = get_item_description(choice, item_descriptions)
             print(f"{i}. {item_description}")
 
         choice_confirm = input("\nPress Enter to see your score!")
     else:
         print("Please enter 'y' for yes or 'n' to see the items again")
 
-    total_score = calculate_score(choices, constants.expert_view, constants.item_descriptions)
+    total_score = calculate_score(choices, expert_view, item_descriptions)
 
     print(f"""
 ---------------------------------
@@ -166,9 +169,9 @@ Which is {display_score(total_score)}
         print("Do you want to try again, see the expert's item rankings, or quit?")
         choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
         if choice.lower() == 'e':
-            expert_ranking_table = constants.expert_list
+            expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
-            print("\nThese are the expert's rankings of the items:\n")
+            print("\n{Back.GREEN}These are the expert's rankings of the items:{Style.RESET_ALL}\n")
             print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
             break
         elif choice.lower() == 't':
@@ -186,7 +189,7 @@ Which is {display_score(total_score)}
                     os._exit(1)
                 else:
                     print("Please enter 'y' for yes or 'n' for no.\n")
-        else: 
+        else:
             print("\nERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.\n")
             print(choice)
 

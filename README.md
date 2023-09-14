@@ -1,4 +1,4 @@
-![The Viking Kings Quiz](/documentation/images/viking-quiz-navbar.png)
+![](/documentation/images/viking-quiz-navbar.png)
 ---
 # *The Winter Survival Exercise*
 
