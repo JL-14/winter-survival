@@ -40,17 +40,26 @@ def get_user_choices():
     for item in range(1, 6):
         while True:
             try:
-                choice = int(input(f"\n{item}. Which item would be your choice number {item}? 1-12?\n"))
+                choice = int(input(f"{item}. Which item would be your choice number {item}? 1-12?\n"))
                 if choice < 1 or choice > 12:
-                    print(f"{Fore.RED}ERROR! You entered {choice}, which is not between 1 and 12. Please enter a number between 1 and 12!{Style.RESET_ALL}")
+                    print(f"""{Fore.RED}
+ERROR! You entered {choice}, which is not between 1 and 12. 
+Please enter a number between 1 and 12!
+{Style.RESET_ALL}""")
                     continue
                 elif choice in choices:
-                    print(f"ERROR! You entered {choice}, which has already been used. Please enter a new number.")
+                    print(f"""{Fore.RED}
+ERROR! You entered {choice}, which has already been used. 
+Please enter a new number.
+{Style.RESET_ALL}""")
                     continue
                 choices.append(choice)
                 break
             except ValueError:
-                print("ERROR! Your entry is not valid. Please enter a number between 1 and 12!\n")
+                print(f"""{Fore.RED}
+ERROR! Your entry is not valid. 
+Please enter a number between 1 and 12!
+{Style.RESET_ALL}""")
     return tuple(choices)
 
 def get_item_description(choice, item_descriptions):
@@ -79,17 +88,17 @@ def calculate_score(choices, expert_view, item_descriptions):
 def display_score(score):
     """ Display final score """
     if score <= 5:
-        return """Excellent! You have a very good chance 
-of survival!"""
+        return """Excellent! 
+You have a very good chance of survival!"""
     elif 6 <= score <= 12:
-        return """Very Good! You have a pretty good chance 
-of survival!"""
+        return """Very Good! 
+You have a pretty good chance of survival!"""
     elif 13 <= score <= 20:
-        return """OK. You have a reasonable chance of survival 
-with these items."""
+        return """OK...
+You have a reasonable chance of survival with these items."""
     else:
-        return """a Poor score... You have a pretty low chance 
-of survival based on these items alone."""
+        return """a Poor score... 
+You have a pretty low chance of survival based on these items alone."""
 
 def finish():
     """ End of exercise """
@@ -104,10 +113,22 @@ def main():
     select_items()
 
     # Assign function get_user_choices to choices made
-    first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
+    (
+    first_choice, 
+    second_choice, 
+    third_choice, 
+    fourth_choice, 
+    fifth_choice
+    ) = get_user_choices()
 
     # Create list of integers for choices made
-    choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
+    choices = (
+        [int(first_choice), 
+         int(second_choice), 
+         int(third_choice), 
+         int(fourth_choice), 
+         int(fifth_choice)]
+         )
 
     print("\nYou have chosen:\n")
     # Loop to match item description to choice number
@@ -131,8 +152,18 @@ def main():
                 
                 """)
             select_items()
-            first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
-            choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
+            (first_choice, 
+             second_choice, 
+             third_choice, 
+             fourth_choice, 
+             fifth_choice) = get_user_choices()
+            choices = (
+                [int(first_choice),
+                int(second_choice), 
+                int(third_choice), 
+                int(fourth_choice), 
+                int(fifth_choice)]
+                )
             print("\nYou have chosen:\n")
             for i, choice in enumerate(choices, 1):
                 item_description = get_item_description(choice, item_descriptions)
@@ -140,7 +171,9 @@ def main():
             choice_confirm = input("\nPress Enter to see your score!")
             break
         else:
-            print("Please enter 'y' for yes or 'n' to see the items again")
+            print(f"""{Fore.RED}
+ERROR! Please enter 'y' for yes or 'n' to see the items again
+{Style.RESET_ALL}""")
 
     total_score = calculate_score(choices, expert_view, item_descriptions)
 
@@ -160,14 +193,14 @@ Which is {display_score(total_score)}
         if feedback_choice.lower() == 'y':
             print("\nThe expert's feedback for your choices were:\n")
             for i, choice in enumerate(choices, 1):
-                item_feedback = get_item_feedback(choice, feedback)
+                item_feedback = get_item_feedback(choice, feedback_dict)
                 print(f"{i}. {item_feedback}")
             break
         elif feedback_choice.lower() == 'n':
             print("")
             break
         else:
-            print("\nERROR! Please enter 'y' for yes or 'n' for no.\n")
+            print(f"\n{Fore.RED}ERROR! Please enter 'y' for yes or 'n' for no.{Style.RESET_ALL}\n")
 
     # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
@@ -176,7 +209,7 @@ Which is {display_score(total_score)}
         if choice.lower() == 'e':
             expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
-            print("\n{Back.GREEN}These are the expert's rankings of the items:{Style.RESET_ALL}\n")
+            print(f"{Fore.GREEN}\nThese are the expert's rankings of the items:\n{Style.RESET_ALL}")
             print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
             break
         elif choice.lower() == 't':
@@ -195,7 +228,9 @@ Which is {display_score(total_score)}
                 else:
                     print("Please enter 'y' for yes or 'n' for no.\n")
         else:
-            print("\nERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.\n")
+            print(f"""{Fore.RED}
+ERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.
+{Style.RESET_ALL}""")
             print(choice)
 
     # Loop for option to clean terminal on ending game, with validation
@@ -208,7 +243,9 @@ Which is {display_score(total_score)}
             print("\nThank you for visiting the Winter Survival Exercise!\n")
             os._exit(1)
         else:
-            print("Please enter 'y' for yes or 'n' for no.\n")
+            print(f"""{Fore.RED}
+ERROR! Please enter 'y' for yes or 'n' for no.
+{Style.RESET_ALL}""")
 
 if __name__ == "__main__":
     main()
