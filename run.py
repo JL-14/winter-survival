@@ -12,7 +12,7 @@ def print_intro():
         Require enter-press to proceed 
         """
     print(intro_text)
-    input("Press Enter to proceed\n")
+    input(f"{Fore.YELLOW}Press Enter to begin the exercise\n{Style.RESET_ALL}")
 
 def print_scenario():
     """ 
@@ -20,7 +20,16 @@ def print_scenario():
         Require enter-press to see and select items
         """
     print(scenario_text)
-    input("Press Enter to see and select your items\n")
+    input(f"{Fore.YELLOW}Press Enter to see how the exercise is scored\n{Style.RESET_ALL}")
+
+
+def score_method():
+    """ 
+        Print scoring method
+        Require enter-press to proceed 
+        """
+    print(score_text)
+    input(f"{Fore.YELLOW}Press Enter to see and select your items\n{Style.RESET_ALL}")
 
 def select_items():
     """ 
@@ -40,7 +49,7 @@ def get_user_choices():
     for item in range(1, 6):
         while True:
             try:
-                choice = int(input(f"{item}. Which item would be your choice number {item}? 1-12?\n"))
+                choice = int(input(f"{Fore.YELLOW}{item}. Which item would be your choice number {item}? 1-12?\n{Style.RESET_ALL}"))
                 if choice < 1 or choice > 12:
                     print(f"""{Fore.RED}
 ERROR! You entered {choice}, which is not between 1 and 12. 
@@ -88,16 +97,16 @@ def calculate_score(choices, expert_view, item_descriptions):
 def display_score(score):
     """ Display final score """
     if score <= 5:
-        return """Excellent! 
+        return f"""Excellent!
 You have a very good chance of survival!"""
     elif 6 <= score <= 12:
-        return """Very Good! 
+        return f"""Very Good!
 You have a pretty good chance of survival!"""
     elif 13 <= score <= 20:
-        return """OK...
+        return f"""OK...
 You have a reasonable chance of survival with these items."""
     else:
-        return """a Poor score... 
+        return f"""a Poor score...
 You have a pretty low chance of survival based on these items alone."""
 
 def finish():
@@ -110,6 +119,7 @@ def main():
     """ Run programme """
     print_intro()
     print_scenario()
+    score_method()
     select_items()
 
     # Assign function get_user_choices to choices made
@@ -137,7 +147,7 @@ def main():
         print(f"{i}. {item_description}")
 
     while True:
-        choice_confirm = input("\nAre you happy with your choices? y/n \n")
+        choice_confirm = input(f"\n{Fore.YELLOW}Are you happy with your choices? y/n {Style.RESET_ALL}\n")
         # Routing and Validation of choices made, and whether user happy with choices
         if choice_confirm.lower() == 'y':
             calculate_score(choices, expert_view, item_descriptions)
@@ -168,7 +178,7 @@ def main():
             for i, choice in enumerate(choices, 1):
                 item_description = get_item_description(choice, item_descriptions)
                 print(f"{i}. {item_description}")
-            choice_confirm = input("\nPress Enter to see your score!")
+            choice_confirm = input(f"\n{Fore.YELLOW}Press Enter to see your score!{Style.RESET_ALL}")
             break
         else:
             print(f"""{Fore.RED}
@@ -188,10 +198,11 @@ Which is {display_score(total_score)}
 """)
 
     while True:
-        feedback_choice = input("Would you like to see the survival expert's feedback on the items you chose? y/n \n")
+        feedback_choice = input(f"""{Fore.YELLOW}Would you like to see the survival expert's 
+feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
         # Routing and validation for displaying expert feedback for each item chosen by user
         if feedback_choice.lower() == 'y':
-            print("\nThe expert's feedback for your choices were:\n")
+            print(f"\n{Fore.BLUE}The expert's feedback for your choices were:{Style.RESET_ALL}\n")
             for i, choice in enumerate(choices, 1):
                 item_feedback = get_item_feedback(choice, feedback_dict)
                 print(f"{i}. {item_feedback}")
@@ -204,12 +215,12 @@ Which is {display_score(total_score)}
 
     # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
-        print("Do you want to try again, see the expert's item rankings, or quit?")
-        choice = input("-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit\n")
+        print(f"{Fore.YELLOW}Do you want to try again, see the expert's item rankings, or quit?{Style.RESET_ALL}")
+        choice = input(f"{Fore.YELLOW}-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit{Style.RESET_ALL}\n")
         if choice.lower() == 'e':
             expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
-            print(f"{Fore.GREEN}\nThese are the expert's rankings of the items:\n{Style.RESET_ALL}")
+            print(f"{Fore.BLUE}\nThese are the expert's rankings of the items:\n")
             print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
             break
         elif choice.lower() == 't':
@@ -218,7 +229,7 @@ Which is {display_score(total_score)}
         elif choice.lower() == 'q':
             # Loop for option to clean terminal on quitting, with validation
             while True:
-                clean_terminal = input("Do you want to clean the terminal window on exit? y/n\n")
+                clean_terminal = input(f"{Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}\n")
                 if clean_terminal.lower() == 'y':
                     os.system('cls' if os.name == 'nt' else 'clear')
                     os._exit(1)
@@ -226,7 +237,9 @@ Which is {display_score(total_score)}
                     print("\nThank you for visiting the Winter Survival Exercise!\n")
                     os._exit(1)
                 else:
-                    print("Please enter 'y' for yes or 'n' for no.\n")
+                    print(f"""{Fore.RED}
+ERROR! Please enter 'y' for yes or 'n' for no.
+{Style.RESET_ALL}""")
         else:
             print(f"""{Fore.RED}
 ERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.
@@ -235,7 +248,7 @@ ERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' t
 
     # Loop for option to clean terminal on ending game, with validation
     while True:
-        clean_terminal = input("\nDo you want to clean the terminal window on exit? y/n\n")
+        clean_terminal = input(f"{Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}\n")
         if clean_terminal.lower() == 'y':
             os.system('cls' if os.name == 'nt' else 'clear')
             os._exit(1)

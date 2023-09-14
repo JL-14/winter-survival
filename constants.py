@@ -23,11 +23,18 @@ While escaping from the plane you saw twelve items, but you can only manage to t
 
 Mid-January is the coldest time of the year where you are. The first problem you face, therefore, is to preserve body heat and to protect your body against heat loss. Your body will be using energy to stay warm, so that is another consideration.
 You also need to consider how you can attract the attention of search parties.
+"""
 
+
+score_text = """
 -----------------------------------------------
 Scoring
 
-This exercise was created by a US Army survival expert who also ranked the items. Your 5 rankings will be compared with how he ranked the items, so if your first choice (i.e. 1) was also ranked by him as the first choice (i.e. 1), you will get 0 penalty points (expert ranking - your ranking, so 1 - 1 = 0. However, if your second choice (i.e. 2) was ranked by the expert as the 11th most important item (i.e. 11), you will get 9 penalty points (11 - 2 = 9). Your aim is to get as low a total score for the 5 items as possible. 
+This exercise was created by a US Army survival expert who also ranked the items. 
+
+Your 5 rankings will be compared with how he ranked the items, so if your first choice (i.e. 1) was also ranked by him as the first choice (i.e. 1), you will get 0 penalty points (expert ranking - your ranking, so 1 - 1 = 0. However, if your second choice (i.e. 2) was ranked by the expert as the 11th most important item (i.e. 11), you will get 9 penalty points (11 - 2 = 9). 
+
+Your aim is to get as low a total score for the 5 items as possible. 
 
 Finally, there are no absolutely right answers, and in real life your ability to use the items chosen will affect their usefulness. You may therefore not agree with the exact rankings the expert has given, but the expert's rankings would unquestionably give you a chance of survival in this environment.
 """
