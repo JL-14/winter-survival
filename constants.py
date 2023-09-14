@@ -15,17 +15,15 @@ Press 'Ctrl + C' at any point to quit.
 scenario_text = """
 -----------------------------------------------
 
-1. It is mid-January and your light airplane crashed in Northern Canada this morning at 1132am.
+1. It is mid-January and your light airplane crashed in Northern Canada this morning at 1132am. You are the only survivor.
 
-2. You are the only survivor.
+2. You are in a snowy wilderness area made up of thick woods broken by many lakes and rivers. The last weather report indicated that the temperature will be minus twenty-five degrees in the daytime and minus forty at night.
 
-3. You are in a snowy wilderness area made up of thick woods broken by many lakes and rivers. The last weather report indicated that the temperature will be minus twenty-five degrees in the daytime and minus forty at night.
+3. You are dressed in business clothes as you were on your way to a meeting —suit, street shoes, and overcoat.
 
-4. You are dressed in business clothes as you were on your way to a meeting —suit, street shoes, and overcoat.
+4. While escaping from the plane you saw twelve items, but you can only manage to take five out of the plane wreck. Your task is to select five of the items and rank these five items according to their importance for your survival (1 being the most important, 2 the second most important, and so on). You can change your mind about which items to take ONLY ONCE.
 
-5. While escaping from the plane you saw twelve items, but you can only manage to take five out of the plane wreck. Your task is to select five of the items and rank these five items according to their importance for your survival (1 being the most important, 2 the second most important, and so on). You can change your mind about which items to take ONLY ONCE.
-
-6. Mid-January is the coldest time of the year where you are. The first problem you face, therefore, is to preserve body heat and to protect your body against heat loss. Your body will be using energy to stay warm, so that is another consideration.
+5. Mid-January is the coldest time of the year where you are. The first problem you face, therefore, is to preserve body heat and to protect your body against heat loss. Your body will be using energy to stay warm, so that is another consideration.
 You also need to consider how you can attract the attention of search parties.
 """
 
