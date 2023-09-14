@@ -177,50 +177,25 @@ The website displays correctly across the different browsers, and also across di
 | Display score statement | Click on the Finish button on the Final answer screens | When score is 3 or higher the Successful Result screen appears with correct score (N out of 5) | Yes | Yes | - |
 | See expert feedback -Yes | Click on the Finish button on the Final answer screens | When score is 2 or lower the Failed Result screen appears with correct score (N out of 5) | Yes | Yes | On some screen sizes the Failed Game popup appears low on the page, hiding the Return to Main Page button |
 | See expert feedback -No | Click on Return to Main Page button on Final Score screen | Returns to the Home Page | Yes | Yes | - |
-| ***!!!Score counters | Click on correct and incorrect answer buttons | The score counters for both correct and incorrect answers update correctly | Yes | Yes | - |
-| Quit button in Score box | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
-| Quit button in Correct and Incorrect Answer popup | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
-| Quit confirmation popup -Yes | Click on 'OK' to quit game | Returns to Home Page | Yes | Yes | - |
-| Quit confirmation popup -No | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
----
+| See expert feedback -Non-valid | Click on correct and incorrect answer buttons | The score counters for both correct and incorrect answers update correctly | Yes | Yes | - |
+| Try again/ expert's rankings/ quit options -'t' to try again | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
+| Try again/ expert's rankings/ quit options -'e' to see expert's rankings | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
+| Try again/ expert's rankings/ quit options -'q' to quit | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
+| Quit -Clean terminal -Yes | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
+| Quit -Clean terminal -No | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
+| Quit -Clean terminal -Non-valid entry | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
+| Try again/ expert's rankings/ quit options Incorrect entry -No entry | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
+| Try again/ expert's rankings/ quit options Incorrect entry -Non-valid entry | Click on 'OK' to quit game | Returns to Home Page | Yes | Yes | - |
+| Clean terminal -Yes | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
+| Clean terminal -No | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
+| Clean terminal -Non-valid entry | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
 
-### Validator Testing
-
-### HTML
-- No errors or warnings were found when W3C Validator was employed.
-
-![Home Page HTML Validator](/documentation/images/validator-html.png)
-
-### CSS
-
-- No errors were found when the W3C CSS Validator was employed.
-
-![CSS Page Validator](/documentation/images/validator-css.png)
-
-- There were 9 warnings when the W3C CSS Validator was run, all relating to external content in the Google Fonts link.
-
-### JavaScript
-
-![JavaScript Validator](/documentation/images/validator-js.png)
-
-- The JS Validator (https://jshint.com/) found 1 warning and no errors. The warning relates to the use of 'answerIndex[i]' in code matching tiles to question, but it does not appear to affect the user experience.
 
 ---
 
-### Performance
-- Using Lighthouse in DevTools on the Chrome browser I checked the performance of the website, which was very good across the board. The only flagged area was linked to the use of gif images which are resource intensive, hence the lower performance score of 87. Alternative image formats will be explored in future versions of the site.
+### Validator testing
 
-![Website Lighthouse](/documentation/images/lighthouse-viking-kings-quiz.png)
 
----
-
-### Accessibility Testing
-
-- The accessibility of the website for visitors with assistive technologies or other impairments was tested using the Google WAVE extension. 
-
-- After making some adjustments to increase contrast, there were no accessibility errors, with some warnings about the length of some ARIA-label descriptions linked to text links (the descriptions being on the long side) which do not impair the accessibility of the website.
-
-![Website WAVE](/documentation/images/validator-wave.png)
 
 ---
 
