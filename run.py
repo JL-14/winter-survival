@@ -17,40 +17,40 @@ def print_intro():
 
 def print_scenario():
     """ 
-        Print_scenario 
-        Require enter-press to see and select items
-        """
+    Print_scenario 
+    Require enter-press to see and select items
+    """
     print(scenario_text)
     input(f"{Fore.YELLOW}Press Enter to see how the exercise is scored\n{Style.RESET_ALL}")
 
 def score_method():
     """ 
-        Print scoring method
-        Require enter-press to proceed 
-        """
+    Print scoring method
+    Require enter-press to proceed 
+    """
     print(score_text)
     input(f"{Fore.YELLOW}Press Enter to see and select your items\n{Style.RESET_ALL}")
 
 def select_items():
     """ 
-        Import items from constants module 
-        Create table of items
-        """
+    Import items from constants module 
+    Create table of items
+    """
     data = item_list
     col_names = ["Item no.", "Item"]
     print(tabulate(data, headers=col_names, tablefmt="grid"))
 
 def get_user_choices():
     """ 
-        Get user item choices 
-        Add validation for incorrect data entries
-        """
+    Get user item choices 
+    Add validation for incorrect data entries
+    """
     choices = []
     for item in range(1, 6):
         while True:
             try:
-                choice = int(input(
-f"""{Fore.YELLOW}{item}. Which item would be your choice number {item}?
+                choice = int(input(f"""{Fore.YELLOW}
+{item}. Which item would be your choice number {item}?
 Please enter an item number between 1 and 12?{Style.RESET_ALL}
 """))
                 if choice < 1 or choice > 12:
@@ -221,9 +221,9 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
 
     # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
-        print(f"""
-{Fore.YELLOW}Do you want to try again, see the expert's item rankings, or quit?{Style.RESET_ALL}""")
-        choice = input(f"""{Fore.YELLOW}:Type 
+        print(f"""{Fore.YELLOW}
+Do you want to try again, see the expert's item rankings, or quit?""")
+        choice = input(f"""Type: 
 't' to try again
 'e' to see expert rankings 
 'q' to quit{Style.RESET_ALL}
