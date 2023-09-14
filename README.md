@@ -154,29 +154,30 @@ The website displays correctly across the different browsers, and also across di
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
 | Navbar | | | | | |
-| Home | Click on the "Home" link | The user is redirected to the main page | Yes | Yes | - |
-| Instructions | Click on the "Instructions" link | The user is shown the Instructions popup | Yes | Yes | - |
-| Close Instructions button | Click on the Close Instructions button | Instruction popup is closed and user returned to home or game page | Yes | Yes | - |
-| E-mail Us! | Click on the "E-mail Us!" link | The user is redirected to their preferred e-mail client | Yes | Yes | - |
-| Footer | | | | | |
-| Home | Click on the "Home" link | The user is redirected to the main page | Yes | Yes | - | 
-| Facebook link in the footer | Click on the Facebook link | The user is redirected to the Facebook page | Yes | Yes | - |
-| Twitter/ X link in the footer | Click on the Twitter/ X link | The user is redirected to the Twitter/ X page | Yes | Yes | - |
-| Instagram link in the footer | Click on the Instagram link | The user is redirected to the Instagram page | Yes | Yes | - |
-| GitHub Home Page link in the footer | Click on the GitHub link | The user is redirected to the creator's GitHub page | Yes | Yes | - |
-| Home page | | | | | |
-| Start button | Click on the Start button | The game starts and the game page displays | Yes | Yes | - |
-| Game page | | | | | |
-| Correct Answer button | Click on the correct answer | The correct answer popup shows for all 5 questions | Yes | Yes | - |
-| Incorrect Answer buttons | Click on an incorrect answer | The Incorrect answer popup shows for all 8 incorrect options | Yes | Yes | - |
-| Correct Final Answer button | Click on the correct answer for final question | The correct final answer popup appears for all 5 questions | Yes | Yes | - |
-| Incorrect Final Answer button | Click on an incorrect answer for final question | The incorrect final answer popup appears for all 5 questions | Yes | Yes | - |
-| Finish button on Correct Final Answer popup | Click on the Finish button on the Correct Final Answer popup | The Result screen appears | Yes | Yes | - |
-| Finish button on Incorrect Final Answer popup | Click on the Finish button on the Inorrect Final Answer popup | The Result screen appears | Yes | Yes | - |
-| Final Score screen -Successful game | Click on the Finish button on the Final answer screens | When score is 3 or higher the Successful Result screen appears with correct score (N out of 5) | Yes | Yes | - |
-| Final Score screen -Failed game | Click on the Finish button on the Final answer screens | When score is 2 or lower the Failed Result screen appears with correct score (N out of 5) | Yes | Yes | On some screen sizes the Failed Game popup appears low on the page, hiding the Return to Main Page button |
-| Return to Main Page button | Click on Return to Main Page button on Final Score screen | Returns to the Home Page | Yes | Yes | - |
-| Score counters | Click on correct and incorrect answer buttons | The score counters for both correct and incorrect answers update correctly | Yes | Yes | - |
+| Introduction | Click on the "Home" link | The user is redirected to the main page | Yes | Yes | - |
+| Scenario | Click on the "Instructions" link | The user is shown the Instructions popup | Yes | Yes | - |
+| Start exercise | Click on the Close Instructions button | Instruction popup is closed and user returned to home or game page | Yes | Yes | - |
+| Choose items | Click on the "E-mail Us!" link | The user is redirected to their preferred e-mail client | Yes | Yes | - |
+| Correct number entries | | | | | |
+| Display choices made | | | | | |
+| Incorrect entry -No entry | Click on the "Home" link | The user is redirected to the main page | Yes | Yes | - | 
+| Incorrect entry - Number outside range | Click on the Facebook link | The user is redirected to the Facebook page | Yes | Yes | - |
+| Incorrect entry - Non-number entry | Click on the Twitter/ X link | The user is redirected to the Twitter/ X page | Yes | Yes | - |
+| Incorrect entry - Duplicate entry | Click on the Instagram link | The user is redirected to the Instagram page | Yes | Yes | - |
+| Confirm selection -Yes | Click on the GitHub link | The user is redirected to the creator's GitHub page | Yes | Yes | - |
+| Confirm selection -No | | | | | |
+| Second attempt Correct number entries| Click on the Start button | The game starts and the game page displays | Yes | Yes | - |
+| Second attempt Incorrect entry -No entry | | | | | |
+| Second attempt Incorrect entry - Number outside range | Click on the correct answer | The correct answer popup shows for all 5 questions | Yes | Yes | - |
+| Second attempt Incorrect entry - Non-number entry | Click on an incorrect answer | The Incorrect answer popup shows for all 8 incorrect options | Yes | Yes | - |
+| Second attempt Incorrect entry - Duplicate entry | Click on the correct answer for final question | The correct final answer popup appears for all 5 questions | Yes | Yes | - |
+| Second attempt confirmation | Click on an incorrect answer for final question | The incorrect final answer popup appears for all 5 questions | Yes | Yes | - |
+| Second attempt Display choices made | | | | | | 
+| Display score | Click on the Finish button on the Inorrect Final Answer popup | The Result screen appears | Yes | Yes | - |
+| Display score statement | Click on the Finish button on the Final answer screens | When score is 3 or higher the Successful Result screen appears with correct score (N out of 5) | Yes | Yes | - |
+| See expert feedback -Yes | Click on the Finish button on the Final answer screens | When score is 2 or lower the Failed Result screen appears with correct score (N out of 5) | Yes | Yes | On some screen sizes the Failed Game popup appears low on the page, hiding the Return to Main Page button |
+| See expert feedback -No | Click on Return to Main Page button on Final Score screen | Returns to the Home Page | Yes | Yes | - |
+| ***!!!Score counters | Click on correct and incorrect answer buttons | The score counters for both correct and incorrect answers update correctly | Yes | Yes | - |
 | Quit button in Score box | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
 | Quit button in Correct and Incorrect Answer popup | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
 | Quit confirmation popup -Yes | Click on 'OK' to quit game | Returns to Home Page | Yes | Yes | - |
