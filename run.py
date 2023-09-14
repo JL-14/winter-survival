@@ -165,7 +165,7 @@ def main():
                 Please make your final selection:
                 ---------------------------------
                 
-                """)
+""")
             select_items()
             (first_choice, 
              second_choice, 
@@ -201,7 +201,7 @@ Your final score is:
                   
 Which is {display_score(total_score)}
 ---------------------------------
-        """)
+""")
 
     while True:
         feedback_choice = input(f"""{Fore.YELLOW}Would you like to see the survival expert's 
@@ -227,7 +227,7 @@ Do you want to try again, see the expert's item rankings, or quit?""")
 't' to try again
 'e' to see expert rankings 
 'q' to quit{Style.RESET_ALL}
-        """)
+""")
         if choice.lower() == 'e':
             expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
@@ -243,7 +243,7 @@ Do you want to try again, see the expert's item rankings, or quit?""")
             while True:
                 clean_terminal = input(f"""
 {Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}
-                """)
+""")
                 if clean_terminal.lower() == 'y':
                     os.system('cls' if os.name == 'nt' else 'clear')
                     os._exit(1)
