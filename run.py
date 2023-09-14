@@ -1,8 +1,7 @@
 """ Imported modules """
 import os
-from time import sleep
 from tabulate import tabulate
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 from constants import *
 
 

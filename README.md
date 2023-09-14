@@ -100,175 +100,54 @@ The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famo
 
 ## Technologies used
 
+### Languages:
 
+- [Python 3.11.4](https://www.python.org/downloads/release/python-3114/): used to anchor the project and direct all application behavior
 
+- [JavaScript](https://www.javascript.com/): used to provide the start script needed to run the Code Institute mock terminal in the browser
 
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) used to construct the elements involved in building the mock terminal in the browser
 
-- The general background is a cartoon image of a Viking ship in a bay.
+### Frameworks/Libraries, Programmes and Tools:
+#### Python modules/packages:
 
-- The background image is fixed, so that the sections appear to scroll over the image.
+##### Standard library imports:
 
-- On the Home Page there is a cover text box with a semi-transparent background.
+- [os](https://docs.python.org/3/library/os.html ) was used to clear the terminal before running the program.
 
-![Front Page](/documentation/images/viking-quiz-front-page.png)
+##### Third-party imports:
 
-#### Introduction
+- [Tabulate Package](https://pypi.org/project/tabulate/) was used to create tables for items and expert rankings.
+- [Colorama](https://pypi.org/project/colorama/) was used to add colors and styles to the project.
 
-- The introduction sets out a little of the history of the Vikings and how their histories were recorded, and introduces the game.
+#### Other tools:
 
-#### Start Button
-
-- There is a clearly coloured yellow start button, which starts the game.
-
-#### Footer
-
-- The Footer is at the base of each page, in a fixed position.
-
-- The Footer has links to the Home Page, Social Media, the creator's GitHub home page, and Copyright information.
-
-- The links have animations in the form of a colour change and a bottom line under the relevant link when hovered over.
-
----
-
-### Game Page
-
-- The Game page, which is a modal activated by the Start Button on the Home Page, has the same navbar, background image, and footer as the Home Page.
-
-![Game Page](/documentation/images/viking-quiz-game-page.png)
-
-- The page consists of a biography of one of five Viking kings, a question relating to that king, a grid of nine possible answers, and a score box with a quit button.
-
-#### Viking Biographies
-
-![Viking Biography](/documentation/images/rollo-biography.png)
-
-- Each Viking biography shows the name and date of birth and death of the Viking, an image of the Viking from historical or artistic sources, and a short description of the main achievements of the Viking.
-
-- The Viking biography changes to the next Viking when the Next Question button is clicked.
-
-- There are five questions in total.
-
-#### Question
-
-![Question](/documentation/images/question-screenshot.png)
-
-- Each Viking biography is accompanied by a question relating to the text in the biography.
-
-- The question changes when the Next Question button is clicked, in tandem with the Viking biography changing.
-
-#### Answer Grid
-
-![Answer Grid](/documentation/images/answer-grid.png)
-
-- On the right hand side of the screen there is a grid of 9 tiles, each with a possible answer to the question.
-
-- In this version of the game the tiles are static, and do not change as the Vikings and Questions change. A different tile has the correct answer for each Viking.
-
-- On clicking on a tile, a modal/ popup appears with either feedback that the answer is correct or incorrect.
-
-#### Answer Feedback popups
-
-![Correct Answer](/documentation/images/correct-answer-popup.png)
-
-- The modal consists of feedback that the answer was correct, an animated gif image of a Viking giving the thumbs up, a button for Next Question and a Quit Button.
-
-![Incorrect Answer](/documentation/images/incorrect-answer-popup.png)
-
-- As for the Correct Answers, the modal consists of feedback that the answer was incorrect, an animated gif image of a Viking being hit by lightning, a button for Next Question and a Quit Button.
-
-- Clicking on Next Question opens up a new question window with a new Viking, a new Question, and the same options.
-
-- Clicking on the Quit button brings up a confirmation popup asking the user to confirm that they want to quit the game. If they confirm they are returned to the front page, and if they cancel they are returned to the modal, where they can click Next Question to continue.
-
-![Quit confirmation](/documentation/images/quit-confirmation.png)
-
-- The final, fifth, question brings up a slightly different modal both for the correct and incorrect answers.
-
-![Final Correct Answer](/documentation/images/final-correct-answer.png)
-
-![Final Incorrect Answer](/documentation/images/final-incorrect-answer.png)
-
-- The final modals inform the user that it was the final question, and provides a Finish button which takes the user to the final score page. There is also a button to quit.
-
-#### Score Area
-
-![Score Area](/documentation/images/score-area.png)
-
-- The Score Area consists of a tally of right answers, wrong answers, and a Quit button.
-
-- The scores are updated dynamically when answers are clicked, according to whether the answer is correct or incorrect.
-
-- Correct answers are displayed in green, wrong answers in red.
-
-#### Final Score Screens
-
-- After the final answer has been answered and the user clicks on the Finish button, a final result modal appears with the final score and feedback and an animated git image depending on whether they were successful in the game or not.
-
-- The score threshold set in this game is 3 out of 5 to be successful, so scores between 3 and 5 gives a success final screen whilst scores between 0 and 2 gives the unsuccessful final screen.
-
-![Final Screen -Success](/documentation/images/final-screen-success.png)
-
-![Final Screen -Fail](/documentation/images/final-screen-fail.png)
-
-- From the final screen there is a button to Return to Main Page, returning to the front page where the user can start a new game if they so wish.
-
----
-
-## Technologies Used
-
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used as the foundation of the site.
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/css) - was used for the formatting and layout of the site.
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - was used to programme interactive elements of the site.
-- [Balsamiq](https://balsamiq.com/) was used to make wireframes for the website.
-- [Gitpod](https://gitpod.io/) was used as a backup IDE tool for writing code and editing.
+- [VSCode](https://code.visualstudio.com/) was used as the main tool to write and edit code.
 - [Git](https://git-scm.com/) was used for the version control of the website.
 - [GitHub](https://github.com/) was used to host the code of the website.
-- [GitHub Pages](https://pages.github.com/) was used to deploy the website on the internet.
-- [iStock](https://www.istockphoto.com/) was used to source the images on the website.
-- [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html) was used to edit and size images on the website.
+- [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html) was used to make and resize images for the README file.
+- [Lucid](https://www.lucidchart.com/pages/examples/flowchart-maker) was used to make a flowchart for the README file.
+- [Heroku](https://dashboard.heroku.com/apps) was used to deploy the project.
 
 ---
 
 ## Design
 
-### Colour Scheme
+- As this is a text-based exercise displaying in a terminal-environment, there was little design involved.
+- Colorama was used to add colours to the exercise, providing clarity about the nature of the different sections for the user:
+    * White font for the narrative of the exercise
+    * Yellow font where user input is required
+    * Green font where the text represents input from the expert
+    * Red font where there is an error/ the user input is incorrect 
+- Tabulate was used to structure the items and expert rankings in table format, to make the content more user friendly.
 
-![Color Palette](/documentation/images/colour-palette.png)
-
-- A darker red colour (Engineering Orange) was chosen as the main background colour, as psychologically it is associated with excitement and strength, and fit with the theme of the game (around Viking kings and their exploits). The colour matches the theme and the background for the website and is used both in full and with 0.9 opaqueness.
-
-- An off-white colour (Antique White) was used for the fonts, both in the header and in the body of the site. The colour provides good contrast against the red background, and is gentler than pure white.
-
-- A bright yellow colour was used for the Start, Next Question, and Finish buttons as it provides excellent contrast against the background colours, and draws the user's attention to it, making it the natural next button to press.
-
-- A medium brown colour was used for borders around modals/ popups and buttons, as it provides good contrast with the red, off-white, and yellow background colours used for buttons. Brown also fits the theme of the website in being associated with nature and ruggedness.
-
-- Black was used for fonts on modals/ popups and for the Viking biographies, as it provides the highest level of contrast against the off-white backgrounds used here, and is highly legible.
-
-### Typography
-
-![Main Font](/documentation/images/typography.png)
-
-- Acme was used as the main font for the website as it provides good readability and has a Nordic appearance (with sharper edges than most other fonts). The font is legible and goes well with the theme of the website.
-
-### Wireframe
-
-![Wireframe for website](/documentation/images/balsamiq-wireframes-viking-quiz-1.png)
-
-![Wireframe for website](/documentation/images/balsamiq-wireframes-viking-quiz-2.png)
-
-- The wireframe for the website was greated using the Balsamiq wireframe tool, creating an initial outline of the website. The initial design was further developed as the website was realised, but the core concept and design remains consistent.
-
-- The full wireframe document can be found [here](/documentation/images/balsamiq-wireframes-viking-kings-quiz.pdf)
 ---
 
 ## Testing
 
-In order to confirm the functionality, responsiveness and presentation of the website, it was tested on a range of screen types and screen sizes, across Chrome, Firefox, and Edge browsers.
+In order to confirm the functionality, responsiveness and presentation of the programme, it was tested on a range of screen types and screen sizes, across Chrome, Firefox, and Edge browsers, and in various developer environments, including VS Code, GitPod, and Heroku (with the purpose-built app for the project).
 
-The website displays correctly across the different browsers, and also across different screen sizes. The responsiveness of the website was tested on several screens (different width monitors, iPhone 14 Max, and other displays used by other users), and also through the [Responsive Viewer add-in](https://responsiveviewer.org/) on Google Chrome:
-
-![Responsive Viewer](/documentation/images/responsive-viewer.png)
+The website displays correctly across the different browsers, and also across different screen sizes.
 
 ### Manual testing
 
