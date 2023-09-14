@@ -228,7 +228,7 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
 'e' to see expert rankings 
 'q' to quit{Style.RESET_ALL}
 """)
-        # if choice.lower() == 'e':
+        if choice.lower() == 'e':
             expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
             print(f"{Fore.GREEN}\nThese are the expert's rankings of the items:\n")
