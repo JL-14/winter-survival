@@ -7,9 +7,11 @@ from constants import *
 
 def print_intro():
     """ 
+        Clean terminal before launching programme
         Print intro 
         Require enter-press to proceed 
         """
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(intro_text)
     input(f"{Fore.YELLOW}Press Enter to begin the exercise\n{Style.RESET_ALL}")
 
@@ -20,7 +22,6 @@ def print_scenario():
         """
     print(scenario_text)
     input(f"{Fore.YELLOW}Press Enter to see how the exercise is scored\n{Style.RESET_ALL}")
-
 
 def score_method():
     """ 

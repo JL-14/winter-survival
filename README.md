@@ -139,7 +139,7 @@ The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famo
     * Yellow font where user input is required
     * Green font where the text represents input from the expert
     * Red font where there is an error/ the user input is incorrect 
-- Tabulate was used to structure the items and expert rankings in table format, to make the content more user friendly.
+- Tabulate was used to structure the items list and expert rankings in table formats, to make the content more user friendly.
 
 ---
 
@@ -201,22 +201,112 @@ The website displays correctly across the different browsers, and also across di
 
 ## Deployment
 
-- The website was deployed to GitHub Pages.
+- The program was deployed to [Heroku](https://dashboard.heroku.com).
+- The program can be reached by the [link](https://the-maddest-madlib.onrender.com/)
 
-- In order to deploy, the following process was followed:
-    1. Select the [GitHub repository](https://github.com/JL-14/famous-vikings-game) and go to Settings.
-    2. Select the **Main Branch** from the Source Dropdown menu, and click Save.
-    3. The page will be refreshed automatically with a detailed report showing successful deployment.
+### To deploy the project as an application that can be **run locally**:
 
-- The live link can be found [here](https://jl-14.github.io/viking-experience-uk/)
+*Note:*
+  1. This project requires you to have Python installed on your local PC:
+  - `sudo apt install python3`
 
-## Local Deployment
+  1. You will also need pip installed to allow the installation of modules the application uses.
+  - `sudo apt install python3-pip`
 
-- The Viking Kings Quiz website can be cloned in your IDE, creating a local copy. The following command will create the clone:
+Create a local copy of the GitHub repository by following one of the two processes below:
 
-- `git clone https://github.com/JL-14/famous-vikings-game'
+- Download ZIP file:
+  1. Go to the [GitHub Repo page](https://github.com/IuliiaKonovalova/madlib_with_python).
+  1. Click the Code button and download the ZIP file containing the project.
+  1. Extract the ZIP file to a location on your PC.
 
-- In Gitpod you can open the workspace [here](https://gitpod.io/#https://github.com/JL-14/famous-vikings-game)
+- Clone the repository:
+  1. Open a folder on your computer with the terminal.
+  1. Run the following command
+  - `git clone https://github.com/IuliiaKonovalova/madlib_with_python.git`
+
+- Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+  [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/IuliiaKonovalova/madlib_with_python)
+
+  1. Install Python module dependencies:
+     
+      1. Navigate to the folder madlib_with_python by executing the command:
+      - `cd madlib_with_python`
+      1. Run the command pip install -r requirements.txt
+        - `pip3 install -r requirements.txt`
+      1. *Note:* If you are located in China ![China](https://www.countryflags.io/cn/flat/32.png) or any other country with restricted internet access, you may need to add the following code in order to be able to use the nltk package.
+      
+       - For example:
+
+        ```python
+        nltk.set_proxy('127.0.0.1:41091')
+        ```
+      - To set the proxy, you need to open setting in preferred VPN, find Server address and HTTP/HTTPS Proxy Port joining them by colons as it is shown in the example above:
+      ![Settings VPN](documentation/deployment/settings_vpn.png)
+
+
+### To deploy the project to Heroku so it can be run as a remote web application:
+- Clone the repository:
+  1. Open a folder on your computer with the terminal.
+  1. Run the following command
+  - `git clone https://github.com/IuliiaKonovalova/madlib_with_python.git`
+
+  1. Create your own GitHub repository to host the code.
+  1. Run the command `git remote set-url origin <Your GitHub Repo Path>` to set the remote repository location to your repository.
+
+  1. Push the files to your repository with the following command:
+  `git push`
+  1. Create a Heroku account if you don't already have one here [Heroku](https://dashboard.heroku.com).
+  1. Create a new Heroku application on the following page here [New Heroku App](https://dashboard.heroku.com/apps):
+
+      - ![New Heroku App](documentation/deployment/new_heroku_app.png)
+
+  1. Go to the Deploy tab:
+
+      - ![Deploy Tab](documentation/deployment/deploy_tab.png)
+
+      - ![Deployment Method](documentation/deployment/deployment_method.png)
+
+  1. Link your GitHub account and connect the application to the repository you created.
+
+      - ![Link GitHub account](documentation/deployment/link_to_github.png)
+
+  1. Go to the Settings tab:
+  
+      - ![Settings Tab](documentation/deployment/settings_tab.png)
+
+  1. Click "Add buildpack":
+
+      - ![Add Buildpack](documentation/deployment/add_buildpack.png)
+
+  1. Add the Python and Node.js buildpacks in the following order:
+
+      - ![Add Python and Node.js](documentation/deployment/add_python_and_node_js.png)
+
+  1. Click "Reveal Config Vars."
+
+      - ![Reveal Config Vars](documentation/deployment/reveal_config_vars.png)
+
+  1. Add 1 new Config Vars:
+      - Key: PORT Value: 8000
+      - *This Config was provided by [CODE INSTITUTE](https://codeinstitute.net/)*.
+
+  1. Go back to the Deploy tab:
+
+      - ![Deploy Tab](documentation/deployment/deploy_tab.png)
+
+  1. Click "Deploy Branch":
+
+      - ![Deploy Branch](documentation/deployment/deploy_branch.png)
+
+      - Wait for the completion of the deployment.
+
+      - ![Deploying Branch](documentation/deployment/deploying_branch.png)
+
+  1. Click "Open app" to launch the application inside a web page.
+
+      - ![View Button](documentation/deployment/view_app.png)
 
 ---
 
