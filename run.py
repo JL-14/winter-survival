@@ -49,14 +49,14 @@ def get_user_choices():
     for item in range(1, 6):
         while True:
             try:
-                choice = int(input(f"""{Fore.YELLOW}{item}. Which item would be your choice number {item}?
-Please enter an item number between 1 and 12?{Style.RESET_ALL}
+                choice = int(input(f"""{Fore.YELLOW}
+{item}. Which item would you rank as number {item}?
+Please type an item number between 1 and 12?{Style.RESET_ALL}
 """))
                 if choice < 1 or choice > 12:
                     print(f"""{Fore.RED}
 ERROR! You entered {choice}, which is not between 1 and 12. 
-Please enter a number between 1 and 12!
-{Style.RESET_ALL}""")
+Please enter a number between 1 and 12!{Style.RESET_ALL}""")
                     continue
                 elif choice in choices:
                     print(f"""{Fore.RED}
@@ -68,8 +68,7 @@ Please enter a new number.{Style.RESET_ALL}""")
             except ValueError:
                 print(f"""{Fore.RED}
 ERROR! Your entry is not valid. 
-Please enter a number between 1 and 12!
-{Style.RESET_ALL}""")
+Please enter a number between 1 and 12!{Style.RESET_ALL}""")
     return tuple(choices)
 
 def get_item_description(choice, item_descriptions):
