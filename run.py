@@ -17,10 +17,10 @@ def print_intro():
 def print_scenario():
     """ 
         Print_scenario 
-        Require enter-press to proceed 
+        Require enter-press to see and select items
         """
     print(scenario_text)
-    input("Press Enter to select your items\n")
+    input("Press Enter to see and select your items\n")
 
 def select_items():
     """ 
@@ -79,13 +79,17 @@ def calculate_score(choices, expert_view, item_descriptions):
 def display_score(score):
     """ Display final score """
     if score <= 5:
-        return "Excellent! You have a very good chance of survival!"
+        return """Excellent! You have a very good chance 
+of survival!"""
     elif 6 <= score <= 12:
-        return "Very Good! You have a pretty good chance of survival!"
+        return """Very Good! You have a pretty good chance 
+of survival!"""
     elif 13 <= score <= 20:
-        return "OK. You have a reasonable chance of survival with these items."
+        return """OK. You have a reasonable chance of survival 
+with these items."""
     else:
-        return "a Poor score... You have a pretty low chance of survival based on these items alone."
+        return """a Poor score... You have a pretty low chance 
+of survival based on these items alone."""
 
 def finish():
     """ End of exercise """
@@ -111,31 +115,32 @@ def main():
         item_description = get_item_description(choice, item_descriptions)
         print(f"{i}. {item_description}")
 
-    choice_confirm = input("\nAre you happy with your choices? y/n \n")
-    # Routing and Validation of choices made, and whether user happy with choices
-    if choice_confirm.lower() == 'y':
-        calculate_score(choices, expert_view, item_descriptions)
-    elif choice_confirm.lower() == 'n':
-        # Re-displaying table if user wants to choose again
-        print("""
-              
-              ---------------------------------
-              Please make your final selection:
-              ---------------------------------
-              
-              """)
-        select_items()
-        first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
-        choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
-
-        print("\nYou have chosen:\n")
-        for i, choice in enumerate(choices, 1):
-            item_description = get_item_description(choice, item_descriptions)
-            print(f"{i}. {item_description}")
-
-        choice_confirm = input("\nPress Enter to see your score!")
-    else:
-        print("Please enter 'y' for yes or 'n' to see the items again")
+    while True:
+        choice_confirm = input("\nAre you happy with your choices? y/n \n")
+        # Routing and Validation of choices made, and whether user happy with choices
+        if choice_confirm.lower() == 'y':
+            calculate_score(choices, expert_view, item_descriptions)
+            break
+        elif choice_confirm.lower() == 'n':
+            # Re-displaying table if user wants to choose again
+            print("""
+                
+                ---------------------------------
+                Please make your final selection:
+                ---------------------------------
+                
+                """)
+            select_items()
+            first_choice, second_choice, third_choice, fourth_choice, fifth_choice = get_user_choices()
+            choices = [int(first_choice), int(second_choice), int(third_choice), int(fourth_choice), int(fifth_choice)]
+            print("\nYou have chosen:\n")
+            for i, choice in enumerate(choices, 1):
+                item_description = get_item_description(choice, item_descriptions)
+                print(f"{i}. {item_description}")
+            choice_confirm = input("\nPress Enter to see your score!")
+            break
+        else:
+            print("Please enter 'y' for yes or 'n' to see the items again")
 
     total_score = calculate_score(choices, expert_view, item_descriptions)
 
