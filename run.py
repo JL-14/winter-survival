@@ -233,6 +233,7 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
             col_names_expert = ["Expert rank", "Item"]
             print(f"{Fore.GREEN}\nThese are the expert's rankings of the items:\n")
             print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
+            print(f"{Style.RESET_ALL}\nThank you for visiting the Winter Survival Exercise!")
             break
         elif choice.lower() == 't':
             main()
