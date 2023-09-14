@@ -49,8 +49,7 @@ def get_user_choices():
     for item in range(1, 6):
         while True:
             try:
-                choice = int(input(f"""{Fore.YELLOW}
-{item}. Which item would be your choice number {item}?
+                choice = int(input(f"""{Fore.YELLOW}{item}. Which item would be your choice number {item}?
 Please enter an item number between 1 and 12?{Style.RESET_ALL}
 """))
                 if choice < 1 or choice > 12:
@@ -62,8 +61,7 @@ Please enter a number between 1 and 12!
                 elif choice in choices:
                     print(f"""{Fore.RED}
 ERROR! You entered {choice}, which has already been used. 
-Please enter a new number.
-{Style.RESET_ALL}""")
+Please enter a new number.{Style.RESET_ALL}""")
                     continue
                 choices.append(choice)
                 break
@@ -221,8 +219,7 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
 
     # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
-        print(f"""{Fore.YELLOW}
-Do you want to try again, see the expert's item rankings, or quit?""")
+        print(f"{Fore.YELLOW}Do you want to try again, see the expert's item rankings, or quit?")
         choice = input(f"""Type: 
 't' to try again
 'e' to see expert rankings 
@@ -258,7 +255,6 @@ ERROR! Please enter 'y' for yes or 'n' for no.
             print(f"""{Fore.RED}
 ERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.
 {Style.RESET_ALL}""")
-            print(choice)
 
     # Loop for option to clean terminal on ending game, with validation
     while True:

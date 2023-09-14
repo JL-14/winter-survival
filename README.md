@@ -314,7 +314,13 @@ Create a local copy of the GitHub repository by following one of the two process
 
 ### Existing Bugs
 
-1. There are two warnings in DevTools on Chrome and Firefox browsers stating that: 
+1. Broken text (mid-word)
+
+2. Display hides top of tables
+
+3. 
+
+There are two warnings in DevTools on Chrome and Firefox browsers stating that: 
 
 "DevTools failed to load source map: Could not load content for chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/sourceMap/chrome/scripts/content_autoplay_detection.js.map: System error: net::ERR_BLOCKED_BY_CLIENT"
 
