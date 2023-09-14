@@ -6,6 +6,10 @@ from colorama import Fore, Back, Style
 from constants import *
 
 
+def ingame_clean_terminal():
+    """ To periodically clean the terminal after large amounts of text """
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def print_intro():
     """ 
         Print intro 
@@ -49,7 +53,10 @@ def get_user_choices():
     for item in range(1, 6):
         while True:
             try:
-                choice = int(input(f"{Fore.YELLOW}{item}. Which item would be your choice number {item}? 1-12?\n{Style.RESET_ALL}"))
+                choice = int(input(
+f"""{Fore.YELLOW}{item}. Which item would be your choice number {item}?
+Please enter an item number between 1 and 12?{Style.RESET_ALL}
+"""))
                 if choice < 1 or choice > 12:
                     print(f"""{Fore.RED}
 ERROR! You entered {choice}, which is not between 1 and 12. 
@@ -68,7 +75,8 @@ Please enter a new number.
                 print(f"""{Fore.RED}
 ERROR! Your entry is not valid. 
 Please enter a number between 1 and 12!
-{Style.RESET_ALL}""")
+{Style.RESET_ALL}
+""")
     return tuple(choices)
 
 def get_item_description(choice, item_descriptions):
@@ -97,16 +105,16 @@ def calculate_score(choices, expert_view, item_descriptions):
 def display_score(score):
     """ Display final score """
     if score <= 5:
-        return f"""Excellent!
+        return """Excellent!
 You have a very good chance of survival!"""
     elif 6 <= score <= 12:
-        return f"""Very Good!
+        return """Very Good!
 You have a pretty good chance of survival!"""
     elif 13 <= score <= 20:
-        return f"""OK...
+        return """OK...
 You have a reasonable chance of survival with these items."""
     else:
-        return f"""a Poor score...
+        return """a Poor score...
 You have a pretty low chance of survival based on these items alone."""
 
 def finish():
@@ -120,6 +128,7 @@ def main():
     print_intro()
     print_scenario()
     score_method()
+    ingame_clean_terminal()
     select_items()
 
     # Assign function get_user_choices to choices made
@@ -147,7 +156,9 @@ def main():
         print(f"{i}. {item_description}")
 
     while True:
-        choice_confirm = input(f"\n{Fore.YELLOW}Are you happy with your choices? y/n {Style.RESET_ALL}\n")
+        choice_confirm = input(f"""
+{Fore.YELLOW}Are you happy with your choices? y/n {Style.RESET_ALL}
+""")
         # Routing and Validation of choices made, and whether user happy with choices
         if choice_confirm.lower() == 'y':
             calculate_score(choices, expert_view, item_descriptions)
@@ -178,7 +189,8 @@ def main():
             for i, choice in enumerate(choices, 1):
                 item_description = get_item_description(choice, item_descriptions)
                 print(f"{i}. {item_description}")
-            choice_confirm = input(f"\n{Fore.YELLOW}Press Enter to see your score!{Style.RESET_ALL}")
+            choice_confirm = input(f"""
+{Fore.YELLOW}Press Enter to see your score!{Style.RESET_ALL}""")
             break
         else:
             print(f"""{Fore.RED}
@@ -202,6 +214,7 @@ Which is {display_score(total_score)}
 feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
         # Routing and validation for displaying expert feedback for each item chosen by user
         if feedback_choice.lower() == 'y':
+            ingame_clean_terminal()
             print(f"\n{Fore.GREEN}The expert's feedback for your choices were:\n")
             for i, choice in enumerate(choices, 1):
                 item_feedback = get_item_feedback(choice, feedback_dict)
@@ -215,9 +228,15 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
 
     # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
-        print(f"{Fore.YELLOW}Do you want to try again, see the expert's item rankings, or quit?{Style.RESET_ALL}")
-        choice = input(f"{Fore.YELLOW}-Type 't' to try again/ 'e' to see expert rankings/ 'q' to quit{Style.RESET_ALL}\n")
+        print(f"""
+{Fore.YELLOW}Do you want to try again, see the expert's item rankings, or quit?{Style.RESET_ALL}""")
+        choice = input(f"""{Fore.YELLOW}:Type 
+'t' to try again
+'e' to see expert rankings 
+'q' to quit{Style.RESET_ALL}
+""")
         if choice.lower() == 'e':
+            ingame_clean_terminal()
             expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
             print(f"{Fore.GREEN}\nThese are the expert's rankings of the items:\n")
@@ -229,7 +248,9 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
         elif choice.lower() == 'q':
             # Loop for option to clean terminal on quitting, with validation
             while True:
-                clean_terminal = input(f"{Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}\n")
+                clean_terminal = input(f"""
+{Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}
+""")
                 if clean_terminal.lower() == 'y':
                     os.system('cls' if os.name == 'nt' else 'clear')
                     os._exit(1)
@@ -248,7 +269,9 @@ ERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' t
 
     # Loop for option to clean terminal on ending game, with validation
     while True:
-        clean_terminal = input(f"{Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}\n")
+        clean_terminal = input(f"""
+{Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}
+""")
         if clean_terminal.lower() == 'y':
             os.system('cls' if os.name == 'nt' else 'clear')
             os._exit(1)
