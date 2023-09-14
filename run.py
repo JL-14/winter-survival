@@ -202,7 +202,7 @@ Which is {display_score(total_score)}
 feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
         # Routing and validation for displaying expert feedback for each item chosen by user
         if feedback_choice.lower() == 'y':
-            print(f"\n{Fore.GREEN}The expert's feedback for your choices were:{Style.RESET_ALL}\n")
+            print(f"\n{Fore.GREEN}The expert's feedback for your choices were:\n")
             for i, choice in enumerate(choices, 1):
                 item_feedback = get_item_feedback(choice, feedback_dict)
                 print(f"{i}. {item_feedback}")
