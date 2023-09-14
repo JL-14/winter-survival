@@ -6,10 +6,6 @@ from colorama import Fore, Back, Style
 from constants import *
 
 
-def ingame_clean_terminal():
-    """ To periodically clean the terminal after large amounts of text """
-    os.system('cls' if os.name == 'nt' else 'clear')
-
 def print_intro():
     """ 
         Print intro 
@@ -75,8 +71,7 @@ Please enter a new number.
                 print(f"""{Fore.RED}
 ERROR! Your entry is not valid. 
 Please enter a number between 1 and 12!
-{Style.RESET_ALL}
-""")
+{Style.RESET_ALL}""")
     return tuple(choices)
 
 def get_item_description(choice, item_descriptions):
@@ -128,7 +123,6 @@ def main():
     print_intro()
     print_scenario()
     score_method()
-    ingame_clean_terminal()
     select_items()
 
     # Assign function get_user_choices to choices made
@@ -214,7 +208,6 @@ Which is {display_score(total_score)}
 feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
         # Routing and validation for displaying expert feedback for each item chosen by user
         if feedback_choice.lower() == 'y':
-            ingame_clean_terminal()
             print(f"\n{Fore.GREEN}The expert's feedback for your choices were:\n")
             for i, choice in enumerate(choices, 1):
                 item_feedback = get_item_feedback(choice, feedback_dict)
@@ -235,8 +228,7 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
 'e' to see expert rankings 
 'q' to quit{Style.RESET_ALL}
 """)
-        if choice.lower() == 'e':
-            ingame_clean_terminal()
+        # if choice.lower() == 'e':
             expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
             print(f"{Fore.GREEN}\nThese are the expert's rankings of the items:\n")
