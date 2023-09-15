@@ -218,7 +218,8 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
 
     # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
-        print(f"{Fore.YELLOW}Do you want to try again, see the expert's item rankings, or quit?")
+        print(f"""{Fore.YELLOW}That is the end of the Winter Survival Exercise, well done!!!
+Do you want to try again, see the expert's item rankings, or just quit?""")
         choice = input(f"""Type: 
 't' to try again
 'e' to see expert rankings 
