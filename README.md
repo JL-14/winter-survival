@@ -4,11 +4,11 @@
 
 The Winter Survival Exercise is a Python-based programme based on a groupwork exercise normally used for team-building. It involves a scenario where surviviors of a plane crash in Northern Canada have to prioritise a set of items in order of importance for their survival. The Winter Survival Exercise is a one-person adaptation of the groupwork exercise, where the user, as a lone survivor, has to choose five items from a list of twelve according to how important they consider them for their survival.
 
-Initially developed by a US Army survival expert, the items have been ranked by the expert. The aim of the exercise is to choose items that match the expert's choices, and the game is scored by how differently the user prioritises items compared with the expert. After the user has chosen their items they can choose to see the expert's evaluation of the usefulness of the items they chose.
+Initially developed by a US Army survival expert, the items have been ranked by the expert. The aim of the exercise is to choose items that match the choices of the expert, and the game is scored by how differently the user prioritises items compared with the expert. After the user has chosen their items they can choose to see the evaluation the expert made of the usefulness of their choices.
 
-As in all aspects of survival, the expert's items are not the be-all and end-all, as in a real-world situation the user's ability to use the items and other decisions made by the user would have a major impact on their ability to survive. But nonetheless, the expert's rankings are indicative of the priorities that would provide the best odds of survival.
+As in all aspects of survival, the items chosen by the expert are not the be-all and end-all, as in a real-world situation the ability of the user to effectively use the items, and other decisions made by the user would have a major impact on their ability to survive. But nonetheless, the rankings of the expert are indicative of the priorities that would provide the best odds of survival.
 
-The Winter Survival Exercise is designed to be educational, teaching the user about prioritisation in a cold-weather survival scenario, testing the user's knowledge of survival and the science behind the items' usefulness, and also to be fun to do!
+The Winter Survival Exercise is designed to be educational, teaching the user about prioritisation in a cold-weather survival scenario, testing the knowledge of the user of survival and the science behind the usefulness of the items. It should also be fun to do!
 
 Whilst the current game is focused on the winter survival scenario, its format and code lend themselves to being expanded and changed to cover different scenarios, as well as to adding further interactive content through a day-by-day decision log.
  
@@ -35,7 +35,7 @@ The GitHub page for the Winter Survival Exercise can be accessed [here](https://
 
 * As a frequent visitor to the site, I want to see whether there is new content and new scenarios to complete.
 * As a frequent visitor, I want to complete the exercise again to see if I can get an even better score.
-* As a frequent visitor, I want to see the expert's feedback for all the different items, and to fully understand how all the possible items might be helpful (or not) for the purposes of survival.
+* As a frequent visitor, I want to see the feedback of the expert for all the different items, and to fully understand how all the possible items might be helpful (or not) for the purposes of survival.
 
 ---
 
@@ -73,7 +73,7 @@ The GitHub page for the Winter Survival Exercise can be accessed [here](https://
 ### Items list and user choices
 
 - The twelve items from which the user has to choose five is then presented in table format.
-- Underneath the table the user is asked to choose one of the twelve items as their highest priority item for survival in the given environment, repeated for each of the user's five items of choice.
+- Underneath the table the user is asked to choose one of the twelve items as their highest priority item for survival in the given environment, repeated for each of the five items of choice.
 - When the user has chosen five items, the items are listed back to the user and they are asked to confirm that they are happy with their selection.
 - If they are not happy with what they chose the table of items will be displayed again, and they will be given a second opportunity to select items
 - If they make an incorrect entry (a non-numerical entry, an entry outside the range 1-12, an empty entry, or a duplicate entry of an item already chosen), an error will appear and they will need to choose again.
@@ -92,17 +92,17 @@ The GitHub page for the Winter Survival Exercise can be accessed [here](https://
 
 ### Expert feedback on items chosen
 
-- After they have been presented with the score, the user is invited to see the expert's feedback (a paragraph of text) for each of the items they chose, which includes and benefits and potential dangers associated with each item.
+- After they have been presented with the score, the user is invited to see the feedback of the expert (a paragraph of text) for each of the items they chose, which includes and benefits and potential dangers associated with each item.
 - The user will only be able to see feedback for the items they chose, so that if they wish to play again they can do so without having the outcome spoiled.
-- The feedback is in green font to indicate that it represents the expert's views.
+- The feedback is in green font to indicate that it represents the views of the expert.
 
 ![Expert feedback](/documentation/images/expert_feedback_screenshot.png)
 
 ### Final step
 
-- After the expert's feedback on the chosen items, the user can choose to try again, see the full list of expert ratings, or to quit the game.
+- After the feedback on the chosen items, or if they chose not to see the feedback, the user can choose to try again, see the full list of expert ratings, or to quit the game.
     * Try again: Restarts the game from the beginning.
-    * Expert's rankings: Displays a table (in green) showing how the expert ranked the twelve items, from the most important to the least important.
+    * Expert rankings: Displays a table (in green) showing how the expert ranked the twelve items, from the most important to the least important.
     * Quit: Takes the user to the option to clean the terminal at the end of the exercise.
 
 ![final_step](/documentation/images/final_step_screenshot.png)
@@ -112,7 +112,7 @@ The GitHub page for the Winter Survival Exercise can be accessed [here](https://
 ### Clean the terminal
 
 - At the end of the exercise the user is asked whether they want to clean the terminal (unless they have chosen to start again, in which case the terminal is automatically cleaned).
-- If they select yes, the terminal is cleaned and left empty, whilst if they choose no, the exercise will finish, leaving the information from the exercise in the terminal (so that the user can revisit the expert's advice, their choices, etc).
+- If they select yes, the terminal is cleaned and left empty, whilst if they choose no, the exercise will finish, leaving the information from the exercise in the terminal (so that the user can revisit the advice from the expert, their choices, etc).
 
 ## Flowchart
 
@@ -201,14 +201,14 @@ The programme displays correctly across the different browsers, and also across 
 | **Score and item feedback** |
 | Display score | Enter 'y' to confirm choices or press enter | The calculated score appears, calculation is correct | Yes | Yes | - |
 | Display score statement | Enter 'y' to confirm choices or press enter | Alongside the score, a statement appears to describe whether the score is good or not | Yes | Yes | - |
-| See expert feedback -Yes | Answer 'y' to see expert's feedback on each item chosen | A paragraph appears in green font for each of the chosen items | Yes | Yes | - |
-| See expert feedback -No | Answer 'n' to see expert's feedback on each item chosen | Moves to option to try again, see expert rankings or quit | Yes | Yes | - |
+| See expert feedback -Yes | Answer 'y' to see expert feedback on each item chosen | A paragraph appears in green font for each of the chosen items | Yes | Yes | - |
+| See expert feedback -No | Answer 'n' to see expert feedback on each item chosen | Moves to option to try again, see expert rankings or quit | Yes | Yes | - |
 | See expert feedback -Non-valid | Enter a non-valid letter or character | An appropriate error message appears in red font | Yes | Yes | - |
-| **Try again/ See expert's rankings/ Quit** |
-| Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter 't' to try again | The game relaunches from the beginning | Yes | Yes | - |
-| Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter 'e' to see expert's rankings | A table in green font with the expert's rankings appears | Yes | Yes | - |
-| Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter 'q' to quit | Question whether user wants to clean terminal on exit displays | Yes | Yes | - |
-| Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter a non-valid character | An appropriate error message appears in red font | Yes | Yes | - |
+| **Try again/ See expert rankings/ Quit** |
+| Try again/ expert rankings/ quit options -'t', 'e', or 'q' | Enter 't' to try again | The game relaunches from the beginning | Yes | Yes | - |
+| Try again/ expert rankings/ quit options -'t', 'e', or 'q' | Enter 'e' to see expert rankings | A table in green font with the expert rankings appears | Yes | Yes | - |
+| Try again/ expert rankings/ quit options -'t', 'e', or 'q' | Enter 'q' to quit | Question whether user wants to clean terminal on exit displays | Yes | Yes | - |
+| Try again/ expert rankings/ quit options -'t', 'e', or 'q' | Enter a non-valid character | An appropriate error message appears in red font | Yes | Yes | - |
 | Quit -Clean terminal | Enter 'y' to clean the terminal on exiting programme | Cleans the terminal | Yes | Yes | - |
 | Quit -Clean terminal -No | Enter 'n' to clean the terminal on exiting programme | Exits programme without cleaning the terminal | Yes | Yes | - |
 | Quit -Clean terminal -Non-valid entry | Enter a non-valid letter or character | An appropriate error message appears in red font | Yes | Yes | - |
@@ -370,7 +370,7 @@ As the module constants.py was created to contain text-heavy variables, the poin
 
 - The idea and concept for the programme came from me (Jorgen Lovbakke).
 - The outline of the README document has been taken from my earlier README.md from the Famous Vikings Game, published through GitHub Pages, with additional suggestions from Juliia Konovalova based on her earlier work.
-- The Winter Survival Experience scenario, items list, and expert rankings and feedback was taken from 'SURVIVAL A Simulation Game' (https://www.whiteman.af.mil/Portals/53/documents/AFD-130408-063.pdf) and 'Winter Survival Exercise or Can Science Save My Life?' (https://ed.fnal.gov/arise/guides/bio/1-Scientific%20Method/1b-WinterSurvivalExercise.pdf), and adapted for the current programme.
+- The Winter Survival Experience scenario, items list, and expert rankings and feedback was taken from ' SURVIVAL A Simulation Game ' (https://www.whiteman.af.mil/Portals/53/documents/AFD-130408-063.pdf) and ' Winter Survival Exercise or Can Science Save My Life? ' (https://ed.fnal.gov/arise/guides/bio/1-Scientific%20Method/1b-WinterSurvivalExercise.pdf), and adapted for the current programme.
 
 ---
 
