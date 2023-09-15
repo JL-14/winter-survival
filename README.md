@@ -175,11 +175,11 @@ The programme displays correctly across the different browsers, and also across 
 
 | Feature | Action | Expected result | Tested | Passed | Comments |
 | --- | --- | --- | --- | --- | --- |
-| Introductory content |
+| **Introductory content** |
 | Display introduction | Click on the Run Program button | The introduction displays as intended | Yes | Yes | - |
 | Display scenario | Press Enter on the introduction screen | The scenario displays as intended | Yes | Yes | - |
 | Display scoring method | Press Enter on the scenario screen | The scoring method displays as intended | Yes | Yes | - |
-| Item selection |
+| **Item selection** |
 | Start exercise | Press Enter on the scoring method screen | The item selection table and first item selection question displays | Yes | Yes | - |
 | Correct number entries | Enter numbers between 1 and 12 | Moves to the next item selection | Yes | Yes | - |
 | Display choices made | After the fifth item has been chosen a summary list of the five items displays correctly | Yes | Yes | - |
@@ -190,7 +190,7 @@ The programme displays correctly across the different browsers, and also across 
 | Confirm selection -Yes | Enter 'y' to confirm selection question after the summary list | The user is shown their score | Yes | Yes | - |
 | Confirm selection -No | Enter 'n' to question after the summary list | If not happy with selection, the items are displayed and user is asked to choose again | Yes | Yes | - |
 | Confirm selection -Incorrect entry | Enter a non-valid letter or character | An appropriate error message appears in red font | Yes | Yes | - |
-| Repeated item selection |
+| **Repeated item selection** |
 | Second attempt Correct number entries| Enter numbers between 1 and 12 | Moves to the next item selection | Yes | Yes | - |
 | Second Attempt Incorrect entry -No entry | Press enter without making any entry | An appropriate error message appears in red font | Yes | Yes | - | 
 | Second Attempt Incorrect entry - Number outside range | Enter a number outside the range 1-12 | An appropriate error message appears in red font | Yes | Yes | - |
@@ -198,13 +198,13 @@ The programme displays correctly across the different browsers, and also across 
 | Second Attempt Incorrect entry - Duplicate entry | Enter the number of an item that has already been selected | An appropriate error message appears in red font | Yes | Yes | - |
 | Second attempt confirmation | Click on an incorrect answer for final question | The incorrect final answer popup appears for all 5 questions | Yes | Yes | - |
 | Second attempt Display choices made | Displays choices made list, and asks user to press Enter to see score | | | | | 
-| Score and item feedback |
+| **Score and item feedback** |
 | Display score | Enter 'y' to confirm choices or press enter | The calculated score appears, calculation is correct | Yes | Yes | - |
 | Display score statement | Enter 'y' to confirm choices or press enter | Alongside the score, a statement appears to describe whether the score is good or not | Yes | Yes | - |
 | See expert feedback -Yes | Answer 'y' to see expert's feedback on each item chosen | A paragraph appears in green font for each of the chosen items | Yes | Yes | - |
 | See expert feedback -No | Answer 'n' to see expert's feedback on each item chosen | Moves to option to try again, see expert rankings or quit | Yes | Yes | - |
 | See expert feedback -Non-valid | Enter a non-valid letter or character | An appropriate error message appears in red font | Yes | Yes | - |
-| Try again/ See expert's rankings/ Quit |
+| **Try again/ See expert's rankings/ Quit** |
 | Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter 't' to try again | The game relaunches from the beginning | Yes | Yes | - |
 | Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter 'e' to see expert's rankings | A table in green font with the expert's rankings appears | Yes | Yes | - |
 | Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter 'q' to quit | Question whether user wants to clean terminal on exit displays | Yes | Yes | - |
@@ -212,7 +212,7 @@ The programme displays correctly across the different browsers, and also across 
 | Quit -Clean terminal | Enter 'y' to clean the terminal on exiting programme | Cleans the terminal | Yes | Yes | - |
 | Quit -Clean terminal -No | Enter 'n' to clean the terminal on exiting programme | Exits programme without cleaning the terminal | Yes | Yes | - |
 | Quit -Clean terminal -Non-valid entry | Enter a non-valid letter or character | An appropriate error message appears in red font | Yes | Yes | - |
-| End of exercise |
+| **End of exercise** |
 | Clean terminal -Yes | Enter 'y' to clean the terminal on exiting programme | Cleans the terminal | Yes | Yes | - |
 | Clean terminal -No | Enter 'n' to clean the terminal on exiting programme | Exits programme without cleaning the terminal | Yes | Yes | - |
 | Clean terminal -Non-valid entry | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
@@ -223,7 +223,7 @@ The programme displays correctly across the different browsers, and also across 
 ### Validator testing
 
 - [Pylint](https://pypi.org/project/pylint/) and [autopep8](https://pypi.org/project/autopep8/) were used to validate the code and ensure code is PEP8 compliant.
-- The Pylint feedback highlighted no errors and 3 warning types for the run.py module, and 1 point of observation for the constants.py module. All warnings and points of information have been reviewed, and the current configuration deemed necessary for the effective operation of the programme. None of the warnings negatively affect user experience.
+- The Pylint and autopep8 feedback highlighted no errors and 3 warning types for the run.py module, and 1 point of observation for the constants.py module. All warnings and points of information have been reviewed, and the current configuration deemed necessary for the effective operation of the programme. None of the warnings negatively affect user experience.
 
 ![Pylint validator](documentation/images/pylint_validator_screen.png)
 
