@@ -80,7 +80,7 @@ The GitHub page for the Winter Survival Exercise can be accessed [here](https://
 
 ![Item list](/documentation/images/items_table_screenshot.png)
 
-![Choice confirmation](choice_confirmation_screenshot.png)
+![Choice confirmation](/documentation/images/choice_confirmation_screenshot.png)
 
 ![Error messages](/documentation/images/selection_errors_screenshot.png)
 
@@ -283,10 +283,10 @@ As the module constants.py was created to contain text-heavy variables, the poin
 ### Deploying the project as an application running locally:
 
   1. This project requires you to have Python installed on your local PC:
-  ![Python](https://www.python.org/downloads/)
+  [Python](https://www.python.org/downloads/)
 
   2. You will also need pip installed to allow the installation of modules the application uses.
-  ![PIP](https://pypi.org/project/pip/)
+  [PIP](https://pypi.org/project/pip/)
 
   3. Create a local copy of the GitHub repository by following one of the two processes below:
 

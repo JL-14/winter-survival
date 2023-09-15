@@ -261,8 +261,9 @@ ERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' t
 {Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}
 """)
         if clean_terminal.lower() == 'y':
-    # Code to clean terminal taken from https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console
-            os.system('cls' if os.name == 'nt' else 'clear') 
+    # Code to clean terminal from
+    # https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console
+            os.system('cls' if os.name == 'nt' else 'clear')
             os._exit(1)
         elif clean_terminal.lower() == 'n':
             print("\nThank you for visiting the Winter Survival Exercise!\n")
