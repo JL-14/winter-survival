@@ -194,7 +194,7 @@ The programme displays correctly across the different browsers, and also across 
 
 ### Validator testing
 
-- [Pylint](https://pypi.org/project/pylint/) was used to validate the code and ensure code is PEP8 compliant.
+- [Pylint](https://pypi.org/project/pylint/) and [autopep8](https://pypi.org/project/autopep8/) were used to validate the code and ensure code is PEP8 compliant.
 - The Pylint feedback highlighted no errors and 3 warning types for the run.py module, and 1 point of observation for the constants.py module. All warnings and points of information have been reviewed, and the current configuration deemed necessary for the effective operation of the programme. None of the warnings negatively affect user experience.
 ![Pylint validator](documentation/images/pylint_validator_screen.png)
 
@@ -326,9 +326,15 @@ Create a local copy of the GitHub repository by following one of the two process
 3. Esc not working
 
 ### Solved Bugs
-- A number of bugs were solved throughout the design of the website, on a running basis. The key tools for finding and addressing bugs were DevTools in Chrome, and the use of commenting out code (ctrl + /) to examine the impact of particular sections of code.
+- A number of bugs were solved throughout the design of the website, on a running basis. The key tools for finding and addressing bugs were the Pylint package, and the use of commenting out code (ctrl + /) to examine the impact of particular sections of code.
 
-- The most significant bug related to the switch from one Viking to the next (lines 165-179 in the current script.js), where there was duplication of a loop causing the progression of Viking biographies to halt after three iterations. The bug was removed by restructuring the code and moving the vikingIndex++ command to the end of the section.
+- Over the course of the development of the programme, the most significant bugs were:
+    * Esc to exit the game
+    * Using external worksheet to import text and data
+    * The use of while loops for validation purposes
+    * Calculate score
+
+The most significant bug related to the switch from one Viking to the next (lines 165-179 in the current script.js), where there was duplication of a loop causing the progression of Viking biographies to halt after three iterations. The bug was removed by restructuring the code and moving the vikingIndex++ command to the end of the section.
 
 - A second significant bug was around matching the correct answers on the answer tiles to the question displaying. The issue of matching the question and answer was solved through applying data-labels to the variables and matching the labels rather than innerHTML content.
 

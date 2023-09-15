@@ -75,7 +75,6 @@ def get_item_description(choice, item_descriptions):
     """ Get description of items chosen """
     return item_descriptions.get(choice, "")
 
-# feedback = constants.feedback_dict
 def get_item_feedback(choice, feedback_dict):
     """ Get expert feedback for items chosen """
     return feedback_dict.get(choice, "")
@@ -150,12 +149,12 @@ def main():
         choice_confirm = input(f"""
 {Fore.YELLOW}Are you happy with your choices? y/n {Style.RESET_ALL}
 """)
-        # Routing and Validation of choices made, and whether user happy with choices
+    # Routing and Validation of choices made, and whether user is happy with choices
         if choice_confirm.lower() == 'y':
             calculate_score(choices, expert_view, item_descriptions)
             break
         elif choice_confirm.lower() == 'n':
-            # Re-displaying table if user wants to choose again
+    # Re-displaying table if user wants to choose again
             print("""
                 
                 ---------------------------------
@@ -165,10 +164,10 @@ def main():
 """)
             select_items()
             (first_choice,
-             second_choice,
-             third_choice,
-             fourth_choice,
-             fifth_choice) = get_user_choices()
+            second_choice,
+            third_choice,
+            fourth_choice,
+            fifth_choice) = get_user_choices()
             choices = (
                 [int(first_choice),
                 int(second_choice),
@@ -203,7 +202,7 @@ Which is {display_score(total_score)}
     while True:
         feedback_choice = input(f"""{Fore.YELLOW}Would you like to see the survival expert's
 feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
-        # Routing and validation for displaying expert feedback for each item chosen by user
+    # Routing and validation for displaying expert feedback for each item chosen by user
         if feedback_choice.lower() == 'y':
             print(f"\n{Fore.GREEN}The expert's feedback for your choices were:\n")
             for i, choice in enumerate(choices, 1):
@@ -218,8 +217,8 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
 
     # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
-        print(f"""{Fore.YELLOW}That is the end of the Winter Survival Exercise, well done!!!
-Do you want to try again, see the expert's item rankings, or just quit?""")
+        print(f"""{Fore.YELLOW}That is the end of the Winter Survival Exercise, well done!!!\n
+Do you want to try again, see the expert's item rankings, or quit?""")
         choice = input(f"""Type:
 't' to try again
 'e' to see expert rankings 
@@ -236,7 +235,7 @@ Do you want to try again, see the expert's item rankings, or just quit?""")
             main()
             break
         elif choice.lower() == 'q':
-            # Loop for option to clean terminal on quitting, with validation
+    # Loop for option to clean terminal on quitting, with validation
             while True:
                 clean_terminal = input(f"""
 {Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}
@@ -262,7 +261,8 @@ ERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' t
 {Fore.YELLOW}Do you want to clean the terminal window on exit? y/n{Style.RESET_ALL}
 """)
         if clean_terminal.lower() == 'y':
-            os.system('cls' if os.name == 'nt' else 'clear')
+    # Code to clean terminal taken from https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console
+            os.system('cls' if os.name == 'nt' else 'clear') 
             os._exit(1)
         elif clean_terminal.lower() == 'n':
             print("\nThank you for visiting the Winter Survival Exercise!\n")

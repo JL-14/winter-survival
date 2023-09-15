@@ -1,8 +1,10 @@
 """ Text-heavy constants for use in run.py """
 INTRO_TEXT = """
------------------------------------------------
+===============================================
 
 Welcome to the Winter Survival Exercise!
+
+===============================================
 
 In this exercise you will test your knowledge of survival techniques and science to see if you could survive in an extreme winter environment. 
 
