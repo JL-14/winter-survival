@@ -1,4 +1,4 @@
-![](/documentation/images/viking-quiz-navbar.png)
+![](/documentation/images/winter_survival_welcome.png)
 ---
 # *The Winter Survival Exercise*
 
@@ -12,9 +12,9 @@ The Winter Survival Exercise is designed to be educational, teaching the user ab
 
 Whilst the current game is focused on the winter survival scenario, its format and code lend themselves to being expanded and changed to cover different scenarios, as well as to adding further interactive content through a day-by-day decision log.
  
-The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famous-vikings-game/).
+The GitHub page for the Winter Survival Exercise can be accessed [here](https://github.com/JL-14/winter-survival).
 
-![Responsive Mockup](/documentation/images/viking-kings-quiz-mockup.png)
+![Responsive Mockup](/documentation/images/mockup_screenshot.png)
 
 ---
 ## User Stories
@@ -54,14 +54,21 @@ The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famo
 - The exercise starts with a short introduction welcoming the user, asking the user to press Enter when they are ready to begin.
 - The user is also informed that they can exit the exercise at any time by pressing the Esc button on their keyboard.
 
-![Intro](/documentation/images/viking-quiz-header.png)
+![Intro](/documentation/images/intro_screenshot.png)
 
 ### Scenario section
 
 - The user is then taken through the scenario for the exercise, as well as given some details about likely priorities and how the exercise is scored. 
+- The user is then invited to press Enter to see how the game is scored. 
+
+![Scenario](/documentation/images/scenario_screenshot.png)
+
+### Scoring section
+
+- The next section contains information about how the exercise is scored, and a general observation that survival is as dependent on skills and knowledge as on having specific items to hand.
 - The user is then invited to press Enter to see the twelve items and begin to choose their five items in order of priority. 
 
-![Scenario](/documentation/images/scenario-section.png)
+![Scoring](/documentation/images/scoring_screenshot.png)
 
 ### Items list and user choices
 
@@ -71,9 +78,17 @@ The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famo
 - If they are not happy with what they chose the table of items will be displayed again, and they will be given a second opportunity to select items
 - If they make an incorrect entry (a non-numerical entry, an entry outside the range 1-12, an empty entry, or a duplicate entry of an item already chosen), an error will appear and they can choose again.
 
+![Item list](/documentation/images/items_table_screenshot.png)
+
+![Choice confirmation](choice_confirmation_screenshot.png)
+
+![Error messages](/documentation/images/selection_errors_screenshot.png)
+
 ### Score and feedback
 
 - Once the user has made their choices the score is calculated in accordance with the scoring information presented at the start of the game, and presented as a number with an accompanying statement (Excellent, Very Good, OK, or Poor) depending on their score.
+
+![Score](/documentation/images/final_score_screenshot.png)
 
 ### Expert feedback on items chosen
 
@@ -81,12 +96,18 @@ The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famo
 - The user will only be able to see feedback for the items they chose, so that if they wish to play again they can do so without having it spoiled.
 - The feedback is in green font to indicate that it represents the expert's views.
 
+![Expert feedback](/documentation/images/expert_feedback_screenshot.png)
+
 ### Final step
 
 - After the expert's feedback on the chosen items, the user can choose to try again, see the full list of expert ratings, or to quit the game.
     * Try again: Restarts the game from the beginning.
     * Expert's rankings: Displays a table (in green) showing how the expert ranked the twelve items, from the most important to the least important.
     * Quit: Takes the user to the option to clean the terminal at the end of the exercise.
+
+![final_step](/documentation/images/final_step_screenshot.png)
+
+![Expert rankings](/documentation/images/expert_rankings_screenshot.png)
 
 ### Clean the terminal
 
@@ -214,6 +235,35 @@ As the module constants.py was created to contain text-heavy variables, the poin
 
 ---
 
+## Bugs
+
+### Existing Bugs
+
+1. Broken text (mid-word)
+
+2. Display hides top of tables
+
+3. Esc not working
+
+### Solved Bugs
+- A number of bugs were solved throughout the design of the website, on a running basis. The key tools for finding and addressing bugs were the Pylint package, and the use of commenting out code (ctrl + /) to examine the impact of particular sections of code.
+
+- Over the course of the development of the programme, the most significant bugs were:
+    * Esc to exit the game
+    * Using external worksheet to import text and data
+    * The use of while loops for validation purposes
+    * Calculate score
+
+The most significant bug related to the switch from one Viking to the next (lines 165-179 in the current script.js), where there was duplication of a loop causing the progression of Viking biographies to halt after three iterations. The bug was removed by restructuring the code and moving the vikingIndex++ command to the end of the section.
+
+- A second significant bug was around matching the correct answers on the answer tiles to the question displaying. The issue of matching the question and answer was solved through applying data-labels to the variables and matching the labels rather than innerHTML content.
+
+- The final significant bug related to quitting the game returning to the home page but not resetting the game, so on pressing start the previous game would resume. This was solved through adding code to the event listener to intialise the game.
+
+- There were also bugs related to the use of fixed heights affecting the responsivity of the website, solved through replacing with relative values through the use of the [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) extension showing overlapping containers, as well as DevTools.
+
+---
+
 ## Deployment
 
 - The program was deployed to [Heroku](https://dashboard.heroku.com/apps/winter-survival).
@@ -312,35 +362,6 @@ Create a local copy of the GitHub repository by following one of the two process
   1. Click "Open app" to launch the application inside a web page.
 
       - ![View Button](documentation/deployment/view_app.png)
-
----
-
-## Bugs
-
-### Existing Bugs
-
-1. Broken text (mid-word)
-
-2. Display hides top of tables
-
-3. Esc not working
-
-### Solved Bugs
-- A number of bugs were solved throughout the design of the website, on a running basis. The key tools for finding and addressing bugs were the Pylint package, and the use of commenting out code (ctrl + /) to examine the impact of particular sections of code.
-
-- Over the course of the development of the programme, the most significant bugs were:
-    * Esc to exit the game
-    * Using external worksheet to import text and data
-    * The use of while loops for validation purposes
-    * Calculate score
-
-The most significant bug related to the switch from one Viking to the next (lines 165-179 in the current script.js), where there was duplication of a loop causing the progression of Viking biographies to halt after three iterations. The bug was removed by restructuring the code and moving the vikingIndex++ command to the end of the section.
-
-- A second significant bug was around matching the correct answers on the answer tiles to the question displaying. The issue of matching the question and answer was solved through applying data-labels to the variables and matching the labels rather than innerHTML content.
-
-- The final significant bug related to quitting the game returning to the home page but not resetting the game, so on pressing start the previous game would resume. This was solved through adding code to the event listener to intialise the game.
-
-- There were also bugs related to the use of fixed heights affecting the responsivity of the website, solved through replacing with relative values through the use of the [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) extension showing overlapping containers, as well as DevTools.
 
 ---
 
