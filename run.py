@@ -12,7 +12,7 @@ def print_intro():
         Require enter-press to proceed 
         """
     os.system('cls' if os.name == 'nt' else 'clear')
-    print(intro_text)
+    print(INTRO_TEXT)
     input(f"{Fore.YELLOW}Press Enter to begin the exercise\n{Style.RESET_ALL}")
 
 def print_scenario():
@@ -20,7 +20,7 @@ def print_scenario():
     Print_scenario 
     Require enter-press to see and select items
     """
-    print(scenario_text)
+    print(SCENARIO_TEXT)
     input(f"{Fore.YELLOW}Press Enter to see how the exercise is scored\n{Style.RESET_ALL}")
 
 def score_method():
@@ -28,7 +28,7 @@ def score_method():
     Print scoring method
     Require enter-press to proceed 
     """
-    print(score_text)
+    print(SCORE_TEXT)
     input(f"{Fore.YELLOW}Press Enter to see and select your items\n{Style.RESET_ALL}")
 
 def select_items():
@@ -124,19 +124,19 @@ def main():
 
     # Assign function get_user_choices to choices made
     (
-    first_choice, 
-    second_choice, 
-    third_choice, 
-    fourth_choice, 
+    first_choice,
+    second_choice,
+    third_choice,
+    fourth_choice,
     fifth_choice
     ) = get_user_choices()
 
     # Create list of integers for choices made
     choices = (
-        [int(first_choice), 
-         int(second_choice), 
-         int(third_choice), 
-         int(fourth_choice), 
+        [int(first_choice),
+         int(second_choice),
+         int(third_choice),
+         int(fourth_choice),
          int(fifth_choice)]
          )
 
@@ -164,16 +164,16 @@ def main():
                 
 """)
             select_items()
-            (first_choice, 
-             second_choice, 
-             third_choice, 
-             fourth_choice, 
+            (first_choice,
+             second_choice,
+             third_choice,
+             fourth_choice,
              fifth_choice) = get_user_choices()
             choices = (
                 [int(first_choice),
-                int(second_choice), 
-                int(third_choice), 
-                int(fourth_choice), 
+                int(second_choice),
+                int(third_choice),
+                int(fourth_choice),
                 int(fifth_choice)]
                 )
             print("\nYou have chosen:\n")
@@ -201,7 +201,7 @@ Which is {display_score(total_score)}
 """)
 
     while True:
-        feedback_choice = input(f"""{Fore.YELLOW}Would you like to see the survival expert's 
+        feedback_choice = input(f"""{Fore.YELLOW}Would you like to see the survival expert's
 feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
         # Routing and validation for displaying expert feedback for each item chosen by user
         if feedback_choice.lower() == 'y':
@@ -220,7 +220,7 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
     while True:
         print(f"""{Fore.YELLOW}That is the end of the Winter Survival Exercise, well done!!!
 Do you want to try again, see the expert's item rankings, or just quit?""")
-        choice = input(f"""Type: 
+        choice = input(f"""Type:
 't' to try again
 'e' to see expert rankings 
 'q' to quit{Style.RESET_ALL}

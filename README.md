@@ -145,9 +145,9 @@ The Winter Survival Exercise can be accessed [here](https://jl-14.github.io/famo
 
 ## Testing
 
-In order to confirm the functionality, responsiveness and presentation of the programme, it was tested on a range of screen types and screen sizes, across Chrome, Firefox, and Edge browsers, and in various developer environments, including VS Code, GitPod, and Heroku (with the purpose-built app for the project).
+In order to confirm the functionality, responsiveness and presentation of the programme, it was extensively tested on a range of screen types and screen sizes, across Chrome, Firefox, and Edge browsers, and in various developer environments, including VS Code, GitPod, and Heroku (with the purpose-built app for the project).
 
-The website displays correctly across the different browsers, and also across different screen sizes.
+The programme displays correctly across the different browsers, and also across different screen sizes.
 
 ### Manual testing
 
@@ -194,7 +194,23 @@ The website displays correctly across the different browsers, and also across di
 
 ### Validator testing
 
+- [Pylint](https://pypi.org/project/pylint/) was used to validate the code and ensure code is PEP8 compliant.
+- The Pylint feedback highlighted no errors and 3 warning types for the run.py module, and 1 point of observation for the constants.py module. All warnings and points of information have been reviewed, and the current configuration deemed necessary for the effective operation of the programme. None of the warnings negatively affect user experience.
+![Pylint validator](documentation/images/pylint_validator_screen.png)
 
+#### run.py warnings
+
+- 'Wildcard import constants' (1 warning)
+Refers to the use of a wildcard ('*') to import all variables in the constants.py module. Deemed appropriate to shorten the code, rather than importing each variable separately. All variables in constants.py are used.
+- 'Redefining name 'item_descriptions'/'feedback_dict'/'expert_view' from outer scope' (4 warnings)
+Refers to the use of variables from the constants.py module, which are manipulated in run.py for the effective running of the programme. Deemed necessary for the operation of the programme.
+- 'Possible unbalanced tuple unpacking with sequence defined at line 72: left side has 5 labels, right side has 0 values' (2 warnings)
+Refers to the attachment of the get_item_descriptions function to the choice variables, and so does not constitute labels and values. Deemed necessary for the operation of the programme.
+
+#### constants.py point of observation
+
+- 'Line too long' (14 points of observation)
+As the module constants.py was created to contain text-heavy variables, the points of observation were expected and deemed appropriate.
 
 ---
 
