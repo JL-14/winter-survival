@@ -153,41 +153,40 @@ The website displays correctly across the different browsers, and also across di
 
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
-| Navbar | | | | | |
-| Introduction | Click on the "Home" link | The user is redirected to the main page | Yes | Yes | - |
-| Scenario | Click on the "Instructions" link | The user is shown the Instructions popup | Yes | Yes | - |
-| Start exercise | Click on the Close Instructions button | Instruction popup is closed and user returned to home or game page | Yes | Yes | - |
-| Choose items | Click on the "E-mail Us!" link | The user is redirected to their preferred e-mail client | Yes | Yes | - |
-| Correct number entries | | | | | |
-| Display choices made | | | | | |
-| Incorrect entry -No entry | Click on the "Home" link | The user is redirected to the main page | Yes | Yes | - | 
-| Incorrect entry - Number outside range | Click on the Facebook link | The user is redirected to the Facebook page | Yes | Yes | - |
-| Incorrect entry - Non-number entry | Click on the Twitter/ X link | The user is redirected to the Twitter/ X page | Yes | Yes | - |
-| Incorrect entry - Duplicate entry | Click on the Instagram link | The user is redirected to the Instagram page | Yes | Yes | - |
-| Confirm selection -Yes | Click on the GitHub link | The user is redirected to the creator's GitHub page | Yes | Yes | - |
-| Confirm selection -No | | | | | |
-| Second attempt Correct number entries| Click on the Start button | The game starts and the game page displays | Yes | Yes | - |
-| Second attempt Incorrect entry -No entry | | | | | |
-| Second attempt Incorrect entry - Number outside range | Click on the correct answer | The correct answer popup shows for all 5 questions | Yes | Yes | - |
-| Second attempt Incorrect entry - Non-number entry | Click on an incorrect answer | The Incorrect answer popup shows for all 8 incorrect options | Yes | Yes | - |
-| Second attempt Incorrect entry - Duplicate entry | Click on the correct answer for final question | The correct final answer popup appears for all 5 questions | Yes | Yes | - |
+| Display introduction | Click on the Run Program button | The introduction displays as intended | Yes | Yes | - |
+| Display scenario | Press Enter on the introduction screen | The scenario displays as intended | Yes | Yes | - |
+| Display scoring method | Press Enter on the scenario screen | The scoring method displays as intended | Yes | Yes | - |
+| Start exercise | Press Enter on the scoring method screen | The item selection table and first item selection question displays | Yes | Yes | - |
+| Correct number entries | Enter numbers between 1 and 12 | Moves to the next item selection | Yes | Yes | - |
+| Display choices made | After the fifth item has been chosen a summary list of the five items displays correctly | Yes | Yes | - |
+| Incorrect entry -No entry | Press enter without making any entry | An appropriate error message appears in red font | Yes | Yes | - | 
+| Incorrect entry - Number outside range | Enter a number outside the range 1-12 | An appropriate error message appears in red font | Yes | Yes | - |
+| Incorrect entry - Non-number entry | Enter a character that is not a number | An appropriate error message appears in red font | Yes | Yes | - |
+| Incorrect entry - Duplicate entry | Enter the number of an item that has already been selected | An appropriate error message appears in red font | Yes | Yes | - |
+| Confirm selection -Yes | Enter 'y' to confirm selection question after the summary list | The user is shown their score | Yes | Yes | - |
+| Confirm selection -No | Enter 'n' to question after the summary list | If not happy with selection, the items are displayed and user is asked to choose again | Yes | Yes | - |
+| Confirm selection -Incorrect entry | Enter a non-valid letter or character | An appropriate error message appears in red font | Yes | Yes | - |
+| Second attempt Correct number entries| Enter numbers between 1 and 12 | Moves to the next item selection | Yes | Yes | - |
+| Second Attempt Incorrect entry -No entry | Press enter without making any entry | An appropriate error message appears in red font | Yes | Yes | - | 
+| Second Attempt Incorrect entry - Number outside range | Enter a number outside the range 1-12 | An appropriate error message appears in red font | Yes | Yes | - |
+| Second Attempt Incorrect entry - Non-number entry | Enter a character that is not a number | An appropriate error message appears in red font | Yes | Yes | - |
+| Second Attempt Incorrect entry - Duplicate entry | Enter the number of an item that has already been selected | An appropriate error message appears in red font | Yes | Yes | - |
 | Second attempt confirmation | Click on an incorrect answer for final question | The incorrect final answer popup appears for all 5 questions | Yes | Yes | - |
-| Second attempt Display choices made | | | | | | 
-| Display score | Click on the Finish button on the Inorrect Final Answer popup | The Result screen appears | Yes | Yes | - |
-| Display score statement | Click on the Finish button on the Final answer screens | When score is 3 or higher the Successful Result screen appears with correct score (N out of 5) | Yes | Yes | - |
-| See expert feedback -Yes | Click on the Finish button on the Final answer screens | When score is 2 or lower the Failed Result screen appears with correct score (N out of 5) | Yes | Yes | On some screen sizes the Failed Game popup appears low on the page, hiding the Return to Main Page button |
-| See expert feedback -No | Click on Return to Main Page button on Final Score screen | Returns to the Home Page | Yes | Yes | - |
-| See expert feedback -Non-valid | Click on correct and incorrect answer buttons | The score counters for both correct and incorrect answers update correctly | Yes | Yes | - |
-| Try again/ expert's rankings/ quit options -'t' to try again | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
-| Try again/ expert's rankings/ quit options -'e' to see expert's rankings | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
-| Try again/ expert's rankings/ quit options -'q' to quit | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
-| Quit -Clean terminal -Yes | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
-| Quit -Clean terminal -No | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
-| Quit -Clean terminal -Non-valid entry | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
-| Try again/ expert's rankings/ quit options Incorrect entry -No entry | Click on Quit button | Popup appears asking user to confirm they want to quit | Yes | Yes | - |
-| Try again/ expert's rankings/ quit options Incorrect entry -Non-valid entry | Click on 'OK' to quit game | Returns to Home Page | Yes | Yes | - |
-| Clean terminal -Yes | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
-| Clean terminal -No | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
+| Second attempt Display choices made | Displays choices made list, and asks user to press Enter to see score | | | | | 
+| Display score | Enter 'y' to confirm choices or press enter | The calculated score appears, calculation is correct | Yes | Yes | - |
+| Display score statement | Enter 'y' to confirm choices or press enter | Alongside the score, a statement appears to describe whether the score is good or not | Yes | Yes | - |
+| See expert feedback -Yes | Answer 'y' to see expert's feedback on each item chosen | A paragraph appears in green font for each of the chosen items | Yes | Yes | - |
+| See expert feedback -No | Answer 'n' to see expert's feedback on each item chosen | Moves to option to try again, see expert rankings or quit | Yes | Yes | - |
+| See expert feedback -Non-valid | Enter a non-valid letter or character | An appropriate error message appears in red font | Yes | Yes | - |
+| Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter 't' to try again | The game relaunches from the beginning | Yes | Yes | - |
+| Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter 'e' to see expert's rankings | A table in green font with the expert's rankings appears | Yes | Yes | - |
+| Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter 'q' to quit | Question whether user wants to clean terminal on exit displays | Yes | Yes | - |
+| Try again/ expert's rankings/ quit options -'t', 'e', or 'q' | Enter a non-valid character | An appropriate error message appears in red font | Yes | Yes | - |
+| Quit -Clean terminal | Enter 'y' to clean the terminal on exiting programme | Cleans the terminal | Yes | Yes | - |
+| Quit -Clean terminal -No | Enter 'n' to clean the terminal on exiting programme | Exits programme without cleaning the terminal | Yes | Yes | - |
+| Quit -Clean terminal -Non-valid entry | Enter a non-valid letter or character | An appropriate error message appears in red font | Yes | Yes | - |
+| Clean terminal -Yes | Enter 'y' to clean the terminal on exiting programme | Cleans the terminal | Yes | Yes | - |
+| Clean terminal -No | Enter 'n' to clean the terminal on exiting programme | Exits programme without cleaning the terminal | Yes | Yes | - |
 | Clean terminal -Non-valid entry | Click on 'Cancel' to stay in game | Returns to game screen | Yes | Yes | - |
 
 
@@ -201,64 +200,54 @@ The website displays correctly across the different browsers, and also across di
 
 ## Deployment
 
-- The program was deployed to [Heroku](https://dashboard.heroku.com).
-- The program can be reached by the [link](https://the-maddest-madlib.onrender.com/)
+- The program was deployed to [Heroku](https://dashboard.heroku.com/apps/winter-survival).
+- The program can be reached by the [link](https://winter-survival-4674e7bf59f7.herokuapp.com/)
 
 ### To deploy the project as an application that can be **run locally**:
 
 *Note:*
   1. This project requires you to have Python installed on your local PC:
-  - `sudo apt install python3`
+  ![Python](https://www.python.org/downloads/)
 
-  1. You will also need pip installed to allow the installation of modules the application uses.
-  - `sudo apt install python3-pip`
+  2. You will also need pip installed to allow the installation of modules the application uses.
+  ![PIP](https://pypi.org/project/pip/)
 
 Create a local copy of the GitHub repository by following one of the two processes below:
 
 - Download ZIP file:
-  1. Go to the [GitHub Repo page](https://github.com/IuliiaKonovalova/madlib_with_python).
-  1. Click the Code button and download the ZIP file containing the project.
-  1. Extract the ZIP file to a location on your PC.
+  1. Go to the [GitHub Repo page](https://github.com/https://github.com/JL-14/winter-survival).
+  2. Click the Code button and download the ZIP file containing the project.
+  3. Extract the ZIP file to a location on your PC.
 
 - Clone the repository:
   1. Open a folder on your computer with the terminal.
-  1. Run the following command
-  - `git clone https://github.com/IuliiaKonovalova/madlib_with_python.git`
+  2. Run the following command
+  - `git clone https://github.com/JL-14/winter-survival.git`
 
-- Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+- Alternatively, if using Gitpod, you can use the link below to create your own workspace using this repository.
 
-  [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/IuliiaKonovalova/madlib_with_python)
+  [Open in Gitpod](https://gitpod.io/#https://github.com/JL-14/winter-survival)
 
   1. Install Python module dependencies:
      
       1. Navigate to the folder madlib_with_python by executing the command:
-      - `cd madlib_with_python`
-      1. Run the command pip install -r requirements.txt
+      - `cd /workspace/winter-survival`
+      2. Run the command pip install -r requirements.txt
         - `pip3 install -r requirements.txt`
-      1. *Note:* If you are located in China ![China](https://www.countryflags.io/cn/flat/32.png) or any other country with restricted internet access, you may need to add the following code in order to be able to use the nltk package.
-      
-       - For example:
-
-        ```python
-        nltk.set_proxy('127.0.0.1:41091')
-        ```
-      - To set the proxy, you need to open setting in preferred VPN, find Server address and HTTP/HTTPS Proxy Port joining them by colons as it is shown in the example above:
-      ![Settings VPN](documentation/deployment/settings_vpn.png)
-
 
 ### To deploy the project to Heroku so it can be run as a remote web application:
 - Clone the repository:
   1. Open a folder on your computer with the terminal.
-  1. Run the following command
-  - `git clone https://github.com/IuliiaKonovalova/madlib_with_python.git`
+  2. Run the following command
+  - `git clone https://github.com/JL-14/winter-survival.git`
 
-  1. Create your own GitHub repository to host the code.
-  1. Run the command `git remote set-url origin <Your GitHub Repo Path>` to set the remote repository location to your repository.
+  3. Create your own GitHub repository to host the code.
+  4. Run the command `git remote set-url origin <Your GitHub Repo Path>` to set the remote repository location to your repository.
 
-  1. Push the files to your repository with the following command:
+  5. Push the files to your repository with the following command:
   `git push`
-  1. Create a Heroku account if you don't already have one here [Heroku](https://dashboard.heroku.com).
-  1. Create a new Heroku application on the following page here [New Heroku App](https://dashboard.heroku.com/apps):
+  6. Create a Heroku account if you don't already have one here [Heroku](https://dashboard.heroku.com).
+  7. Create a new Heroku application on the following page here [New Heroku App](https://dashboard.heroku.com/apps):
 
       - ![New Heroku App](documentation/deployment/new_heroku_app.png)
 
@@ -318,23 +307,7 @@ Create a local copy of the GitHub repository by following one of the two process
 
 2. Display hides top of tables
 
-3. 
-
-There are two warnings in DevTools on Chrome and Firefox browsers stating that: 
-
-"DevTools failed to load source map: Could not load content for chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/sourceMap/chrome/scripts/content_autoplay_detection.js.map: System error: net::ERR_BLOCKED_BY_CLIENT"
-
-The warning relates to the embedded Google Map in the Location section on the Home Page, and does not affect performance.
-
-2. The W3C CSS Validator returned 9 warnings relating to external third-party content in the code, none of which affect the user experience.
-
-3. On some screen sizes the Failed Game result screen appears low down, cutting off the bottom of the box (including the Return to Main Page button). 
-
-4. The overlay behind popup boxes does not stretch below the bottom of the screen, so when scrolling down the lower portion of the screen appears without the overlay.
-
-5. On smaller screen sizes the answer grid moves from 3x3 to 4x2 and a single tile at the bottom, and eventually to 9x1 for the smallest screens. The preference would be to keep the 3x3 format and then moving to 9x1.
-
-6. At the smallest screen sizes (<270px) the text in the Viking biography section becomes too big for the containing box and overflows.
+3. Esc not working
 
 ### Solved Bugs
 - A number of bugs were solved throughout the design of the website, on a running basis. The key tools for finding and addressing bugs were DevTools in Chrome, and the use of commenting out code (ctrl + /) to examine the impact of particular sections of code.
@@ -350,14 +323,11 @@ The warning relates to the embedded Google Map in the Location section on the Ho
 ---
 
 ## Future Improvements
-* add Favicon with [Favicon Generator](https://realfavicongenerator.net/)
-* further refine responsive design elements to improve appearance on the smallest screens (especially small mobiles)
-* refine the images used, both in terms of file-types and placement on the Packages page
-* randomise the answer tiles in the answer grid each time the next question button is clicked to make for a more engaging game
-* add a custom quit confirmation popup
-* add more questions and Viking biographies to the game
-* add a custom 404 Error page
-* add feedback functionality in addition to the e-mail function
+* replace the use of 'Ctrl + C' to exit the game with a custom press Esc (requires the use of packages not currently compatible with the Heroku app)
+* make the programme employable to mobile phones (requires the implementation of touch screen sensibilities)
+* add alternative survival scenarios (e.g. desert and sea-based scenarios)
+* add further narrative with decision-making on a step-by-step basis (e.g. 'Do you leave the plane wreckage to go to the nearest town?')
+* add feedback functionality, such as an e-mail function
 
 ---
 
@@ -372,20 +342,6 @@ The warning relates to the embedded Google Map in the Location section on the Ho
 - In developing the idea and concept, I consulted "The Children of Ash and Elm -A History of the Vikings" by Neil Price, published in 2022 by Penguin Books, and the Heimskringla -Snorre's sagas of the Viking kings, the version consulted was published in Norwegian in 1998 by Gyldendal Publishers. 
 
 - Inspiration for the use of a fixed background image came from the Code Institute's 'Love Running' project.
-
-+ #### Media
-
-- The background image on the website was downloaded from [iStock](https://www.istockphoto.com/).
-
-- The animated gif images were published by http://www.animated-gifs.fr/. (The site is currently unavailable.)
-- The animated gif of the correct answer Viking (thumbs up) is from https://waterford.fyi/.
-
-- The images of the Viking Kings were from:
-* Rollo of Normandy: Anonymous, historical image available on Wikipedia.
-* Olav Haraldsson: By Rabax63 -CC BY-SA 4.0, image available on https://www.warhistoryonline.com/.
-* Leif Erikson: available on WikiMedia Commons, https://commons.wikimedia.org/wiki/File:Leif_Erikson_Discovers_America_Hans_Dahl.jpg.
-* Harald Hardrada: public domain, via Wikimedia Commons.
-* Canute the Great: image from https://vikinghistorytales.blogspot.com/.
 
 
 + #### Tools
