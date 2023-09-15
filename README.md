@@ -339,8 +339,8 @@ Create a local copy of the GitHub repository by following one of the two process
 ---
 
 ## Future Improvements
-* replace the use of 'Ctrl + C' to exit the game with a custom press Esc (requires the use of packages not currently compatible with the Heroku app)
-* make the programme employable to mobile phones (requires the implementation of touch screen sensibilities)
+* replace the use of 'Ctrl + C' to exit the game with a custom press Esc (code has been written, but requires the use of packages not currently compatible with the Heroku app)
+* make the programme employable to mobile phones (requires the implementation of touch screen functionality)
 * add alternative survival scenarios (e.g. desert and sea-based scenarios)
 * add further narrative with decision-making on a step-by-step basis (e.g. 'Do you leave the plane wreckage to go to the nearest town?')
 * add feedback functionality, such as an e-mail function
@@ -351,20 +351,9 @@ Create a local copy of the GitHub repository by following one of the two process
 
 + #### Content
 
-- The idea, concept, and content for the website came from me (Jorgen Lovbakke).
-
-- The outline of the README document has been taken from my earlier README.md from the Viking Experience website, published through GitHub Pages.
-
-- In developing the idea and concept, I consulted "The Children of Ash and Elm -A History of the Vikings" by Neil Price, published in 2022 by Penguin Books, and the Heimskringla -Snorre's sagas of the Viking kings, the version consulted was published in Norwegian in 1998 by Gyldendal Publishers. 
-
-- Inspiration for the use of a fixed background image came from the Code Institute's 'Love Running' project.
-
-
-+ #### Tools
-
-- [coolors](https//:coolors.co) was used to create the colour palette
-- [Am I Responsive](https://ui.dev/amiresponsive) was used to create the multi-screen mockup for the README.md document
-- [WAVE Accessibility evaluator](https://wave.webaim.org/) was used to test the accessibility of the website
+- The idea and concept for the programme came from me (Jorgen Lovbakke).
+- The outline of the README document has been taken from my earlier README.md from the Famous Vikings Game, published through GitHub Pages, with additional suggestions from Juliia Konovalova based on her earlier work.
+- The Winter Survival Experience scenario, items list, and expert rankings and feedback was taken from 'SURVIVAL A Simulation Game' (https://www.whiteman.af.mil/Portals/53/documents/AFD-130408-063.pdf) and 'Winter Survival Exercise or Can Science Save My Life?' (https://ed.fnal.gov/arise/guides/bio/1-Scientific%20Method/1b-WinterSurvivalExercise.pdf), and adapted for the current programme.
 
 ---
 
@@ -372,6 +361,6 @@ Create a local copy of the GitHub repository by following one of the two process
 
 - [Juliia Konovalova](https://github.com/IuliiaKonovalova) for her support as Code Institute mentor for the project, for her invaluable insights and suggestions.
 - [Code Institute](https://codeinstitute.net/) and Slack community members for the teaching, tutor support, and resources for the project.
-- My wife, Joanne, for her patience with me whilst doing the project and her invaluable talent for graphics formatting. 
-- My sons, Samuel and Christopher, for user testing of the website.
+- My wife, Joanne, for her patience with me whilst doing the project. 
+- My sons, Samuel and Christopher, for user testing of the programme.
 - Coders across the world offering their time and support on forums such as [Stack Overflow](https://stackoverflow.com/) and [Reddit](https://www.reddit.com/r/programming/).
