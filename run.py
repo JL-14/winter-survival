@@ -6,9 +6,8 @@ from constants import *
 
 
 def print_intro():
-    """ 
-        Clean terminal before launching programme
-        Print intro 
+    """
+        Print intro in a clean terminal 
         Require enter-press to proceed 
         """
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -200,11 +199,11 @@ Which is {display_score(total_score)}
 """)
 
     while True:
-        feedback_choice = input(f"""{Fore.YELLOW}Would you like to see the survival expert's
+        feedback_choice = input(f"""{Fore.YELLOW}Would you like to see the survival expert
 feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
     # Routing and validation for displaying expert feedback for each item chosen by user
         if feedback_choice.lower() == 'y':
-            print(f"\n{Fore.GREEN}The expert's feedback for your choices were:\n")
+            print(f"\n{Fore.GREEN}The expert feedback for your choices were:\n")
             for i, choice in enumerate(choices, 1):
                 item_feedback = get_item_feedback(choice, feedback_dict)
                 print(f"{i}. {item_feedback}")
@@ -218,7 +217,7 @@ feedback on the items you chose? y/n {Style.RESET_ALL}\n""")
     # Loop with routing and validation for final step: Try again, see expert ranking, or quit
     while True:
         print(f"""{Fore.YELLOW}That is the end of the Winter Survival Exercise, well done!!!\n
-Do you want to try again, see the expert's item rankings, or quit?""")
+Do you want to try again, see the expert item rankings, or quit?""")
         choice = input(f"""Type:
 't' to try again
 'e' to see expert rankings 
@@ -227,7 +226,7 @@ Do you want to try again, see the expert's item rankings, or quit?""")
         if choice.lower() == 'e':
             expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
-            print(f"{Fore.GREEN}\nThese are the expert's rankings of the items:\n")
+            print(f"{Fore.GREEN}\nThese are the expert rankings of the items:\n")
             print(tabulate(expert_ranking_table, headers=col_names_expert, tablefmt="grid"))
             print(f"{Style.RESET_ALL}\nThank you for visiting the Winter Survival Exercise!")
             break
@@ -252,7 +251,7 @@ ERROR! Please enter 'y' for yes or 'n' for no.
 {Style.RESET_ALL}""")
         else:
             print(f"""{Fore.RED}
-ERROR! Please enter 't' to try again, 'e' to see the expert's rankings, or 'q' to quit.
+ERROR! Please enter 't' to try again, 'e' to see the expert rankings, or 'q' to quit.
 {Style.RESET_ALL}""")
 
     # Loop for option to clean terminal on ending game, with validation

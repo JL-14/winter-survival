@@ -71,7 +71,7 @@ item_list = [
     ['10', 'Half a bottle of 85-proof whisky'],
     ['11', 'A compass'],
     ['12', 'A family-size chocolate bar']
-    ]
+]
 
 expert_view = {
     1: "Cigarette lighter (without fluid)",
@@ -100,13 +100,13 @@ expert_list = [
     ['10', 'Half a bottle of 85-proof whisky'],
     ['11', 'A compass'],
     ['12', 'A sectional air map made of plastic']
-    ]
+]
 
 feedback_dict = {
-    1 : """A ball of steel wool: 
+    1 : """A ball of steel wool:
 "To make a fire, the survivors need a means of catching he sparks made by the cigarette lighter. This is the best substance for catching a spark and supporting a flame, even if the steel wool is a little wet." The expert ranked this item as 2.
 """,
-    2 : """A small axe: 
+    2 : """A small axe:
 "Survivors need a constant supply of wood in order to maintain the fire. The axe could be used for this as well as for clearing a sheltered campsite, cutting tree branches for ground insulation, and constructing a frame for the canvas tent." The expert ranked this item as 6.
 """,
     3 : """A loaded .45-caliber pistol:
