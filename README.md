@@ -240,38 +240,40 @@ As the module constants.py was created to contain text-heavy variables, the poin
 ### Existing Bugs
 
 1. Broken text (mid-word)
+    * The text is broken mid-word in some displays, where the text is too long to fit in the window provided. Shortening the text is not an option (due to the nature of the programme), exploring other options.
+    * Fix: No easy fix identified.
 
 2. Display hides top of tables
+    * In some smaller displays (including the Heroku default app window) the tables are too large to fit in a single window, meaning that the top rows of the table are not visible without the user scrolling up. 
+    * Fix: Have added instruction in introduction to alert the user that they may need to scroll up to see full content.
 
 3. Esc not working
+    * After initially adding code with a keyboard event listener activated when the Esc button is pressed and exiting the game, it has transpired that the default Heroku app is not able to provide this functionality. One possible explanation is that the creation of a parallel thread for the event listener (so that it runs in parallel with the programme code) is not supported in the default Heroku app. Further investigation is required.
+    * Fix: Have instructed the user to use 'Ctrl + C' to exit the programme at any time, which is functional but less elegant than the Esc-button functionality.
 
 ### Solved Bugs
 - A number of bugs were solved throughout the design of the website, on a running basis. The key tools for finding and addressing bugs were the Pylint package, and the use of commenting out code (ctrl + /) to examine the impact of particular sections of code.
 
 - Over the course of the development of the programme, the most significant bugs were:
-    * Esc to exit the game
-    * Using external worksheet to import text and data
-    * The use of while loops for validation purposes
-    * Calculate score
-
-The most significant bug related to the switch from one Viking to the next (lines 165-179 in the current script.js), where there was duplication of a loop causing the progression of Viking biographies to halt after three iterations. The bug was removed by restructuring the code and moving the vikingIndex++ command to the end of the section.
-
-- A second significant bug was around matching the correct answers on the answer tiles to the question displaying. The issue of matching the question and answer was solved through applying data-labels to the variables and matching the labels rather than innerHTML content.
-
-- The final significant bug related to quitting the game returning to the home page but not resetting the game, so on pressing start the previous game would resume. This was solved through adding code to the event listener to intialise the game.
-
-- There were also bugs related to the use of fixed heights affecting the responsivity of the website, solved through replacing with relative values through the use of the [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) extension showing overlapping containers, as well as DevTools.
+    1. Using external worksheet to import text and data
+        * The programme was initially linked to an external worksheet (Google Sheets) from which it extracted text and data for the programme (such as the intro, scenario, and scoring method text). However, on testing the programme in other user environments it transpired that the default Heroku app was not able to import the formatting for the text and data, leaving a continuous stream of text rather than a useable programme.
+        * Fix: The text and data were placed in a local py module (constants.py) which works with all the tested user environments.
+    2. The use of while loops for validation purposes
+        * Several issues were encountered through the extensive use of 'while' and 'for' loops for the effective running of the programme (especially for input validation), whereby infinite loops were created due to there being loops within loops.
+        * Fix: Through testing and commenting out relevant bits of code, the 'while' loops were re-organised to run as intended through relocating break statements and moving loops within the code.
+    3. Calculating the final score
+        * A bug was found in the calculation of the final score, leading to erroneous calculations (ranging from 0 for all items to seemingly random numbers).
+        * Fix: Through carefully examining the maths behind the calculation the variables causing the errors were identified. It transpired that the initial loop importing the item descriptions from the constants.py module were importing the keys rather than the values used to match the item to the expert ranking dictionary. The erroneous matching led to the issues with the calculation. 
 
 ---
 
 ## Deployment
 
-- The program was deployed to [Heroku](https://dashboard.heroku.com/apps/winter-survival).
-- The program can be reached by the [link](https://winter-survival-4674e7bf59f7.herokuapp.com/)
+- The programme was deployed to [Heroku](https://dashboard.heroku.com/apps/winter-survival).
+- The programme can be reached by the [link](https://winter-survival-4674e7bf59f7.herokuapp.com/)
 
-### To deploy the project as an application that can be **run locally**:
+### Deploying the project as an application running locally:
 
-*Note:*
   1. This project requires you to have Python installed on your local PC:
   ![Python](https://www.python.org/downloads/)
 
@@ -296,72 +298,52 @@ Create a local copy of the GitHub repository by following one of the two process
 
   1. Install Python module dependencies:
      
-      1. Navigate to the folder madlib_with_python by executing the command:
+      1. Navigate to the folder 'winter-survival' by executing the command:
       - `cd /workspace/winter-survival`
       2. Run the command pip install -r requirements.txt
         - `pip3 install -r requirements.txt`
 
-### To deploy the project to Heroku so it can be run as a remote web application:
+### Deploying the project to Heroku to be run as a web application:
 - Clone the repository:
   1. Open a folder on your computer with the terminal.
+
   2. Run the following command
   - `git clone https://github.com/JL-14/winter-survival.git`
 
   3. Create your own GitHub repository to host the code.
+
   4. Run the command `git remote set-url origin <Your GitHub Repo Path>` to set the remote repository location to your repository.
 
   5. Push the files to your repository with the following command:
   `git push`
+
   6. Create a Heroku account if you don't already have one here [Heroku](https://dashboard.heroku.com).
+
   7. Create a new Heroku application on the following page here [New Heroku App](https://dashboard.heroku.com/apps):
 
-      - ![New Heroku App](documentation/deployment/new_heroku_app.png)
+  8. Go to the Deploy tab:
 
-  1. Go to the Deploy tab:
+  9. Link your GitHub account and connect the application to the repository you created.
 
-      - ![Deploy Tab](documentation/deployment/deploy_tab.png)
+  10. Go to the Settings tab:
 
-      - ![Deployment Method](documentation/deployment/deployment_method.png)
+  11. Click "Add buildpack":
 
-  1. Link your GitHub account and connect the application to the repository you created.
+  12. Add the Python and Node.js buildpacks in the following order:
 
-      - ![Link GitHub account](documentation/deployment/link_to_github.png)
+  13. Click "Reveal Config Vars."
 
-  1. Go to the Settings tab:
-  
-      - ![Settings Tab](documentation/deployment/settings_tab.png)
-
-  1. Click "Add buildpack":
-
-      - ![Add Buildpack](documentation/deployment/add_buildpack.png)
-
-  1. Add the Python and Node.js buildpacks in the following order:
-
-      - ![Add Python and Node.js](documentation/deployment/add_python_and_node_js.png)
-
-  1. Click "Reveal Config Vars."
-
-      - ![Reveal Config Vars](documentation/deployment/reveal_config_vars.png)
-
-  1. Add 1 new Config Vars:
+  14. Add 1 new Config Vars:
       - Key: PORT Value: 8000
       - *This Config was provided by [CODE INSTITUTE](https://codeinstitute.net/)*.
 
-  1. Go back to the Deploy tab:
+  15. Go back to the Deploy tab:
 
-      - ![Deploy Tab](documentation/deployment/deploy_tab.png)
-
-  1. Click "Deploy Branch":
-
-      - ![Deploy Branch](documentation/deployment/deploy_branch.png)
+  16. Click "Deploy Branch":
 
       - Wait for the completion of the deployment.
 
-      - ![Deploying Branch](documentation/deployment/deploying_branch.png)
-
-  1. Click "Open app" to launch the application inside a web page.
-
-      - ![View Button](documentation/deployment/view_app.png)
+  17. Click "Open app" to launch the application inside a web page.
 
 ---
 
