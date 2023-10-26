@@ -7,9 +7,9 @@ from constants import *
 
 def print_intro():
     """
-        Print intro in a clean terminal 
-        Require enter-press to proceed 
-        """
+    Print intro in a clean terminal 
+    Require enter-press to proceed 
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
     print(INTRO_TEXT)
     input(f"{Fore.YELLOW}Press Enter to begin the exercise\n{Style.RESET_ALL}")
