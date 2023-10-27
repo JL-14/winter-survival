@@ -74,7 +74,7 @@ you a chance of survival in this environment.
 """
 
 
-item_descriptions = {
+ITEM_DESCRIPTIONS = {
     1: "A ball of steel wool",
     2: "A small axe",
     3: "A loaded .45-caliber pistol",
@@ -90,7 +90,7 @@ item_descriptions = {
 }
 
 
-item_list = [
+ITEM_LIST = [
     ['1', 'A ball of steel wool'],
     ['2', 'A small axe'],
     ['3', 'A loaded .45-caliber pistol'],
@@ -106,7 +106,7 @@ item_list = [
 ]
 
 
-expert_view = {
+EXPERT_VIEW = {
     1: "Cigarette lighter (without fluid)",
     2: "A ball of steel wool",
     3: "Extra shirt and trousers",
@@ -122,7 +122,7 @@ expert_view = {
 }
 
 
-expert_list = [
+EXPERT_LIST = [
     ['1', 'Cigarette lighter (without fluid)'],
     ['2', 'A ball of steel wool'],
     ['3', 'Extra shirt and trousers'],
@@ -138,7 +138,7 @@ expert_list = [
 ]
 
 
-feedback_dict = {
+FEEDBACK_DICT = {
     1 : """
 A ball of steel wool:
 "To make a fire, the survivors need a means of catching he
