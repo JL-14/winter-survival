@@ -1,3 +1,4 @@
+"""Imported Modules."""
 import os
 
 from tabulate import tabulate
@@ -51,7 +52,7 @@ def select_items():
     Import items from constants module.
     Create table of items.
     """
-    data = ITEM_LIST
+    data = item_list
     col_names = ["Item no.", "Item"]
     print(tabulate(data, headers=col_names, tablefmt="grid"))
 
@@ -101,23 +102,23 @@ Please enter a number between 1 and 12!{Style.RESET_ALL}
     return tuple(choices)
 
 
-def get_item_description(choice, ITEM_DESCRIPTIONS):
+def get_item_description(choice, item_descriptions):
     """Get description of items chosen."""
-    return ITEM_DESCRIPTIONS.get(choice, "")
+    return item_descriptions.get(choice, "")
 
 
-def get_item_feedback(choice, FEEDBACK_DICT):
+def get_item_feedback(choice, feedback_dict):
     """Get expert feedback for items chosen."""
-    return FEEDBACK_DICT.get(choice, "")
+    return feedback_dict.get(choice, "")
 
 
-def calculate_score(choices, EXPERT_VIEW, ITEM_DESCRIPTIONS):
+def calculate_score(choices, expert_view, item_descriptions):
     """Calculate scores based on user choice and expert ranking."""
     score = 0
     for i, choice in enumerate(choices, 1):
         matching_expert_key = 0
-        item_description = ITEM_DESCRIPTIONS.get(int(choice), "")
-        for key, value in EXPERT_VIEW.items():
+        item_description = item_descriptions.get(int(choice), "")
+        for key, value in expert_view.items():
             if value == item_description:
                 matching_expert_key = key
                 break
@@ -188,7 +189,7 @@ def main():
     print("\nYou have chosen:\n")
     # Loop to match item description to choice number
     for i, choice in enumerate(choices, 1):
-        item_description = get_item_description(choice, ITEM_DESCRIPTIONS)
+        item_description = get_item_description(choice, item_descriptions)
         print(f"{i}. {item_description}")
 
     while True:
@@ -199,7 +200,7 @@ def main():
         )
     # Routing and Validation of choices made, confirmation of choices
         if choice_confirm.lower() == 'y':
-            calculate_score(choices, EXPERT_VIEW, ITEM_DESCRIPTIONS)
+            calculate_score(choices, expert_view, item_descriptions)
             break
         elif choice_confirm.lower() == 'n':
             print("""
@@ -229,7 +230,7 @@ def main():
             for i, choice in enumerate(choices, 1):
                 item_description = get_item_description(
                     choice,
-                    ITEM_DESCRIPTIONS
+                    item_descriptions
                     )
                 print(f"{i}. {item_description}")
             choice_confirm = input(
@@ -246,7 +247,7 @@ def main():
 """
             )
 
-    total_score = calculate_score(choices, EXPERT_VIEW, ITEM_DESCRIPTIONS)
+    total_score = calculate_score(choices, expert_view, item_descriptions)
 
     print(
         f"""
@@ -275,7 +276,7 @@ feedback on the items you chose? y/n {Style.RESET_ALL}
 """
             )
             for i, choice in enumerate(choices, 1):
-                item_feedback = get_item_feedback(choice, FEEDBACK_DICT)
+                item_feedback = get_item_feedback(choice, feedback_dict)
                 print(f"{i}. {item_feedback}")
             break
         elif feedback_choice.lower() == 'n':
@@ -304,7 +305,7 @@ Type:
 """
         )
         if choice.lower() == 'e':
-            expert_ranking_table = EXPERT_LIST
+            expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
             print(
                 f"""
