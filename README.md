@@ -222,8 +222,8 @@ The programme displays correctly across the different browsers, and also across 
 
 ### Validator testing
 
-- [Pylint](https://pypi.org/project/pylint/) and [autopep8](https://pypi.org/project/autopep8/) were used to validate the code and ensure code is PEP8 compliant.
-- The Pylint and autopep8 feedback highlighted no errors and 3 warning types for the run.py module, and 1 point of observation for the constants.py module. All warnings and points of information have been reviewed, and the current configuration deemed necessary for the effective operation of the programme. None of the warnings negatively affect user experience.
+- [Pylint](https://pypi.org/project/pylint/) and was used to validate the code and ensure code is PEP8 compliant.
+- The Pylint feedback indicated no errors, but showed 3 unique warnings for the run.py module. All warnings have been reviewed, and the current configuration is deemed necessary for the effective operation of the programme. None of the warnings negatively affect user experience.
 
 ![Pylint validator](documentation/images/pylint_validator_screen.png)
 
@@ -233,13 +233,16 @@ The programme displays correctly across the different browsers, and also across 
 Refers to the use of a wildcard ('*') to import all variables in the constants.py module. The use of the wildcard notation was deemed appropriate to shorten the code, rather than importing each variable separately. All variables in constants.py are used.
 - 'Redefining name 'item_descriptions'/'feedback_dict'/'expert_view' from outer scope' (4 warnings)
 Refers to the use of variables from the constants.py module, which are manipulated in run.py for the effective running of the programme. Deemed necessary for the operation of the programme.
-- 'Possible unbalanced tuple unpacking with sequence defined at line 72: left side has 5 labels, right side has 0 values' (2 warnings)
-Refers to the attachment of the get_item_descriptions function to the choice variables, and so does not constitute labels and values. Deemed necessary for the operation of the programme.
+- 'Possible unbalanced tuple unpacking with sequence defined at line 102: left side has 5 labels, right side has 0 values' (2 warnings)
+Refers to the unpacking of the item_descriptions tuple from constants.py, and the format is deemed necessary for the effective operation of the get_user_choices() function.
 
-#### constants.py point of observation
+#### PEP8 compliance testing
 
-- 'Line too long' (14 points of observation)
-As the module constants.py was created to contain text-heavy variables, the points of observation were expected and deemed appropriate.
+- The [Code Institute Python Linter](https://pep8ci.herokuapp.com/#) was used to test for PEP8 compliance, and retruned 'All clear, no errors found' for both the run.py and the constants.py files.
+
+![CI Python Linter -run.py](documentation/images/ci-python-linter-run.png)
+
+![CI Python Linter -constants.py](documentation/images/ci-python-linter-constants.png)
 
 ---
 

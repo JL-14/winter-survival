@@ -164,7 +164,8 @@ def main():
     select_items()
 
     # Assign function get_user_choices to choices made
-    (first_choice,
+    (
+        first_choice,
         second_choice,
         third_choice,
         fourth_choice,

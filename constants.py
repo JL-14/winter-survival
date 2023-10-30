@@ -139,21 +139,21 @@ expert_list = [
 
 
 feedback_dict = {
-    1 : """
+    1: """
 A ball of steel wool:
 "To make a fire, the survivors need a means of catching he
 sparks made by the cigarette lighter. This is the best substance
 for catching a spark and supporting a flame, even if the steel
 wool is a little wet." The expert ranked this item as 2.
     """,
-    2 : """
+    2: """
 A small axe:
 "Survivors need a constant supply of wood in order to maintain the fire.
 The axe could be used for this as well as for clearing a sheltered campsite,
 cutting tree branches for ground insulation, and constructing a frame for the
 canvas tent." The expert ranked this item as 6.
     """,
-    3 : """
+    3: """
 A loaded .45-caliber pistol:
 "The pistol provides a sound-signaling device. (The international distress
 signal is 3 shots fired in rapid succession). There have been numerous
@@ -170,7 +170,7 @@ take an expert marksman to kill an animal with it. Then the animal would have
 to be transported to the crash site, which could prove difficult to impossible
 depending on its size." The expert ranked this item as 9.
     """,
-    4 : """
+    4: """
 Tin of coconut oil:
 "This has many uses. A mirror-like signaling device can be made from the lid.
 After shining the lid with steel wool, it will reflect sunlight and generate
@@ -186,7 +186,7 @@ than to eat snow, since warm water will help retain body heat.
 Water is important because dehydration will affect decision-making.
 The can is also useful as a cup." The expert ranked this item as 4.
     """,
-    5 : """
+    5: """
 A newspaper:
 "These are useful in starting a fire. They can also be used as insulation
 under clothing when rolled up and placed around the arms and legs.
@@ -194,7 +194,7 @@ A newspaper can also be used as a verbal signaling device when rolled up
 in a megaphone-shape. It could also provide reading material for recreation."
 The expert ranked this item as 8.
     """,
-    6 : """
+    6: """
 Cigarette lighter (without fluid):
 "The gravest danger facing the group is exposure to cold.
 The greatest need is for a source of warmth and the second greatest need
@@ -203,13 +203,13 @@ of business. Without matches, something is needed to produce sparks,
 and even without fluid, a cigarette lighter can do that."
 The expert ranked this item as 1.
     """,
-    7 : """
+    7: """
 Extra shirt and trousers:
 "Besides adding warmth to the body, clothes can also be used for shelter,
 signaling, bedding, bandages, string (when unraveled),
 and fuel for the fire." The expert ranked this item as 3.
     """,
-    8 : """
+    8: """
 A 20 x 20 ft. piece of heavy-duty canvas:
 "The cold makes shelter necessary, and canvas would protect against
 wind and snow (canvas is used in making tents). Spread on a frame made
@@ -218,14 +218,14 @@ be used as a ground cover to keep the survivors dry. The shape, when
 contrasted with the surrounding terrain, makes it a signaling device."
 The expert ranked this item as 5.
     """,
-    9 : """
+    9: """
   A sectional air map made of plastic:
 "This is also among the least desirable of the items because it will
 encourage individuals to try to walk to the nearest town.
 The only useful feature is as a ground cover to keep someone dry."
 The expert ranked this item as 12.
     """,
-    10 : """
+    10: """
 Half a bottle of 85-proof whisky:
 "The only uses of whiskey are as an aid in fire building and as a fuel
 for a torch (made by soaking a piece of clothing in the whiskey and
@@ -238,14 +238,14 @@ in the skin, resulting in chilled blood being carried back to the heart,
 resulting in a rapid loss of body heat. Thus, a drunk person is more likely
 to get hypothermia than a sober person is." The expert ranked this item as 10.
     """,
-    11 : """
+    11: """
     A compass:
 "Because a compass might encourage someone to try to walk to the nearest town,
 it is a dangerous item. Its only redeeming feature is that it could be used
 as a reflector of sunlight (due to its glass top)."
 The expert ranked this item as 11.
     """,
-    12 : """
+    12: """
   A family-size chocolate bar:
 "Chocolate will provide some food energy. Since it contains mostly
 carbohydrates, it supplies the energy without making digestive demands
