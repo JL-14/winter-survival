@@ -225,7 +225,7 @@ The programme displays correctly across the different browsers, and also across 
 - [Pylint](https://pypi.org/project/pylint/) and was used to validate the code and ensure code is PEP8 compliant.
 - The Pylint feedback indicated no errors, but showed 3 unique warnings for the run.py module. All warnings have been reviewed, and the current configuration is deemed necessary for the effective operation of the programme. None of the warnings negatively affect user experience.
 
-![Pylint validator](documentation/images/pylint_validator_screen.png)
+![Pylint validator](documentation/images/pylint_feedback.png)
 
 #### run.py warnings
 
