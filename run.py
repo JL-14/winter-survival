@@ -12,7 +12,7 @@ def print_intro():
     Print intro in a clean terminal.
     Require enter-press to proceed.
     """
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system("cls" if os.name == "nt" else "clear")
     print(INTRO_TEXT)
     input(
         f"""
@@ -151,11 +151,6 @@ You have a pretty low chance of survival based on these items alone.
         """
 
 
-# def clean_terminal():
-#     """Function to clean the terminal window when required."""
-#     os.system('cls' if os.name == 'nt' else 'clear')
-
-
 def finish():
     """End of exercise."""
     print("\nThank you for visiting the Winter Survival Exercise!\n")
@@ -199,10 +194,10 @@ def main():
 """
         )
     # Routing and Validation of choices made, confirmation of choices
-        if choice_confirm.lower() == 'y':
+        if choice_confirm.lower() == "y":
             calculate_score(choices, expert_view, item_descriptions)
             break
-        elif choice_confirm.lower() == 'n':
+        elif choice_confirm.lower() == "n":
             print("""
 
                 ---------------------------------
@@ -269,7 +264,7 @@ feedback on the items you chose? y/n {Style.RESET_ALL}
 """
         )
     # Routing and validation for displaying expert feedback
-        if feedback_choice.lower() == 'y':
+        if feedback_choice.lower() == "y":
             print(
                 f"""
 {Fore.GREEN}The expert feedback for your choices were:
@@ -279,7 +274,7 @@ feedback on the items you chose? y/n {Style.RESET_ALL}
                 item_feedback = get_item_feedback(choice, feedback_dict)
                 print(f"{i}. {item_feedback}")
             break
-        elif feedback_choice.lower() == 'n':
+        elif feedback_choice.lower() == "n":
             print("")
             break
         else:
@@ -304,7 +299,7 @@ Type:
 'q' to quit{Style.RESET_ALL}
 """
         )
-        if choice.lower() == 'e':
+        if choice.lower() == "e":
             expert_ranking_table = expert_list
             col_names_expert = ["Expert rank", "Item"]
             print(
@@ -325,10 +320,10 @@ Type:
 """
             )
             break
-        elif choice.lower() == 't':
+        elif choice.lower() == "t":
             main()
             break
-        elif choice.lower() == 'q':
+        elif choice.lower() == "q":
             while True:
                 clean_terminal = input(
                     f"""
@@ -336,10 +331,10 @@ Type:
 y/n{Style.RESET_ALL}
 """
                 )
-                if clean_terminal.lower() == 'y':
-                    os.system('cls' if os.name == 'nt' else 'clear')
+                if clean_terminal.lower() == "y":
+                    os.system("cls" if os.name == "nt" else "clear")
                     os._exit(1)
-                elif clean_terminal.lower() == 'n':
+                elif clean_terminal.lower() == "n":
                     print("""
 
 Thank you for visiting the Winter Survival Exercise!
@@ -369,13 +364,13 @@ or 'q' to quit.{Style.RESET_ALL}
 y/n{Style.RESET_ALL}
 """
         )
-        if clean_terminal.lower() == 'y':
+        if clean_terminal.lower() == "y":
             # Code to clean terminal from
             # https://stackoverflow.com/questions/517970/
             # how-to-clear-the-interpreter-console
-            os.system('cls' if os.name == 'nt' else 'clear')
+            os.system("cls" if os.name == "nt" else "clear")
             os._exit(1)
-        elif clean_terminal.lower() == 'n':
+        elif clean_terminal.lower() == "n":
             print("\nThank you for visiting the Winter Survival Exercise!\n")
             os._exit(1)
         else:
